@@ -7,6 +7,7 @@ import {Component, HostListener, OnInit} from '@angular/core';
 })
 export class MainComponent implements OnInit {
   bgLeft = 0;
+  slideOneLeft = 0;
   constructor() { }
 
   ngOnInit() {
@@ -14,7 +15,7 @@ export class MainComponent implements OnInit {
 
   @HostListener("window:scroll", [])
   onWindowScroll() {
-    console.log(this.bgLeft);
     this.bgLeft = window.pageYOffset/3;
+    this.slideOneLeft = window.pageYOffset*2;
   }
 }

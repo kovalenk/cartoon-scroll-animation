@@ -7,15 +7,48 @@ import {Component, HostListener, OnInit} from '@angular/core';
 })
 export class MainComponent implements OnInit {
   bgLeft = 0;
+  cloudsLeft = 0;
   slideOneLeft = 0;
-  constructor() { }
 
-  ngOnInit() {
+  loading:any;
+
+  cloudGroup = [
+    {
+      src: 'cloud-1'
+    },
+    {
+      src: 'cloud-2'
+    },
+    {
+      src: 'cloud-3'
+    },
+    // {
+    //   src: 'cloud-4'
+    // },
+    // {
+    //   src: 'cloud-5'
+    // },
+    // {
+    //   src: 'cloud-6'
+    // },
+    // {
+    //   src: 'cloud-7'
+    // },
+  ];
+
+  constructor() {
   }
 
-  @HostListener("window:scroll", [])
+  ngOnInit() {
+    setTimeout(() => {
+      this.loading = true;
+    }, 7000);
+  }
+
+  @HostListener('window:scroll', [])
   onWindowScroll() {
-    this.bgLeft = window.pageYOffset/3;
-    this.slideOneLeft = window.pageYOffset*2;
+    this.bgLeft = window.pageYOffset / 3;
+    this.cloudsLeft = window.pageYOffset / 4.5;
+    this.slideOneLeft = window.pageYOffset * 2;
   }
 }

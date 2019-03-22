@@ -8,10 +8,18 @@ import {Component, HostListener, OnInit} from '@angular/core';
 export class MainComponent implements OnInit {
   bgLeft = 0;
   cloudsLeft = 0;
+  treeLeft = 0;
   slideOneLeft = 0;
 
-  loading:any;
-
+  loading: any;
+  sliderElements = [
+    {
+      src: ''
+    },
+    {
+      src: ''
+    },
+  ];
   cloudGroup = [
     {
       src: 'cloud-1'
@@ -36,19 +44,42 @@ export class MainComponent implements OnInit {
     // },
   ];
 
+  treeGroup = [
+    {
+      src: 'tree-1'
+    },
+    // {
+    //   src: 'tree-2'
+    // },
+    // {
+    //   src: 'tree-3'
+    // },
+  ];
+
   constructor() {
   }
 
   ngOnInit() {
-    setTimeout(() => {
-      this.loading = true;
-    }, 7000);
+    this.loading = true;
+
+    // setTimeout(() => {
+    //   this.loading = true;
+    // }, 7000);
   }
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
+
+    console.log(window.pageYOffset);
+
     this.bgLeft = window.pageYOffset / 3;
     this.cloudsLeft = window.pageYOffset / 4.5;
-    this.slideOneLeft = window.pageYOffset * 2;
+    this.treeLeft = window.pageYOffset * 0.9;
+    if (window.pageYOffset < 1900){
+      this.slideOneLeft = window.pageYOffset * 2;
+    }
+    if (window.pageYOffset > 2400) {
+      this.slideOneLeft = (window.pageYOffset - 500) * 2;
+    }
   }
 }

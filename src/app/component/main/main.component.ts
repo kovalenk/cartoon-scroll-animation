@@ -56,6 +56,18 @@ export class MainComponent implements OnInit {
     //   src: 'tree-3'
     // },
   ];
+
+  shrubGroup = [
+    {
+      src: 'shrub-1'
+    },
+    // {
+    //   src: 'tree-2'
+    // },
+    // {
+    //   src: 'tree-3'
+    // },
+  ];
   banerTop: number;
   showCoef: number;
   hideCoef: number;
@@ -85,20 +97,20 @@ export class MainComponent implements OnInit {
       this.slideOneLeft = window.pageYOffset * 2;
     }
 
-    if (window.pageYOffset > 1980 && window.pageYOffset < 2500) {
+    if (window.pageYOffset > 1980 && window.pageYOffset < 3000) {
       this.sliderCoef = ((window.pageYOffset - 1980) * 0.6);
     }
 
-    if (window.pageYOffset > 2500) {
-      this.slideOneLeft = (window.pageYOffset - 520) * 2;
+    if (window.pageYOffset > 3000) {
+      this.slideOneLeft = (window.pageYOffset - 1020) * 2;
     }
 
     if (window.pageYOffset > 900 && window.pageYOffset < 1980) {
       this.banerTop = window.pageYOffset / 5;
     }
 
-    if (window.pageYOffset > 2500 && window.pageYOffset < 3400) {
-      this.banerBottom = ((window.pageYOffset - 2500) / 5) * -1;
+    if (window.pageYOffset > 3000 && window.pageYOffset < 3900) {
+      this.banerBottom = ((window.pageYOffset - 3000) / 5) * -1;
     }
   }
 }

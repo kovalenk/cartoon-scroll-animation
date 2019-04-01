@@ -149,4 +149,25 @@
       height: 769px;
     }
   }
+
+  .shrub {
+    position: fixed;
+    display: flex;
+
+    > * {
+      position: relative;
+      top: 17vh;
+      background-image: url(../../../assets/images/sprite.png);
+    }
+
+    .shrub-1 {
+      left: 201vw;
+      top: 72vh;
+
+      background-position: -2115px -272px;
+
+      width: 275px;
+      height: 190px;
+    }
+  }
 }

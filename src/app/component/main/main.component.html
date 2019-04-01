@@ -34,7 +34,7 @@
     </div>
 
     <div class="shrub">
-
+      <div *ngFor="let items of shrubGroup" [class]="items.src" [style.marginLeft.px]="-treeLeft"></div>
     </div>
   </div>
 </div>

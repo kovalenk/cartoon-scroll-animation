@@ -11,6 +11,7 @@ export class MainComponent implements OnInit {
   treeLeft = 0;
   slideOneLeft = 0;
 
+  myCoordinates = 0;
   loading: any;
   sliderElements = [
     {
@@ -55,6 +56,10 @@ export class MainComponent implements OnInit {
     //   src: 'tree-3'
     // },
   ];
+  banerTop: number;
+  showCoef: number;
+  hideCoef: number;
+  banerBottom = 0;
 
   constructor() {
   }
@@ -71,15 +76,22 @@ export class MainComponent implements OnInit {
   onWindowScroll() {
 
     console.log(window.pageYOffset);
-
+    this.myCoordinates = window.pageYOffset;
     this.bgLeft = window.pageYOffset / 3;
     this.cloudsLeft = window.pageYOffset / 4.5;
     this.treeLeft = window.pageYOffset * 0.9;
-    if (window.pageYOffset < 1900){
+    if (window.pageYOffset < 1980) {
       this.slideOneLeft = window.pageYOffset * 2;
     }
-    if (window.pageYOffset > 2400) {
-      this.slideOneLeft = (window.pageYOffset - 500) * 2;
+    if (window.pageYOffset > 2500) {
+      this.slideOneLeft = (window.pageYOffset - 520) * 2;
+    }
+    if (window.pageYOffset > 900 && window.pageYOffset < 1980) {
+      this.banerTop = window.pageYOffset / 5;
+    }
+
+    if (window.pageYOffset > 2500) {
+      this.banerBottom = ((window.pageYOffset - 2500) / 5) * -1;
     }
   }
 }

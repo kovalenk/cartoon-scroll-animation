@@ -48,6 +48,11 @@
     margin-top: -16vh;
     position: fixed;
     z-index: 1;
+
+    img{
+      position: relative;
+      top: -400px;
+    }
   }
 
   .slide {

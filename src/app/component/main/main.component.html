@@ -1,9 +1,8 @@
 <div style="position: fixed; top: 50px; left: 50px;">
   {{myCoordinates}}
-  {{showStatus}}
   <br>
-  before {{banerTop}} <br>
-  after  {{banerBottom}}
+  before {{treeLeft}} <br>
+  after  {{treeLeft}}
 
 
 </div>
@@ -31,9 +30,12 @@
 
     <!--<div class="tree" [style.marginLeft.px]="-treeLeft">-->
     <div class="tree">
-      <div *ngFor="let items of treeGroup" [class]="items.src" [style.marginLeft.px]="-treeLeft"></div>
+      <div *ngFor="let items of treeGroup" [class]="items.src" [style.marginLeft.px]="-treeLeft + sliderCoef"></div>
     </div>
 
+    <div class="shrub">
+
+    </div>
   </div>
 </div>
 

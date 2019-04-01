@@ -60,6 +60,7 @@ export class MainComponent implements OnInit {
   showCoef: number;
   hideCoef: number;
   banerBottom = 0;
+  sliderCoef = 0;
 
   constructor() {
   }
@@ -79,18 +80,24 @@ export class MainComponent implements OnInit {
     this.myCoordinates = window.pageYOffset;
     this.bgLeft = window.pageYOffset / 3;
     this.cloudsLeft = window.pageYOffset / 4.5;
-    this.treeLeft = window.pageYOffset * 0.9;
+    this.treeLeft = (window.pageYOffset * 0.9);
     if (window.pageYOffset < 1980) {
       this.slideOneLeft = window.pageYOffset * 2;
     }
+
+    if (window.pageYOffset > 1980 && window.pageYOffset < 2500) {
+      this.sliderCoef = ((window.pageYOffset - 1980) * 0.6);
+    }
+
     if (window.pageYOffset > 2500) {
       this.slideOneLeft = (window.pageYOffset - 520) * 2;
     }
+
     if (window.pageYOffset > 900 && window.pageYOffset < 1980) {
       this.banerTop = window.pageYOffset / 5;
     }
 
-    if (window.pageYOffset > 2500) {
+    if (window.pageYOffset > 2500 && window.pageYOffset < 3400) {
       this.banerBottom = ((window.pageYOffset - 2500) / 5) * -1;
     }
   }

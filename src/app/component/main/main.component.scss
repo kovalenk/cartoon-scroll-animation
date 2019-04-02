@@ -134,19 +134,30 @@
     display: flex;
 
     > * {
-      position: relative;
+      position: fixed;
       top: 17vh;
       background-image: url(../../../assets/images/sprite.png);
     }
 
     .tree-1 {
-      left: 110vw;
-      top: 5vh;
-
       background-position: -205px -799px;
 
       width: 227px;
       height: 769px;
+    }
+
+    .tree-2 {
+      background-position: -1574px -1562px;
+
+      width: 188px;
+      height: 337px;
+    }
+
+    .tree-3 {
+      background-position: -416px -1564px;
+
+      width: 181px;
+      height: 475px;
     }
   }
 

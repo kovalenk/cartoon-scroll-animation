@@ -47,14 +47,26 @@ export class MainComponent implements OnInit {
 
   treeGroup = [
     {
-      src: 'tree-1'
+      src: 'tree-1',
+      left: 110,
+      top: 5,
+      slideDelay: true,
+      slideSpeed: 1
     },
-    // {
-    //   src: 'tree-2'
-    // },
-    // {
-    //   src: 'tree-3'
-    // },
+    {
+      src: 'tree-2',
+      left: 215,
+      top: 18,
+      slideDelay: false,
+      slideSpeed: 0.9
+    },
+    {
+      src: 'tree-3',
+      left: 308,
+      top: 32,
+      slideDelay: false,
+      slideSpeed: 1.35
+    },
   ];
 
   shrubGroup = [

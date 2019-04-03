@@ -20,8 +20,11 @@
       <img class="baner-img" src="../../../assets/images/title/slide-2-title.png" alt="" [style.marginTop.px]="banerTop + banerBottom">
     </div>
 
-    <div *ngFor="let items of sliderElements; let i = index" class="slide-{{i+1}}" >
-      <img class="slide" src="../../../assets/images/slides/slide-{{i+1}}.png" alt="" [style.marginLeft.px]="-slideOneLeft">
+    <div *ngFor="let items of sliderElements; let i = index" class="slide" >
+      <img [class]="items.class"
+           src="../../../assets/images/slides/slide-{{i+1}}.png"
+           alt=""
+           [style.marginLeft.px]="-slideOneLeft">
     </div>
 
     <div class="cloud" [style.marginLeft.px]="-cloudsLeft">
@@ -31,7 +34,7 @@
     <!--<div class="tree" [style.marginLeft.px]="-treeLeft">-->
     <div class="tree">
       <div *ngFor="let items of treeGroup" [class]="items.src"
-           [style.marginLeft.px]="items.slideDelay?(-treeLeft + sliderCoef)*items.slideSpeed:(-treeLeft*items.slideSpeed)"
+           [style.marginLeft.px]="items.slideDelay?(-treeLeft + slide_1 + slide_4 )*items.slideSpeed:(-treeLeft*items.slideSpeed)"
            [style.left.vw]="items.left"
            [style.top.vh]="items.top">
       </div>

@@ -1,6 +1,6 @@
 .app-main {
   overflow-x: hidden;
-  height: 13330px
+  height: 22580px;
 }
 
 .app-main-loading {
@@ -56,7 +56,10 @@
   }
 
   .slide {
-    &-1 {
+    position: fixed;
+    display: flex;
+
+    .slide-1 {
       width: 100%;
       height: 100%;
 
@@ -69,7 +72,7 @@
       position: fixed;
     }
 
-    &-2 {
+    .slide-2 {
       width: 100%;
       height: 100%;
 
@@ -158,6 +161,55 @@
 
       width: 181px;
       height: 475px;
+    }
+
+    .tree-4 {
+      background-position: -544px -1px;
+
+      width: 549px;
+      height: 793px;
+    }
+
+    .tree-5 {
+      background-position: -1623px -583px;
+
+      width: 323px;
+      height: 535px;
+    }
+
+    .tree-6 {
+      background-position: -742px -800px;
+
+      width: 305px;
+      height: 680px;
+    }
+
+    .tree-7 {
+      background-position: -1049px -800px;
+
+      width: 495px;
+      height: 572px;
+    }
+
+    .tree-8 {
+      background-position: 10px -1567px;
+
+      width: 211px;
+      height: 491px;
+    }
+
+    .tree-9 {
+      background-position: 0 0;
+
+      width: 549px;
+      height: 793px;
+    }
+
+    .tree-10 {
+      background-position: -1389px -1562px;
+
+      width: 188px;
+      height: 337px;
     }
   }
 

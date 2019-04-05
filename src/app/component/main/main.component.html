@@ -33,7 +33,8 @@
 
     <!--<div class="tree" [style.marginLeft.px]="-treeLeft">-->
     <div class="tree">
-      <div *ngFor="let items of treeGroup" [class]="items.src"
+      <div *ngFor="let items of treeGroup"
+           [class]="items.src"
            [style.marginLeft.px]="items.slideDelay?(-treeLeft + slide_1 + slide_4 )*items.slideSpeed:(-treeLeft*items.slideSpeed)"
            [style.left.vw]="items.left"
            [style.top.vh]="items.top">
@@ -41,7 +42,11 @@
     </div>
 
     <div class="shrub">
-      <div *ngFor="let items of shrubGroup" [class]="items.src" [style.marginLeft.px]="-treeLeft"></div>
+      <div *ngFor="let items of shrubGroup"
+           [class]="items.src"
+           [style.marginLeft.px]="-treeLeft*items.slideSpeed"
+           [style.left.vw]="items.left"
+           [style.top.vh]="items.top"></div>
     </div>
   </div>
 </div>

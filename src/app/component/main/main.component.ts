@@ -14,15 +14,15 @@ export class MainComponent implements OnInit {
   myCoordinates = 0;
   loading: any;
   sliderElements = [
-    {
-      class: 'slide-1'
-    },
-    {
-      class: 'slide-2'
-    },
-    {
-      class: 'slide-3'
-    },
+    // {
+    //   class: 'slide-1'
+    // },
+    // {
+    //   class: 'slide-2'
+    // },
+    // {
+    //   class: 'slide-3'
+    // },
   ];
   cloudGroup = [
     {
@@ -158,14 +158,26 @@ export class MainComponent implements OnInit {
 
   shrubGroup = [
     {
-      src: 'shrub-1'
+      src: 'shrub-1',
+      left: 201,
+      top: 72,
+      slideDelay: true,
+      slideSpeed: 1
     },
-    // {
-    //   src: 'tree-2'
-    // },
-    // {
-    //   src: 'tree-3'
-    // },
+    {
+      src: 'shrub-2',
+      left: 235,
+      top: 47,
+      slideDelay: true,
+      slideSpeed: 0.7
+    },
+    {
+      src: 'shrub-3',
+      left: 572,
+      top: 66,
+      slideDelay: true,
+      slideSpeed: 0.8
+    },
   ];
   banerTop: number;
   showCoef: number;

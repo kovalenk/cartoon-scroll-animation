@@ -39,7 +39,7 @@
     position: fixed;
   }
 
-  .baner{
+  .baner {
     width: 100%;
     height: 100%;
     display: flex;
@@ -49,7 +49,7 @@
     position: fixed;
     z-index: 1;
 
-    img{
+    img {
       position: relative;
       top: -400px;
     }
@@ -135,10 +135,10 @@
   .tree {
     position: fixed;
     display: flex;
+    z-index: 1;
 
     > * {
       position: fixed;
-      top: 17vh;
       background-image: url(../../../assets/images/sprite.png);
     }
 
@@ -218,19 +218,27 @@
     display: flex;
 
     > * {
-      position: relative;
-      top: 17vh;
+      position: fixed;
       background-image: url(../../../assets/images/sprite.png);
     }
 
     .shrub-1 {
-      left: 201vw;
-      top: 72vh;
-
       background-position: -2115px -272px;
 
       width: 275px;
       height: 190px;
+    }
+    .shrub-2 {
+      background-position: -2268px -952px;
+
+      width: 164px;
+      height: 90px;
+    }
+    .shrub-3 {
+      background-position: 44px -2058px;
+
+      width: 369px;
+      height: 269px;
     }
   }
 }

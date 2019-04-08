@@ -26,26 +26,40 @@ export class MainComponent implements OnInit {
   ];
   cloudGroup = [
     {
-      src: 'cloud-1'
+      src: 'cloud-1',
+      left: 53,
+      top: 11
     },
     {
-      src: 'cloud-2'
+      src: 'cloud-2',
+      left: 102,
+      top: 2
     },
     {
-      src: 'cloud-3'
+      src: 'cloud-3',
+      left: 148,
+      top: -1
     },
-    // {
-    //   src: 'cloud-4'
-    // },
-    // {
-    //   src: 'cloud-5'
-    // },
-    // {
-    //   src: 'cloud-6'
-    // },
-    // {
-    //   src: 'cloud-7'
-    // },
+    {
+      src: 'cloud-6',
+      left: 193,
+      top: 8
+    },
+    {
+      src: 'cloud-5',
+      left: 233,
+      top: 1
+    },
+    {
+      src: 'cloud-4',
+      left: 278,
+      top: 8
+    },
+    {
+      src: 'cloud-7',
+      left: 349,
+      top: 3
+    },
   ];
 
   treeGroup = [
@@ -200,7 +214,7 @@ export class MainComponent implements OnInit {
   onWindowScroll() {
     this.myCoordinates = window.pageYOffset;
     this.bgLeft = window.pageYOffset / 5.5;
-    this.cloudsLeft = window.pageYOffset / 4.5;
+    this.cloudsLeft = window.pageYOffset / 4.1;
     this.treeLeft = (window.pageYOffset * 0.9);
     if (window.pageYOffset < 1980) {
       this.slideOneLeft = window.pageYOffset * 2;

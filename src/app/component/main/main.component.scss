@@ -93,15 +93,11 @@
     display: flex;
 
     > * {
-      position: relative;
-      top: 17vh;
+      position: fixed;
       background-image: url(../../../assets/images/sprite.png);
     }
 
     .cloud-1 {
-      left: 53vw;
-      top: 11vh;
-
       background-position: -2118px -1460px;
 
       width: 252px;
@@ -109,27 +105,40 @@
     }
 
     .cloud-2 {
-      left: 110vw;
-      top: 2vh;
-
       background-position: -2113px -1134px;
       width: 253px;
       height: 89px;
     }
 
     .cloud-3 {
-      left: 142vw;
-      top: 22vh;
-
       background-position: -2113px -1302px;
       width: 310px;
       height: 81px;
     }
 
     .cloud-4 {
-      left: 200%;
+      background-position: -2121px -725px;
+      width: 284px;
+      height: 108px;
     }
 
+    .cloud-5 {
+      background-position: -2121px -1227px;
+      width: 198px;
+      height: 76px;
+    }
+
+    .cloud-6 {
+      background-position: -2121px -835px;
+      width: 301px;
+      height: 113px;
+    }
+
+    .cloud-7 {
+      background-position: -2121px -1384px;
+      width: 306px;
+      height: 75px;
+    }
   }
 
   .tree {

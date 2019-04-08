@@ -27,11 +27,15 @@
            [style.marginLeft.px]="-slideOneLeft">
     </div>
 
-    <div class="cloud" [style.marginLeft.px]="-cloudsLeft">
-      <div *ngFor="let items of cloudGroup" [class]="items.src"></div>
+    <div class="cloud">
+      <div *ngFor="let items of cloudGroup"
+           [class]="items.src"
+           [style.marginLeft.px]="-cloudsLeft"
+           [style.left.vw]="items.left"
+           [style.top.vh]="items.top">
+      </div>
     </div>
 
-    <!--<div class="tree" [style.marginLeft.px]="-treeLeft">-->
     <div class="tree">
       <div *ngFor="let items of treeGroup"
            [class]="items.src"

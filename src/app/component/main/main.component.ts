@@ -25,8 +25,36 @@ export class MainComponent implements OnInit {
     },
     {
       class: 'slide-2',
-      left: 143,
+      left: 114,
       top: 20,
+      slideSpeed: 0.6,
+      stopSlide: true
+    },
+    {
+      class: 'slide-3',
+      left: 200,
+      top: 20,
+      slideSpeed: 0.6,
+      stopSlide: true
+    },
+    {
+      class: 'slide-4',
+      left: 297,
+      top: 20,
+      slideSpeed: 0.6,
+      stopSlide: true
+    },
+    {
+      class: 'slide-5',
+      left: 397,
+      top: 16,
+      slideSpeed: 0.6,
+      stopSlide: true
+    },
+    {
+      class: 'slide-6',
+      left: 490,
+      top: 16,
       slideSpeed: 0.6,
       stopSlide: true
     },
@@ -72,7 +100,7 @@ export class MainComponent implements OnInit {
   treeGroup = [
     {
       src: 'tree-1',
-      left: 110,
+      left: 100,
       top: 5,
       slideDelay: true,
       slideSpeed: 1
@@ -109,7 +137,7 @@ export class MainComponent implements OnInit {
     },
     {
       src: 'tree-6',
-      left: 491,
+      left: 508,
       top: 17,
       slideDelay: false,
       slideSpeed: 1.25,
@@ -254,6 +282,10 @@ export class MainComponent implements OnInit {
   treeDelay_3 = 0;
 
   slideDelay_1 = 0;
+  slideDelay_2 = 0;
+  slideDelay_3 = 0;
+  slideDelay_4 = 0;
+  slideDelay_5 = 0;
 
   nloDelay = 0;
 
@@ -279,9 +311,25 @@ export class MainComponent implements OnInit {
       this.nloDelay = (window.pageYOffset - 11700) / 2;
     }
 
-    if (window.pageYOffset > 1980 && window.pageYOffset < 3000) {
-      this.slideDelay_1 = ((window.pageYOffset - 1980) * 2)*0.6;
-      this.treeDelay_1 = ((window.pageYOffset - 1980) * 0.6);
+    if (window.pageYOffset > 1500 && window.pageYOffset < 2500) {
+      this.slideDelay_1 = ((window.pageYOffset - 1500) * 2) * 0.6;
+      this.treeDelay_1 = ((window.pageYOffset - 1500) * 0.6);
+    }
+
+    if (window.pageYOffset > 3800 && window.pageYOffset < 4800) {
+      this.slideDelay_2 = ((window.pageYOffset - 3800) * 2) * 0.6;
+    }
+
+    if (window.pageYOffset > 6200 && window.pageYOffset < 7200) {
+      this.slideDelay_3 = ((window.pageYOffset - 6200) * 2) * 0.6;
+    }
+
+    if (window.pageYOffset > 8800 && window.pageYOffset < 9800) {
+      this.slideDelay_4 = ((window.pageYOffset - 8800) * 2) * 0.6;
+    }
+
+    if (window.pageYOffset > 11200 && window.pageYOffset < 12200) {
+      this.slideDelay_5 = ((window.pageYOffset - 11200) * 2) * 0.6;
     }
 
     if (window.pageYOffset > 10800 && window.pageYOffset < 13000) {

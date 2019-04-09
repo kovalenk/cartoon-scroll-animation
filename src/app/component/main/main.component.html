@@ -22,7 +22,7 @@
     <div class="slide">
       <img *ngFor="let items of sliderElements; let i = index"
            [class]="items.class"
-           [style.marginLeft.px]="items.stopSlide?(-slideOneLeft*items.slideSpeed+slideDelay_1):(-slideOneLeft*items.slideSpeed)"
+           [style.marginLeft.px]="items.stopSlide?(-slideOneLeft*items.slideSpeed+slideDelay_1+slideDelay_2+slideDelay_3+slideDelay_4+slideDelay_5):(-slideOneLeft*items.slideSpeed)"
            [style.left.vw]="items.left"
            [style.top.vh]="items.top"
            src="../../../assets/images/slides/slide-{{i+1}}.png"

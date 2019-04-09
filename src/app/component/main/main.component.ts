@@ -16,15 +16,20 @@ export class MainComponent implements OnInit {
   myCoordinates = 0;
   loading: any;
   sliderElements = [
-    // {
-    //   class: 'slide-1'
-    // },
-    // {
-    //   class: 'slide-2'
-    // },
-    // {
-    //   class: 'slide-3'
-    // },
+    {
+      class: 'slide-1',
+      left: 21,
+      top: 15,
+      slideSpeed: 0.7,
+      stopSlide: false
+    },
+    {
+      class: 'slide-2',
+      left: 143,
+      top: 20,
+      slideSpeed: 0.6,
+      stopSlide: true
+    },
   ];
   cloudGroup = [
     {
@@ -242,12 +247,14 @@ export class MainComponent implements OnInit {
   ];
 
   banerTop: number;
-  showCoef: number;
-  hideCoef: number;
   banerBottom = 0;
-  slide_1 = 0;
-  slide_4 = 0;
+
+  treeDelay_1 = 0;
+  treeDelay_2 = 0;
   treeDelay_3 = 0;
+
+  slideDelay_1 = 0;
+
   nloDelay = 0;
 
   constructor() {
@@ -267,24 +274,21 @@ export class MainComponent implements OnInit {
     this.cloudsLeft = window.pageYOffset / 4.1;
     this.decorationSpeed = window.pageYOffset * 0.92;
     this.treeLeft = window.pageYOffset * 0.9;
-    if (window.pageYOffset < 1980) {
-      this.slideOneLeft = window.pageYOffset * 2;
-    }
-
+    this.slideOneLeft = window.pageYOffset * 2;
     if (window.pageYOffset > 11700) {
-      this.nloDelay = (window.pageYOffset- 11700) / 2;
+      this.nloDelay = (window.pageYOffset - 11700) / 2;
     }
 
     if (window.pageYOffset > 1980 && window.pageYOffset < 3000) {
-      this.slide_1 = ((window.pageYOffset - 1980) * 0.6);
+      this.slideDelay_1 = ((window.pageYOffset - 1980) * 2)*0.6;
+      this.treeDelay_1 = ((window.pageYOffset - 1980) * 0.6);
     }
 
     if (window.pageYOffset > 10800 && window.pageYOffset < 13000) {
-      this.slide_4 = ((window.pageYOffset - 10800) * 0.35);
+      this.treeDelay_2 = ((window.pageYOffset - 10800) * 0.35);
     }
 
     if (window.pageYOffset > 3000) {
-      this.slideOneLeft = (window.pageYOffset - 1020) * 2;
       this.planeSpeed = (window.pageYOffset - 3000) / 8;
     }
 

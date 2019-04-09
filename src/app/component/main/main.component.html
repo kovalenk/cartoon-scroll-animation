@@ -1,9 +1,8 @@
 <div style="position: fixed; top: 50px; left: 50px;">
   {{myCoordinates}}
   <br>
-  planeSpeed {{planeSpeed}}
-
-
+  slideOneLeft (before) {{slideOneLeft}}<br>
+  slideOneLeft (after)  {{slideDelay_1}}
 </div>
 
 <div class="app-main" [class.app-main-loading]="!loading">
@@ -20,11 +19,14 @@
            [style.marginTop.px]="banerTop + banerBottom">
     </div>
 
-    <div *ngFor="let items of sliderElements; let i = index" class="slide">
-      <img [class]="items.class"
+    <div class="slide">
+      <img *ngFor="let items of sliderElements; let i = index"
+           [class]="items.class"
+           [style.marginLeft.px]="items.stopSlide?(-slideOneLeft*items.slideSpeed+slideDelay_1):(-slideOneLeft*items.slideSpeed)"
+           [style.left.vw]="items.left"
+           [style.top.vh]="items.top"
            src="../../../assets/images/slides/slide-{{i+1}}.png"
-           alt=""
-           [style.marginLeft.px]="-slideOneLeft">
+           alt="">
     </div>
 
     <div class="sprites">
@@ -45,7 +47,7 @@
 
       <div *ngFor="let items of treeGroup"
            [class]="items.src"
-           [style.marginLeft.px]="items.slideDelay?(-treeLeft + slide_1 + slide_4 + treeDelay_3 )*items.slideSpeed:(-treeLeft*items.slideSpeed)"
+           [style.marginLeft.px]="items.slideDelay?(-treeLeft + treeDelay_1 + treeDelay_2 + treeDelay_3 )*items.slideSpeed:(-treeLeft*items.slideSpeed)"
            [style.left.vw]="items.left"
            [style.top.vh]="items.top"
            [style.z-index]="items.z_index">

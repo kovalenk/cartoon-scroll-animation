@@ -9,6 +9,7 @@ export class MainComponent implements OnInit {
   bgLeft = 0;
   cloudsLeft = 0;
   treeLeft = 0;
+  decorationSpeed = 0;
   slideOneLeft = 0;
 
   myCoordinates = 0;
@@ -89,21 +90,24 @@ export class MainComponent implements OnInit {
       left: 278,
       top: -15,
       slideDelay: false,
-      slideSpeed: 0.9
+      slideSpeed: 0.9,
+      z_index: 1,
     },
     {
       src: 'tree-5',
       left: 262,
       top: 4,
       slideDelay: false,
-      slideSpeed: 0.6
+      slideSpeed: 0.6,
+      z_index: 0,
     },
     {
       src: 'tree-6',
       left: 491,
       top: 17,
       slideDelay: false,
-      slideSpeed: 1.25
+      slideSpeed: 1.25,
+      z_index: 2,
     },
     {
       src: 'tree-7',
@@ -163,10 +167,11 @@ export class MainComponent implements OnInit {
     },
     {
       src: 'tree-10',
-      left: 915,
+      left: 822,
       top: 20,
-      slideDelay: false,
-      slideSpeed: 0.8
+      slideDelay: true,
+      slideSpeed: 0.8,
+      z_index: -1
     },
   ];
 
@@ -193,12 +198,56 @@ export class MainComponent implements OnInit {
       slideSpeed: 0.8
     },
   ];
+
+  decorationGroup = [
+    {
+      src: 'camel',
+      left: 411,
+      top: 48,
+      slideDelay: false,
+      slideSpeed: 1,
+      z_index: 1,
+    },
+    {
+      src: 'car',
+      left: 350,
+      top: 42,
+      slideDelay: false,
+      slideSpeed: 0.5,
+      z_index: 0,
+    },
+    {
+      src: 'nlo',
+      left: 658,
+      top: 50,
+      slideDelay: true,
+      slideSpeed: 1,
+      z_index: 0,
+    },
+    {
+      src: 'city',
+      left: 430,
+      top: 21,
+      slideDelay: false,
+      slideSpeed: 0.5
+    },
+    {
+      src: 'ostrich',
+      left: 485,
+      top: 37,
+      slideDelay: false,
+      slideSpeed: 0.5
+    }
+  ];
+
   banerTop: number;
   showCoef: number;
   hideCoef: number;
   banerBottom = 0;
   slide_1 = 0;
   slide_4 = 0;
+  treeDelay_3 = 0;
+  nloDelay = 0;
 
   constructor() {
   }
@@ -215,9 +264,14 @@ export class MainComponent implements OnInit {
     this.myCoordinates = window.pageYOffset;
     this.bgLeft = window.pageYOffset / 5.5;
     this.cloudsLeft = window.pageYOffset / 4.1;
-    this.treeLeft = (window.pageYOffset * 0.9);
+    this.decorationSpeed = window.pageYOffset * 0.92;
+    this.treeLeft = window.pageYOffset * 0.9;
     if (window.pageYOffset < 1980) {
       this.slideOneLeft = window.pageYOffset * 2;
+    }
+
+    if (window.pageYOffset > 11700) {
+      this.nloDelay = (window.pageYOffset- 11700) / 2;
     }
 
     if (window.pageYOffset > 1980 && window.pageYOffset < 3000) {
@@ -238,6 +292,10 @@ export class MainComponent implements OnInit {
 
     if (window.pageYOffset > 3000 && window.pageYOffset < 3900) {
       this.banerBottom = ((window.pageYOffset - 3000) / 5) * -1;
+    }
+
+    if (window.pageYOffset > 20000) {
+      this.treeDelay_3 = ((window.pageYOffset - 20000) / 2);
     }
   }
 }

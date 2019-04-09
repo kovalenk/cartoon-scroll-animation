@@ -88,13 +88,48 @@
     }
   }
 
-  .cloud {
+  .sprites {
     position: fixed;
     display: flex;
 
     > * {
       position: fixed;
       background-image: url(../../../assets/images/sprite.png);
+    }
+
+    .camel{
+      background-position: -2118px 2px;
+
+      width: 328px;
+      height: 284px;
+    }
+
+    .car{
+      background-position: -2117px -462px;
+
+      width: 323px;
+      height: 149px;
+    }
+
+    .nlo{
+      background-position: -2117px -615px;
+
+      width: 310px;
+      height: 113px;
+    }
+
+    .city{
+      background-position: -1623px -1118px;
+
+      width: 408px;
+      height: 347px;
+    }
+
+    .ostrich{
+      background-position: -1768px -1568px;
+
+      width: 194px;
+      height: 296px;
     }
 
     .cloud-1 {
@@ -138,17 +173,6 @@
       background-position: -2121px -1384px;
       width: 306px;
       height: 75px;
-    }
-  }
-
-  .tree {
-    position: fixed;
-    display: flex;
-    z-index: 1;
-
-    > * {
-      position: fixed;
-      background-image: url(../../../assets/images/sprite.png);
     }
 
     .tree-1 {
@@ -220,16 +244,6 @@
       width: 188px;
       height: 337px;
     }
-  }
-
-  .shrub {
-    position: fixed;
-    display: flex;
-
-    > * {
-      position: fixed;
-      background-image: url(../../../assets/images/sprite.png);
-    }
 
     .shrub-1 {
       background-position: -2115px -272px;
@@ -250,4 +264,5 @@
       height: 269px;
     }
   }
+
 }

@@ -1,7 +1,7 @@
 <div style="position: fixed; top: 50px; left: 50px;">
   {{myCoordinates}}
   <br>
-  nloDelay {{nloDelay}}
+  planeSpeed {{planeSpeed}}
 
 
 </div>
@@ -56,6 +56,10 @@
            [style.marginLeft.px]="-treeLeft*items.slideSpeed"
            [style.left.vw]="items.left"
            [style.top.vh]="items.top">
+      </div>
+
+      <div class="plane"
+           [style.marginLeft.px]="planeSpeed">
       </div>
     </div>
   </div>

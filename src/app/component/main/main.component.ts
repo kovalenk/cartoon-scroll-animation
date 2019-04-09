@@ -10,6 +10,7 @@ export class MainComponent implements OnInit {
   cloudsLeft = 0;
   treeLeft = 0;
   decorationSpeed = 0;
+  planeSpeed = 0;
   slideOneLeft = 0;
 
   myCoordinates = 0;
@@ -284,6 +285,7 @@ export class MainComponent implements OnInit {
 
     if (window.pageYOffset > 3000) {
       this.slideOneLeft = (window.pageYOffset - 1020) * 2;
+      this.planeSpeed = (window.pageYOffset - 3000) / 8;
     }
 
     if (window.pageYOffset > 900 && window.pageYOffset < 1980) {

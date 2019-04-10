@@ -1,4 +1,4 @@
-<div style="position: fixed; top: 50px; left: 50px;">
+<div style="position: fixed; top: 50px; left: 50px; z-index: 100">
   {{myCoordinates}}
   <br>
   slideOneLeft (before) {{slideOneLeft}}<br>
@@ -22,10 +22,10 @@
     <div class="slide">
       <img *ngFor="let items of sliderElements; let i = index"
            [class]="items.class"
-           [style.marginLeft.px]="items.stopSlide?(-slideOneLeft*items.slideSpeed+slideDelay_1+slideDelay_2+slideDelay_3+slideDelay_4+slideDelay_5):(-slideOneLeft*items.slideSpeed)"
+           [style.marginLeft.px]="items.stopSlide?(-slideOneLeft*items.slideSpeed+slideDelay_1+slideDelay_2+slideDelay_3+slideDelay_4+slideDelay_5+slideDelay_6+slideDelay_7+slideDelay_8):(-slideOneLeft*items.slideSpeed)"
            [style.left.vw]="items.left"
            [style.top.vh]="items.top"
-           src="../../../assets/images/slides/slide-{{i+1}}.png"
+           src="../../../assets/images/slides/{{items.src}}.png"
            alt="">
     </div>
 

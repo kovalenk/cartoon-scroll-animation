@@ -18,6 +18,7 @@ export class MainComponent implements OnInit {
   sliderElements = [
     {
       class: 'slide-1',
+      src: 'slide-1',
       left: 21,
       top: 15,
       slideSpeed: 0.7,
@@ -25,6 +26,7 @@ export class MainComponent implements OnInit {
     },
     {
       class: 'slide-2',
+      src: 'slide-2',
       left: 114,
       top: 20,
       slideSpeed: 0.6,
@@ -32,6 +34,7 @@ export class MainComponent implements OnInit {
     },
     {
       class: 'slide-3',
+      src: 'slide-3',
       left: 200,
       top: 20,
       slideSpeed: 0.6,
@@ -39,6 +42,7 @@ export class MainComponent implements OnInit {
     },
     {
       class: 'slide-4',
+      src: 'slide-4',
       left: 297,
       top: 20,
       slideSpeed: 0.6,
@@ -46,6 +50,7 @@ export class MainComponent implements OnInit {
     },
     {
       class: 'slide-5',
+      src: 'slide-5',
       left: 397,
       top: 16,
       slideSpeed: 0.6,
@@ -53,10 +58,43 @@ export class MainComponent implements OnInit {
     },
     {
       class: 'slide-6',
+      src: 'slide-6',
       left: 490,
       top: 16,
       slideSpeed: 0.6,
       stopSlide: true
+    },
+    {
+      class: 'slide-7',
+      src: 'slide-7-building',
+      left: 630,
+      top: -20,
+      slideSpeed: 0.6,
+      stopSlide: true
+    },
+    {
+      class: 'slide-2',
+      src: 'slide-8',
+      left: 695,
+      top: 21,
+      slideSpeed: 0.6,
+      stopSlide: true
+    },
+    {
+      class: 'slide-9',
+      src: 'slide-9',
+      left: 795,
+      top: 21,
+      slideSpeed: 0.6,
+      stopSlide: true
+    },
+    {
+      class: 'slide-10',
+      src: 'slide-10',
+      left: 945,
+      top: 18,
+      slideSpeed: 0.4,
+      stopSlide: false
     },
   ];
   cloudGroup = [
@@ -286,6 +324,9 @@ export class MainComponent implements OnInit {
   slideDelay_3 = 0;
   slideDelay_4 = 0;
   slideDelay_5 = 0;
+  slideDelay_6 = 0;
+  slideDelay_7 = 0;
+  slideDelay_8 = 0;
 
   nloDelay = 0;
 
@@ -330,6 +371,18 @@ export class MainComponent implements OnInit {
 
     if (window.pageYOffset > 11200 && window.pageYOffset < 12200) {
       this.slideDelay_5 = ((window.pageYOffset - 11200) * 2) * 0.6;
+    }
+
+    if (window.pageYOffset > 13860 && window.pageYOffset < 14860) {
+      this.slideDelay_6 = ((window.pageYOffset - 13860) * 2) * 0.6;
+    }
+
+    if (window.pageYOffset > 16450 && window.pageYOffset < 17450) {
+      this.slideDelay_7 = ((window.pageYOffset - 16450) * 2) * 0.6;
+    }
+
+    if (window.pageYOffset > 19000 && window.pageYOffset < 20000) {
+      this.slideDelay_8 = ((window.pageYOffset - 19000) * 2) * 0.6;
     }
 
     if (window.pageYOffset > 10800 && window.pageYOffset < 13000) {

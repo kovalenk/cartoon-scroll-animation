@@ -67,7 +67,7 @@ export class MainComponent implements OnInit {
     {
       class: 'slide-7',
       src: 'slide-7-building',
-      left: 630,
+      left: 627,
       top: -20,
       slideSpeed: 0.6,
       stopSlide: true
@@ -75,7 +75,7 @@ export class MainComponent implements OnInit {
     {
       class: 'slide-2',
       src: 'slide-8',
-      left: 695,
+      left: 691,
       top: 21,
       slideSpeed: 0.6,
       stopSlide: true
@@ -83,7 +83,7 @@ export class MainComponent implements OnInit {
     {
       class: 'slide-9',
       src: 'slide-9',
-      left: 795,
+      left: 794,
       top: 21,
       slideSpeed: 0.6,
       stopSlide: true
@@ -342,67 +342,133 @@ export class MainComponent implements OnInit {
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    this.myCoordinates = window.pageYOffset;
-    this.bgLeft = window.pageYOffset / 5.5;
-    this.cloudsLeft = window.pageYOffset / 4.1;
-    this.decorationSpeed = window.pageYOffset * 0.92;
-    this.treeLeft = window.pageYOffset * 0.9;
-    this.slideOneLeft = window.pageYOffset * 2;
-    if (window.pageYOffset > 11700) {
-      this.nloDelay = (window.pageYOffset - 11700) / 2;
+    const contentSpeed = window.pageYOffset * 0.7;
+    this.bgLeft = contentSpeed / 5.5;
+    this.cloudsLeft = contentSpeed / 4.1;
+    this.decorationSpeed = contentSpeed * 0.92;
+    this.treeLeft = contentSpeed * 0.9;
+    this.slideOneLeft = contentSpeed * 2;
+
+
+    if (contentSpeed > 11700) {
+      this.nloDelay = (contentSpeed - 11700) / 2;
     }
 
-    if (window.pageYOffset > 1500 && window.pageYOffset < 2500) {
-      this.slideDelay_1 = ((window.pageYOffset - 1500) * 2) * 0.6;
-      this.treeDelay_1 = ((window.pageYOffset - 1500) * 0.6);
+    if (contentSpeed < 1500) {
+      this.slideDelay_1 = 0;
     }
 
-    if (window.pageYOffset > 3800 && window.pageYOffset < 4800) {
-      this.slideDelay_2 = ((window.pageYOffset - 3800) * 2) * 0.6;
+    if (contentSpeed > 1500 && contentSpeed < 2500) {
+      this.slideDelay_1 = ((contentSpeed - 1500) * 2) * 0.6;
+      this.treeDelay_1 = ((contentSpeed - 1500) * 0.6);
     }
 
-    if (window.pageYOffset > 6200 && window.pageYOffset < 7200) {
-      this.slideDelay_3 = ((window.pageYOffset - 6200) * 2) * 0.6;
+    if (contentSpeed > 2500) {
+      this.slideDelay_1 = 1195;
     }
 
-    if (window.pageYOffset > 8800 && window.pageYOffset < 9800) {
-      this.slideDelay_4 = ((window.pageYOffset - 8800) * 2) * 0.6;
+    if (contentSpeed < 3800) {
+      this.slideDelay_2 = 0;
     }
 
-    if (window.pageYOffset > 11200 && window.pageYOffset < 12200) {
-      this.slideDelay_5 = ((window.pageYOffset - 11200) * 2) * 0.6;
+    if (contentSpeed > 3800 && contentSpeed < 4800) {
+      this.slideDelay_2 = ((contentSpeed - 3800) * 2) * 0.6;
     }
 
-    if (window.pageYOffset > 13860 && window.pageYOffset < 14860) {
-      this.slideDelay_6 = ((window.pageYOffset - 13860) * 2) * 0.6;
+    if (contentSpeed > 4800) {
+      this.slideDelay_2 = 1195;
     }
 
-    if (window.pageYOffset > 16450 && window.pageYOffset < 17450) {
-      this.slideDelay_7 = ((window.pageYOffset - 16450) * 2) * 0.6;
+    if (contentSpeed < 6200) {
+      this.slideDelay_3 = 0;
     }
 
-    if (window.pageYOffset > 19000 && window.pageYOffset < 20000) {
-      this.slideDelay_8 = ((window.pageYOffset - 19000) * 2) * 0.6;
+    if (contentSpeed > 6200 && contentSpeed < 7200) {
+      this.slideDelay_3 = ((contentSpeed - 6200) * 2) * 0.6;
     }
 
-    if (window.pageYOffset > 10800 && window.pageYOffset < 13000) {
-      this.treeDelay_2 = ((window.pageYOffset - 10800) * 0.35);
+    if (contentSpeed > 7200) {
+      this.slideDelay_3 = 1195;
     }
 
-    if (window.pageYOffset > 3000) {
-      this.planeSpeed = (window.pageYOffset - 3000) / 8;
+    if (contentSpeed < 8800) {
+      this.slideDelay_4 = 0;
     }
 
-    if (window.pageYOffset > 900 && window.pageYOffset < 1980) {
-      this.banerTop = window.pageYOffset / 5;
+    if (contentSpeed > 8800 && contentSpeed < 9800) {
+      this.slideDelay_4 = ((contentSpeed - 8800) * 2) * 0.6;
     }
 
-    if (window.pageYOffset > 3000 && window.pageYOffset < 3900) {
-      this.banerBottom = ((window.pageYOffset - 3000) / 5) * -1;
+    if (contentSpeed > 9800) {
+      this.slideDelay_4 = 1195;
     }
 
-    if (window.pageYOffset > 20000) {
-      this.treeDelay_3 = ((window.pageYOffset - 20000) / 2);
+    if (contentSpeed < 11200) {
+      this.slideDelay_5 = 0;
+    }
+
+    if (contentSpeed > 11200 && contentSpeed < 12200) {
+      this.slideDelay_5 = ((contentSpeed - 11200) * 2) * 0.6;
+    }
+
+    if (contentSpeed > 12200) {
+      this.slideDelay_5 = 1195;
+    }
+
+    if (contentSpeed < 13860) {
+      this.slideDelay_6 = 0;
+    }
+
+    if (contentSpeed > 13860 && contentSpeed < 14860) {
+      this.slideDelay_6 = ((contentSpeed - 13860) * 2) * 0.6;
+    }
+
+    if (contentSpeed > 14860) {
+      this.slideDelay_6 = 1195;
+    }
+
+    if (contentSpeed < 16450) {
+      this.slideDelay_7 = 0;
+    }
+
+    if (contentSpeed > 16450 && contentSpeed < 17450) {
+      this.slideDelay_7 = ((contentSpeed - 16450) * 2) * 0.6;
+    }
+
+    if (contentSpeed > 17450) {
+      this.slideDelay_7 = 1195;
+    }
+
+    if (contentSpeed < 19000) {
+      this.slideDelay_8 = 0;
+    }
+
+    if (contentSpeed > 19000 && contentSpeed < 20000) {
+      this.slideDelay_8 = ((contentSpeed - 19000) * 2) * 0.6;
+    }
+
+    if (contentSpeed > 20000) {
+      this.slideDelay_8 = 1195;
+    }
+
+    if (contentSpeed > 10800 && contentSpeed < 13000) {
+      this.treeDelay_2 = ((contentSpeed - 10800) * 0.35);
+    }
+
+    if (contentSpeed > 3000) {
+      this.planeSpeed = (contentSpeed - 3000) / 8;
+    }
+
+    if (contentSpeed > 900 && contentSpeed < 1980) {
+      this.banerTop = contentSpeed / 5;
+    }
+
+    if (contentSpeed > 3000 && contentSpeed < 3900) {
+      this.banerBottom = ((contentSpeed - 3000) / 5) * -1;
+    }
+
+    if (contentSpeed > 20000) {
+      this.treeDelay_3 = ((contentSpeed - 20000) / 2);
     }
   }
 }

@@ -1,15 +1,9 @@
 <div style="position: fixed; top: 50px; left: 50px; z-index: 100">
-  {{myCoordinates}}
-  <br>
-  slideDelay_1 {{slideDelay_1}}<br>
-  slideDelay_2 {{slideDelay_2}}<br>
-  slideDelay_3 {{slideDelay_3}}<br>
-  slideDelay_4 {{slideDelay_4}}<br>
-  slideDelay_5 {{slideDelay_5}}<br>
-  slideDelay_6 {{slideDelay_6}}<br>
-  slideDelay_7 {{slideDelay_7}}<br>
-  slideDelay_8 {{slideDelay_8}}<br>
-  slideDelay_1 {{slideDelay_1}}<br>
+  mainPosition {{mainPosition}}<br>
+
+  slideShow_1 {{slideShow_1}}<br>
+  slideHide_1 {{slideHide_1}}<br>
+
 </div>
 
 <div class="app-main" [class.app-main-loading]="!loading">
@@ -22,18 +16,29 @@
     <img class="bg-image" src="../../../assets/images/bg.png" alt="" [style.marginLeft.px]="-bgLeft">
 
     <div class="baner">
-      <img class="baner-img" src="../../../assets/images/title/slide-2-title.png" alt=""
-           [style.marginTop.px]="banerTop + banerBottom">
+      <!--<img class="baner-img" src="../../../assets/images/banner/slide-2-banner.png" alt=""-->
+           <!--[style.marginTop.px]="banerTop + banerBottom">-->
     </div>
 
     <div class="slide">
-      <img *ngFor="let items of sliderElements; let i = index"
+      <div *ngFor="let items of sliderElements"
            [class]="items.class"
-           [style.marginLeft.px]="items.stopSlide?(-slideOneLeft*items.slideSpeed+slideDelay_1+slideDelay_2+slideDelay_3+slideDelay_4+slideDelay_5+slideDelay_6+slideDelay_7+slideDelay_8):(-slideOneLeft*items.slideSpeed)"
            [style.left.vw]="items.left"
            [style.top.vh]="items.top"
-           src="../../../assets/images/slides/{{items.src}}.png"
-           alt="">
+      >
+        <img *ngFor="let elem of items.slideGroup"
+             [class]="elem.class"
+             [style.marginTop.px]="elem.titleBanner? slideShow_1 + slideHide_1 : ''"
+             [style.marginLeft.px]="elem.stopSlide?(-slideOneLeft*elem.slideSpeed+slideDelay_1+slideDelay_2+slideDelay_3+slideDelay_4+slideDelay_5+slideDelay_6+slideDelay_7+slideDelay_8):(-slideOneLeft*elem.slideSpeed)"
+             src="../../../assets/images/{{elem.src}}"
+             alt=""
+             [style.left.vw]="elem.left"
+             [style.top.vh]="elem.top">
+
+        <div class="slider-dots" *ngFor="let elem of items.slideGroup">
+
+        </div>
+      </div>
     </div>
 
     <div class="sprites">

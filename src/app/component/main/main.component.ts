@@ -18,84 +18,120 @@ export class MainComponent implements OnInit {
   sliderElements = [
     {
       class: 'slide-1',
-      src: 'slide-1',
-      left: 21,
-      top: 15,
-      slideSpeed: 0.7,
-      stopSlide: false
+      left: 25,
+      top: 17,
+      slideGroup: [
+        {
+          class: 'home-slider',
+          src: 'slides/slide-1.png',
+          slideSpeed: 0.7,
+          stopSlide: false,
+        }
+      ]
     },
     {
       class: 'slide-2',
-      src: 'slide-2',
       left: 114,
-      top: 20,
-      slideSpeed: 0.6,
-      stopSlide: true
+      top: 0,
+      slideGroup: [
+        {
+          class: 'slide-photo',
+          src: 'slides/slide-2.png',
+          top: 20,
+          slideSpeed: 0.6,
+          stopSlide: true,
+          titleBanner: false,
+        },
+        {
+          class: 'banner',
+          src: 'banner/slide-2-title.png',
+          top: -58,
+          left: 39,
+          titleBanner: true,
+        },
+      ],
+      slideDots: [
+        {
+          class: 'slide-photo',
+          src: 'slides/slide-2.png',
+          top: 20,
+          slideSpeed: 0.6,
+          stopSlide: true,
+          titleBanner: false,
+        },
+        {
+          class: 'banner',
+          src: 'banner/slide-2-title.png',
+          top: -58,
+          left: 39,
+          titleBanner: true,
+        },
+      ]
     },
-    {
-      class: 'slide-3',
-      src: 'slide-3',
-      left: 200,
-      top: 20,
-      slideSpeed: 0.6,
-      stopSlide: true
-    },
-    {
-      class: 'slide-4',
-      src: 'slide-4',
-      left: 297,
-      top: 20,
-      slideSpeed: 0.6,
-      stopSlide: true
-    },
-    {
-      class: 'slide-5',
-      src: 'slide-5',
-      left: 397,
-      top: 16,
-      slideSpeed: 0.6,
-      stopSlide: true
-    },
-    {
-      class: 'slide-6',
-      src: 'slide-6',
-      left: 490,
-      top: 16,
-      slideSpeed: 0.6,
-      stopSlide: true
-    },
-    {
-      class: 'slide-7',
-      src: 'slide-7-building',
-      left: 627,
-      top: -20,
-      slideSpeed: 0.6,
-      stopSlide: true
-    },
-    {
-      class: 'slide-2',
-      src: 'slide-8',
-      left: 691,
-      top: 21,
-      slideSpeed: 0.6,
-      stopSlide: true
-    },
-    {
-      class: 'slide-9',
-      src: 'slide-9',
-      left: 794,
-      top: 21,
-      slideSpeed: 0.6,
-      stopSlide: true
-    },
-    {
-      class: 'slide-10',
-      src: 'slide-10',
-      left: 945,
-      top: 18,
-      slideSpeed: 0.4,
-      stopSlide: false
-    },
+    // {
+    //   class: 'slide-3',
+    //   src: 'slide-3',
+    //   left: 200,
+    //   top: 20,
+    //   slideSpeed: 0.6,
+    //   stopSlide: true
+    // },
+    // {
+    //   class: 'slide-4',
+    //   src: 'slide-4',
+    //   left: 297,
+    //   top: 20,
+    //   slideSpeed: 0.6,
+    //   stopSlide: true
+    // },
+    // {
+    //   class: 'slide-5',
+    //   src: 'slide-5',
+    //   left: 397,
+    //   top: 16,
+    //   slideSpeed: 0.6,
+    //   stopSlide: true
+    // },
+    // {
+    //   class: 'slide-6',
+    //   src: 'slide-6',
+    //   left: 490,
+    //   top: 16,
+    //   slideSpeed: 0.6,
+    //   stopSlide: true
+    // },
+    // {
+    //   class: 'slide-7',
+    //   src: 'slide-7-building',
+    //   left: 627,
+    //   top: -20,
+    //   slideSpeed: 0.6,
+    //   stopSlide: true
+    // },
+    // {
+    //   class: 'slide-2',
+    //   src: 'slide-8',
+    //   left: 691,
+    //   top: 21,
+    //   slideSpeed: 0.6,
+    //   stopSlide: true
+    // },
+    // {
+    //   class: 'slide-9',
+    //   src: 'slide-9',
+    //   left: 794,
+    //   top: 21,
+    //   slideSpeed: 0.6,
+    //   stopSlide: true
+    // },
+    // {
+    //   class: 'slide-10',
+    //   src: 'slide-10',
+    //   left: 945,
+    //   top: 18,
+    //   slideSpeed: 0.4,
+    //   stopSlide: false
+    // },
   ];
   cloudGroup = [
     {
@@ -328,7 +364,13 @@ export class MainComponent implements OnInit {
   slideDelay_7 = 0;
   slideDelay_8 = 0;
 
+
+  slideShow_1 = 0;
+
+  slideHide_1 = 0;
   nloDelay = 0;
+
+  mainPosition = 0;
 
   constructor() {
   }
@@ -343,17 +385,14 @@ export class MainComponent implements OnInit {
   @HostListener('window:scroll', [])
   onWindowScroll() {
     const contentSpeed = window.pageYOffset * 0.7;
+    this.mainPosition = window.pageYOffset * 0.7;
     this.bgLeft = contentSpeed / 5.5;
     this.cloudsLeft = contentSpeed / 4.1;
     this.decorationSpeed = contentSpeed * 0.92;
     this.treeLeft = contentSpeed * 0.9;
     this.slideOneLeft = contentSpeed * 2;
 
-
-    if (contentSpeed > 11700) {
-      this.nloDelay = (contentSpeed - 11700) / 2;
-    }
-
+    // Slide delays
     if (contentSpeed < 1500) {
       this.slideDelay_1 = 0;
     }
@@ -451,6 +490,11 @@ export class MainComponent implements OnInit {
       this.slideDelay_8 = 1195;
     }
 
+    // decorations delay
+    if (contentSpeed > 11700) {
+      this.nloDelay = (contentSpeed - 11700) / 2;
+    }
+
     if (contentSpeed > 10800 && contentSpeed < 13000) {
       this.treeDelay_2 = ((contentSpeed - 10800) * 0.35);
     }
@@ -459,16 +503,34 @@ export class MainComponent implements OnInit {
       this.planeSpeed = (contentSpeed - 3000) / 8;
     }
 
-    if (contentSpeed > 900 && contentSpeed < 1980) {
-      this.banerTop = contentSpeed / 5;
-    }
-
-    if (contentSpeed > 3000 && contentSpeed < 3900) {
-      this.banerBottom = ((contentSpeed - 3000) / 5) * -1;
-    }
-
     if (contentSpeed > 20000) {
       this.treeDelay_3 = ((contentSpeed - 20000) / 2);
+    }
+
+    // banner show hide
+
+    if (contentSpeed < 750) {
+      this.slideShow_1 = 0;
+    }
+
+    if (contentSpeed > 750 && contentSpeed < 1220) {
+      this.slideShow_1 = (contentSpeed - 750) / 1.2;
+    }
+
+    if (contentSpeed > 1220) {
+      this.slideShow_1 = 390;
+    }
+
+    if (contentSpeed < 2900) {
+      this.slideHide_1 = 0;
+    }
+
+    if (contentSpeed > 2900 && contentSpeed < 3370) {
+      this.slideHide_1 = (contentSpeed - 2900) / -1.2;
+    }
+
+    if (contentSpeed > 3370) {
+      this.slideHide_1 = -390;
     }
   }
 }

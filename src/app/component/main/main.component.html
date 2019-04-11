@@ -35,8 +35,11 @@
              [style.left.vw]="elem.left"
              [style.top.vh]="elem.top">
 
-        <div class="slider-dots" *ngFor="let elem of items.slideGroup">
-
+        <div class="slider-switch" *ngFor="let nav of items.slideDots"
+             [style.marginLeft.px]="nav.stopSlide?(-slideOneLeft*nav.slideSpeed+slideDelay_1+slideDelay_2+slideDelay_3+slideDelay_4+slideDelay_5+slideDelay_6+slideDelay_7+slideDelay_8):(-slideOneLeft*nav.slideSpeed)">
+            <div class="slider-dots" *ngFor="let elem of ' '.repeat(9).split(''),  let x = index"
+            [class.slider-active]="nav.activeElement === x+1">
+            </div>
         </div>
       </div>
     </div>

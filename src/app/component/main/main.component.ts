@@ -53,19 +53,10 @@ export class MainComponent implements OnInit {
       slideDots: [
         {
           class: 'slide-photo',
-          src: 'slides/slide-2.png',
-          top: 20,
           slideSpeed: 0.6,
           stopSlide: true,
-          titleBanner: false,
-        },
-        {
-          class: 'banner',
-          src: 'banner/slide-2-title.png',
-          top: -58,
-          left: 39,
-          titleBanner: true,
-        },
+          activeElement: 1
+        }
       ]
     },
     // {
@@ -532,5 +523,27 @@ export class MainComponent implements OnInit {
     if (contentSpeed > 3370) {
       this.slideHide_1 = -390;
     }
+  }
+
+  public scrollTo(target?: string) {
+    const top = !target
+      ? 0
+      : (() => {
+        try {
+          const element: HTMLElement = document.querySelector(target);
+
+          if (element) {
+            return element.offsetTop - 100; // 100 - navbar height
+          }
+        } catch (e) {}
+
+        return 0;
+      })();
+
+    window.scrollTo({
+      behavior: 'smooth',
+      left: 0,
+      top,
+    });
   }
 }

@@ -1,8 +1,7 @@
 <div style="position: fixed; top: 50px; left: 50px; z-index: 100">
   mainPosition {{mainPosition}}<br>
 
-  slideShow_1 {{slideShow_1}}<br>
-  slideHide_1 {{slideHide_1}}<br>
+  navShow_1 {{navShow_1}}<br>
 
 </div>
 
@@ -17,7 +16,7 @@
 
     <div class="baner">
       <!--<img class="baner-img" src="../../../assets/images/banner/slide-2-banner.png" alt=""-->
-           <!--[style.marginTop.px]="banerTop + banerBottom">-->
+      <!--[style.marginTop.px]="banerTop + banerBottom">-->
     </div>
 
     <div class="slide">
@@ -36,10 +35,11 @@
              [style.top.vh]="elem.top">
 
         <div class="slider-switch" *ngFor="let nav of items.slideDots"
-             [style.marginLeft.px]="nav.stopSlide?(-slideOneLeft*nav.slideSpeed+slideDelay_1+slideDelay_2+slideDelay_3+slideDelay_4+slideDelay_5+slideDelay_6+slideDelay_7+slideDelay_8):(-slideOneLeft*nav.slideSpeed)">
-            <div class="slider-dots" *ngFor="let elem of ' '.repeat(9).split(''),  let x = index"
-            [class.slider-active]="nav.activeElement === x+1">
-            </div>
+             [style.marginLeft.px]="nav.stopSlide?(-slideOneLeft*nav.slideSpeed+slideDelay_1+slideDelay_2+slideDelay_3+slideDelay_4+slideDelay_5+slideDelay_6+slideDelay_7+slideDelay_8):(-slideOneLeft*nav.slideSpeed)"
+             [style.opacity]="navShow_1 + navHide_1">
+          <div class="slider-dots" *ngFor="let elem of ' '.repeat(9).split(''),  let x = index"
+               [class.slider-active]="nav.activeElement === x+1">
+          </div>
         </div>
       </div>
     </div>

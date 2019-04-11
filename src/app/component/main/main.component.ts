@@ -359,6 +359,11 @@ export class MainComponent implements OnInit {
   slideShow_1 = 0;
 
   slideHide_1 = 0;
+
+  navShow_1 = 0;
+
+  navHide_1 = 0;
+
   nloDelay = 0;
 
   mainPosition = 0;
@@ -502,26 +507,33 @@ export class MainComponent implements OnInit {
 
     if (contentSpeed < 750) {
       this.slideShow_1 = 0;
+      this.navShow_1 = 0;
     }
 
     if (contentSpeed > 750 && contentSpeed < 1220) {
       this.slideShow_1 = (contentSpeed - 750) / 1.2;
+      this.navShow_1 = (contentSpeed - 750) / 470;
     }
 
     if (contentSpeed > 1220) {
       this.slideShow_1 = 390;
+      this.navShow_1 = 1;
     }
 
     if (contentSpeed < 2900) {
       this.slideHide_1 = 0;
+      this.navHide_1 = 0;
     }
 
     if (contentSpeed > 2900 && contentSpeed < 3370) {
       this.slideHide_1 = (contentSpeed - 2900) / -1.2;
+      this.navHide_1 = (contentSpeed - 2900) / -470;
+
     }
 
     if (contentSpeed > 3370) {
       this.slideHide_1 = -390;
+      this.navHide_1 = -1;
     }
   }
 

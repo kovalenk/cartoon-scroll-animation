@@ -1,5 +1,4 @@
 
-
 .app-main {
   overflow-x: hidden;
   height: 31590px;
@@ -59,26 +58,137 @@
       display: none;
     }
 
-    .slide{
-      &-group{
+    .slide {
+      &-group {
         position: relative;
       }
 
-      &-link{
+      &-link {
         position: relative;
         width: 8vw;
         height: 5vh;
         margin-top: 66vh;
         padding-left: 45vw;
 
-        a{
+        a {
           font-size: 34px;
           padding: 5px 10px;
           color: rgba(221, 221, 221, 0);
         }
       }
-    }
 
+      &-baners {
+        width: 56vw;
+        height: 67vh;
+
+        position: fixed;
+      }
+
+      &-extra-info {
+        margin-top: 12vh;
+        padding-left: 63vh;
+        position: absolute;
+
+        .nav-items {
+          position: absolute;
+          top: 21vh;
+          left: 44vw;
+          display: flex;
+
+          .prev {
+            background-image: url(../../../assets/images/sprite.png);
+            background-position: -2287px -1091px;
+
+            width: 37px;
+            height: 39px;
+            cursor: pointer;
+
+            &:hover {
+              background-position: -2328px -1091px;
+            }
+          }
+
+          .prev-hide {
+            opacity: .5;
+
+            &:hover {
+              background-position: -2287px -1091px !important;
+            }
+          }
+
+          .next {
+            background-image: url(../../../assets/images/sprite.png);
+            background-position: -2406px -732px;
+
+            width: 37px;
+            height: 39px;
+            margin-left: 14px;
+            cursor: pointer;
+
+            &:hover {
+              background-position: -2406px -777px;
+            }
+          }
+        }
+
+        .nav-info{
+          position: absolute;
+          top: 52.5vh;
+          left: 40.5vw;
+          display: flex;
+
+          .cafes{
+            background-image: url(../../../assets/images/sprite.png);
+
+            background-position: -2289px -1045px;
+            width: 39px;
+            height: 40px;
+
+            cursor: pointer;
+
+            &:hover {
+              background-position: -2395px -328px;
+            }
+          }
+
+          .places{
+            background-image: url(../../../assets/images/sprite.png);
+            background-position: -2394px -374px;
+
+            width: 42px;
+            height: 43px;
+            cursor: pointer;
+
+            margin: 0 20px;
+            &:hover {
+              background-position: -2334px -1045px;
+            }
+          }
+
+          .advanced{
+            background-image: url(../../../assets/images/sprite.png);
+            background-position: -2394px -282px;
+
+            width: 42px;
+            height: 40px;
+            cursor: pointer;
+
+            &:hover {
+              background-position: -2380px -1045px;
+            }
+          }
+        }
+        .praga {
+          top: 20vh;
+          position: relative;
+
+          .decoration {
+            position: absolute;
+            left: 18vw;
+          }
+        }
+      }
+    }
 
     .home-slider {
       width: 51vw;

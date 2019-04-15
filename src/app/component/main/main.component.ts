@@ -92,16 +92,33 @@ export class MainComponent implements OnInit {
     },
     {
       class: 'slide-4',
-      left: 297,
+      left: 290,
       top: 0,
       slideGroup: [
         {
-          class: 'slide-photo',
+          class: 'slide-baners',
           src: 'slides/slide-4.png',
           top: 20,
           slideSpeed: 0.6,
           stopSlide: true,
           titleBanner: false,
+          extraInfo: [
+            {
+              class: 'praga',
+              top: '',
+              left: '',
+              group: [
+                {
+                  class: 'decoration',
+                  src: 'praga-wild.png',
+                },
+                {
+                  class: 'description',
+                  src: 'praga.png',
+                },
+              ]
+            },
+          ]
         },
         {
           class: 'banner',
@@ -528,21 +545,26 @@ export class MainComponent implements OnInit {
 
   slideShow_1 = 0;
   slideShow_2 = 0;
+  slideShow_3 = 0;
 
   slideHide_1 = 0;
   slideHide_2 = 0;
+  slideHide_3 = 0;
 
   navShow_1 = 0;
   navShow_2 = 0;
+  navShow_3 = 0;
 
   navHide_1 = 0;
   navHide_2 = 0;
+  navHide_3 = 0;
 
   nloDelay = 0;
 
   mainPosition = 0;
 
   currentSlide = 0;
+
   constructor() {
   }
 
@@ -746,6 +768,39 @@ export class MainComponent implements OnInit {
       this.navHide_2 = -1;
     }
 
+
+    if (contentSpeed < 5850) {
+      this.slideShow_3 = 0;
+      this.navShow_3 = 0;
+    }
+
+    if (contentSpeed > 5850 && contentSpeed < 6100) {
+      this.slideShow_3 = (contentSpeed - 5850) / 0.6;
+      this.navShow_3 = (contentSpeed - 5850) / 250;
+      this.currentSlide = 3;
+    }
+
+    if (contentSpeed > 6100) {
+      this.slideShow_3 = 416;
+      this.navShow_3 = 1;
+    }
+
+
+    if (contentSpeed < 7500) {
+      this.slideHide_3 = 0;
+      this.navHide_3 = 0;
+    }
+
+    if (contentSpeed > 7500 && contentSpeed < 7750) {
+      this.slideHide_3 = (contentSpeed - 7500) / -0.6;
+      this.navHide_3 = (contentSpeed - 7500) / -250;
+      this.currentSlide = 3;
+    }
+
+    if (contentSpeed > 7750) {
+      this.slideHide_3 = -416;
+      this.navHide_3 = -1;
+    }
   }
 
   public scrollTo(target?: string) {
@@ -758,7 +813,8 @@ export class MainComponent implements OnInit {
           if (element) {
             return element.offsetTop - 100; // 100 - navbar height
           }
-        } catch (e) {}
+        } catch (e) {
+        }
 
         return 0;
       })();

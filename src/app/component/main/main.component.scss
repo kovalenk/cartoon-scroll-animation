@@ -1,3 +1,5 @@
+
+
 .app-main {
   overflow-x: hidden;
   height: 31590px;
@@ -6,6 +8,10 @@
 .app-main-loading {
   overflow: hidden !important;
   height: 0;
+}
+
+.show {
+  display: block !important;
 }
 
 .loading {
@@ -48,9 +54,31 @@
       position: fixed;
     }
 
-    .banner{
+    .banner {
       position: fixed;
+      display: none;
     }
+
+    .slide{
+      &-group{
+        position: relative;
+      }
+
+      &-link{
+        position: relative;
+        width: 8vw;
+        height: 5vh;
+        margin-top: 66vh;
+        padding-left: 45vw;
+
+        a{
+          font-size: 34px;
+          padding: 5px 10px;
+          color: rgba(221, 221, 221, 0);
+        }
+      }
+    }
+
 
     .home-slider {
       width: 51vw;
@@ -59,7 +87,7 @@
       position: fixed;
     }
 
-    .slide-photo {
+    .hands {
       width: 64vw;
       height: 81vh;
 
@@ -285,9 +313,9 @@
 
 }
 
-.slider{
+.slider {
 
-  &-switch{
+  &-switch {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -297,7 +325,7 @@
     bottom: 15vh;
   }
 
-  &-dots{
+  &-dots {
     margin: 0 14px;
 
     width: 21px;
@@ -306,12 +334,12 @@
 
     cursor: pointer;
 
-    &:hover{
+    &:hover {
       background-image: url(../../../assets/images/nav/slider-nav-hover.png);
     }
   }
 
-  &-active{
+  &-active {
     width: 37px;
     height: 40px;
 
@@ -320,7 +348,7 @@
 
     background-image: url(../../../assets/images/nav/slider-nav-active.png);
 
-    &:hover{
+    &:hover {
       background-image: url(../../../assets/images/nav/slider-nav-active.png) !important;
     }
   }

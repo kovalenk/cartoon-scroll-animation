@@ -35,15 +35,16 @@ export class MainComponent implements OnInit {
       top: 0,
       slideGroup: [
         {
-          class: 'slide-photo',
+          class: 'hands',
           src: 'slides/slide-2.png',
           top: 20,
           slideSpeed: 0.6,
           stopSlide: true,
           titleBanner: false,
+          link: 'http://www.tatar-inform.ru/news/2014/07/30/416350/',
         },
         {
-          class: 'banner',
+          banner: true,
           src: 'banner/slide-2-title.png',
           top: -58,
           left: 39,
@@ -59,70 +60,239 @@ export class MainComponent implements OnInit {
         }
       ]
     },
-    // {
-    //   class: 'slide-3',
-    //   src: 'slide-3',
-    //   left: 200,
-    //   top: 20,
-    //   slideSpeed: 0.6,
-    //   stopSlide: true
-    // },
-    // {
-    //   class: 'slide-4',
-    //   src: 'slide-4',
-    //   left: 297,
-    //   top: 20,
-    //   slideSpeed: 0.6,
-    //   stopSlide: true
-    // },
-    // {
-    //   class: 'slide-5',
-    //   src: 'slide-5',
-    //   left: 397,
-    //   top: 16,
-    //   slideSpeed: 0.6,
-    //   stopSlide: true
-    // },
-    // {
-    //   class: 'slide-6',
-    //   src: 'slide-6',
-    //   left: 490,
-    //   top: 16,
-    //   slideSpeed: 0.6,
-    //   stopSlide: true
-    // },
-    // {
-    //   class: 'slide-7',
-    //   src: 'slide-7-building',
-    //   left: 627,
-    //   top: -20,
-    //   slideSpeed: 0.6,
-    //   stopSlide: true
-    // },
-    // {
-    //   class: 'slide-2',
-    //   src: 'slide-8',
-    //   left: 691,
-    //   top: 21,
-    //   slideSpeed: 0.6,
-    //   stopSlide: true
-    // },
-    // {
-    //   class: 'slide-9',
-    //   src: 'slide-9',
-    //   left: 794,
-    //   top: 21,
-    //   slideSpeed: 0.6,
-    //   stopSlide: true
-    // },
-    // {
-    //   class: 'slide-10',
-    //   src: 'slide-10',
-    //   left: 945,
-    //   top: 18,
-    //   slideSpeed: 0.4,
-    //   stopSlide: false
-    // },
+    {
+      class: 'slide-3',
+      left: 200,
+      top: 0,
+      slideGroup: [
+        {
+          class: 'hands',
+          src: 'slides/slide-3.png',
+          top: 20,
+          slideSpeed: 0.6,
+          stopSlide: true,
+          titleBanner: false,
+        },
+        {
+          banner: true,
+          src: 'banner/slide-3-title.png',
+          top: -58,
+          left: 39,
+          titleBanner: true,
+        },
+      ],
+      slideDots: [
+        {
+          class: 'slide-photo',
+          slideSpeed: 0.6,
+          stopSlide: true,
+          activeElement: 2
+        }
+      ]
+    },
+    {
+      class: 'slide-4',
+      left: 297,
+      top: 0,
+      slideGroup: [
+        {
+          class: 'slide-photo',
+          src: 'slides/slide-4.png',
+          top: 20,
+          slideSpeed: 0.6,
+          stopSlide: true,
+          titleBanner: false,
+        },
+        {
+          class: 'banner',
+          src: 'banner/slide-4-title.png',
+          top: -58,
+          left: 39,
+          titleBanner: true,
+        },
+      ],
+      slideDots: [
+        {
+          class: 'slide-photo',
+          slideSpeed: 0.6,
+          stopSlide: true,
+          activeElement: 3
+        }
+      ]
+    },
+    {
+      class: 'slide-5',
+      left: 397,
+      top: 0,
+      slideGroup: [
+        {
+          class: 'slide-photo',
+          src: 'slides/slide-5.png',
+          top: 20,
+          slideSpeed: 0.6,
+          stopSlide: true,
+          titleBanner: false,
+        },
+        {
+          class: 'banner',
+          src: 'banner/slide-5-title.png',
+          top: -58,
+          left: 39,
+          titleBanner: true,
+        },
+      ],
+      slideDots: [
+        {
+          class: 'slide-photo',
+          slideSpeed: 0.6,
+          stopSlide: true,
+          activeElement: 3
+        }
+      ]
+    },
+    {
+      class: 'slide-6',
+      left: 490,
+      top: 0,
+      slideGroup: [
+        {
+          class: 'slide-photo',
+          src: 'slides/slide-6.png',
+          top: 20,
+          slideSpeed: 0.6,
+          stopSlide: true,
+          titleBanner: false,
+        },
+        {
+          class: 'banner',
+          src: 'banner/slide-6-title.png',
+          top: -58,
+          left: 39,
+          titleBanner: true,
+        },
+      ],
+      slideDots: [
+        {
+          class: 'slide-photo',
+          slideSpeed: 0.6,
+          stopSlide: true,
+          activeElement: 3
+        }
+      ]
+    },
+    {
+      class: 'slide-7',
+      left: 627,
+      top: 0,
+      slideGroup: [
+        {
+          class: 'slide-photo',
+          src: 'slides/slide-7-building.png',
+          top: -20,
+          slideSpeed: 0.6,
+          stopSlide: true,
+          titleBanner: false,
+        },
+        {
+          class: 'banner',
+          src: 'banner/slide-7-title.png',
+          top: -58,
+          left: 39,
+          titleBanner: true,
+        },
+      ],
+      slideDots: [
+        {
+          class: 'slide-photo',
+          slideSpeed: 0.6,
+          stopSlide: true,
+          activeElement: 3
+        }
+      ]
+    },
+    {
+      class: 'slide-8',
+      left: 691,
+      top: 0,
+      slideGroup: [
+        {
+          class: 'slide-photo',
+          src: 'slides/slide-8.png',
+          top: -20,
+          slideSpeed: 0.6,
+          stopSlide: true,
+          titleBanner: false,
+        },
+        {
+          class: 'banner',
+          src: 'banner/slide-8-title.png',
+          top: -58,
+          left: 39,
+          titleBanner: true,
+        },
+      ],
+      slideDots: [
+        {
+          class: 'slide-photo',
+          slideSpeed: 0.6,
+          stopSlide: true,
+          activeElement: 3
+        }
+      ]
+    },
+    {
+      class: 'slide-9',
+      left: 794,
+      top: 0,
+      slideGroup: [
+        {
+          class: 'slide-photo',
+          src: 'slides/slide-9.png',
+          top: -20,
+          slideSpeed: 0.6,
+          stopSlide: true,
+          titleBanner: false,
+        },
+        {
+          class: 'banner',
+          src: 'banner/slide-9-title.png',
+          top: -58,
+          left: 39,
+          titleBanner: true,
+        },
+      ],
+      slideDots: [
+        {
+          class: 'slide-photo',
+          slideSpeed: 0.6,
+          stopSlide: true,
+          activeElement: 3
+        }
+      ]
+    },
+    {
+      class: 'slide-10',
+      left: 945,
+      top: 0,
+      slideGroup: [
+        {
+          class: 'slide-photo',
+          src: 'slides/slide-10.png',
+          top: -20,
+          slideSpeed: 0.6,
+          stopSlide: false,
+          titleBanner: false,
+        },
+      ],
+      slideDots: [
+        {
+          class: 'slide-photo',
+          slideSpeed: 0.6,
+          stopSlide: true,
+          activeElement: 3
+        }
+      ]
+    },
   ];
   cloudGroup = [
     {
@@ -357,17 +527,22 @@ export class MainComponent implements OnInit {
 
 
   slideShow_1 = 0;
+  slideShow_2 = 0;
 
   slideHide_1 = 0;
+  slideHide_2 = 0;
 
   navShow_1 = 0;
+  navShow_2 = 0;
 
   navHide_1 = 0;
+  navHide_2 = 0;
 
   nloDelay = 0;
 
   mainPosition = 0;
 
+  currentSlide = 0;
   constructor() {
   }
 
@@ -505,36 +680,72 @@ export class MainComponent implements OnInit {
 
     // banner show hide
 
-    if (contentSpeed < 750) {
+    if (contentSpeed < 900) {
       this.slideShow_1 = 0;
       this.navShow_1 = 0;
+      this.currentSlide = 0;
+
     }
 
-    if (contentSpeed > 750 && contentSpeed < 1220) {
-      this.slideShow_1 = (contentSpeed - 750) / 1.2;
-      this.navShow_1 = (contentSpeed - 750) / 470;
+    if (contentSpeed > 900 && contentSpeed < 1150) {
+      this.slideShow_1 = (contentSpeed - 900) / 0.6;
+      this.navShow_1 = (contentSpeed - 900) / 250;
+      this.currentSlide = 1;
     }
 
-    if (contentSpeed > 1220) {
-      this.slideShow_1 = 390;
+    if (contentSpeed > 1150) {
+      this.slideShow_1 = 416;
       this.navShow_1 = 1;
     }
 
-    if (contentSpeed < 2900) {
+    if (contentSpeed < 2800) {
       this.slideHide_1 = 0;
       this.navHide_1 = 0;
     }
 
-    if (contentSpeed > 2900 && contentSpeed < 3370) {
-      this.slideHide_1 = (contentSpeed - 2900) / -1.2;
-      this.navHide_1 = (contentSpeed - 2900) / -470;
-
+    if (contentSpeed > 2800 && contentSpeed < 3050) {
+      this.slideHide_1 = (contentSpeed - 2800) / -0.6;
+      this.navHide_1 = (contentSpeed - 2800) / -250;
+      this.currentSlide = 1;
     }
 
-    if (contentSpeed > 3370) {
-      this.slideHide_1 = -390;
+    if (contentSpeed > 3050) {
+      this.slideHide_1 = -416;
       this.navHide_1 = -1;
     }
+
+    if (contentSpeed < 3500) {
+      this.slideShow_2 = 0;
+      this.navShow_2 = 0;
+    }
+
+    if (contentSpeed > 3250 && contentSpeed < 3500) {
+      this.slideShow_2 = (contentSpeed - 3250) / 0.6;
+      this.navShow_2 = (contentSpeed - 3250) / 250;
+      this.currentSlide = 2;
+    }
+
+    if (contentSpeed > 3500) {
+      this.slideShow_2 = 416;
+      this.navShow_2 = 1;
+    }
+
+    if (contentSpeed < 5100) {
+      this.slideHide_2 = 0;
+      this.navHide_2 = 0;
+    }
+
+    if (contentSpeed > 5100 && contentSpeed < 5350) {
+      this.slideHide_2 = (contentSpeed - 5100) / -0.6;
+      this.navHide_2 = (contentSpeed - 5100) / -250;
+      this.currentSlide = 2;
+    }
+
+    if (contentSpeed > 5350) {
+      this.slideHide_2 = -416;
+      this.navHide_2 = -1;
+    }
+
   }
 
   public scrollTo(target?: string) {

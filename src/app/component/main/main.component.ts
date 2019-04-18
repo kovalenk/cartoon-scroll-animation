@@ -14,6 +14,7 @@ export class MainComponent implements OnInit {
   slideOneLeft = 0;
 
   myCoordinates = 0;
+  slide_4TabsCounter = 0;
   loading: any;
 
   showCloudModal = false;
@@ -110,6 +111,7 @@ export class MainComponent implements OnInit {
           titleBanner: false,
           extraInfo: [
             {
+              id: '0',
               class: 'praga',
               top: '',
               left: '',
@@ -135,6 +137,183 @@ export class MainComponent implements OnInit {
                 {
                   id: '3',
                   src: 'praga-b-3.png'
+                },
+              ]
+            },
+
+            {
+              id: '1',
+              class: 'london',
+              top: '',
+              left: '',
+              group: [
+                {
+                  class: 'decoration',
+                  src: 'london-wild.png',
+                },
+                {
+                  class: 'description',
+                  src: 'london.png',
+                },
+              ],
+              infoModals: [
+                {
+                  id: '1',
+                  src: 'london-b-1.png'
+                },
+                {
+                  id: '2',
+                  src: 'london-b-2.png'
+                },
+                {
+                  id: '3',
+                  src: 'london-b-3.png'
+                },
+              ]
+            },
+            {
+              id: '2',
+              class: 'edinburg',
+              top: '',
+              left: '',
+              group: [
+                {
+                  class: 'decoration',
+                  src: 'edinburg-wild.png',
+                },
+                {
+                  class: 'description',
+                  src: 'edinburg.png',
+                },
+              ],
+              infoModals: [
+                {
+                  id: '1',
+                  src: 'edinburg-b-1.png'
+                },
+                {
+                  id: '2',
+                  src: 'edinburg-b-2.png'
+                },
+                {
+                  id: '3',
+                  src: 'edinburg-b-3.png'
+                },
+              ]
+            },
+            {
+              id: '3',
+              class: 'ierusalim',
+              top: '',
+              left: '',
+              group: [
+                {
+                  class: 'decoration',
+                  src: 'ierusalim-wild.png',
+                },
+                {
+                  class: 'description',
+                  src: 'ierusalim.png',
+                },
+              ],
+              infoModals: [
+                {
+                  id: '1',
+                  src: 'ierusalim-b-1.png'
+                },
+                {
+                  id: '2',
+                  src: 'ierusalim-b-2.png'
+                },
+                {
+                  id: '3',
+                  src: 'ierusalim-b-3.png'
+                },
+              ]
+            },
+            {
+              id: '4',
+              class: 'singapur',
+              top: '',
+              left: '',
+              group: [
+                {
+                  class: 'decoration',
+                  src: 'singapur-wild.png',
+                },
+                {
+                  class: 'description',
+                  src: 'singapur.png',
+                },
+              ],
+              infoModals: [
+                {
+                  id: '1',
+                  src: 'singapur-b-1.png'
+                },
+                {
+                  id: '2',
+                  src: 'singapur-b-2.png'
+                },
+                {
+                  id: '3',
+                  src: 'singapur-b-3.png'
+                },
+              ]
+            },
+            {
+              id: '5',
+              class: 'sandiego',
+              top: '',
+              left: '',
+              group: [
+                {
+                  class: 'decoration',
+                  src: 'sandiego-wild.png',
+                },
+                {
+                  class: 'description',
+                  src: 'sandiego.png',
+                },
+              ],
+              infoModals: [
+                {
+                  id: '1',
+                  src: 'sandiego-b-1.png'
+                },
+                {
+                  id: '2',
+                  src: 'sandiego-b-2.png'
+                },
+                {
+                  id: '3',
+                  src: 'sandiego-b-3.png'
+                },
+              ]
+            },
+            {
+              id: '6',
+              class: 'moscow',
+              top: '',
+              left: '',
+              group: [
+                {
+                  class: 'decoration',
+                  src: 'moscow-wild.png',
+                },
+                {
+                  class: 'description',
+                  src: 'moscow.png',
+                },
+              ],
+              infoModals: [
+                {
+                  id: '1',
+                  src: 'moscow-b-1.png'
+                },
+                {
+                  id: '3',
+                  src: 'moscow-b-3.png'
                 },
               ]
             },
@@ -820,6 +999,18 @@ export class MainComponent implements OnInit {
     if (contentSpeed > 7750) {
       this.slideHide_3 = -416;
       this.navHide_3 = -1;
+    }
+  }
+
+  prevTab(status) {
+    if (status !== true) {
+      this.slide_4TabsCounter -= 1;
+    }
+  }
+
+  nextTab(status) {
+    if (status !== true) {
+      this.slide_4TabsCounter += 1;
     }
   }
 

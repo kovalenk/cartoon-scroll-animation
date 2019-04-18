@@ -65,6 +65,96 @@
     .slide {
       &-group {
         position: relative;
+
+        .praga {
+          top: 20vh;
+          position: relative;
+
+          display: none;
+
+          .decoration {
+            position: absolute;
+            right: -6vw;
+          }
+        }
+
+        .london {
+          top: 20vh;
+          position: relative;
+
+          display: none;
+
+          .decoration {
+            position: absolute;
+            left: 4vw;
+            top: -18vh;
+          }
+        }
+
+        .edinburg {
+          top: 20vh;
+          position: relative;
+
+          display: none;
+
+          .decoration {
+            position: absolute;
+            left: -3vw;
+            top: 26vh;
+          }
+        }
+
+        .ierusalim {
+          top: 20vh;
+          position: relative;
+
+          display: none;
+
+          .decoration {
+            position: absolute;
+            left: -2vw;
+            top: -26vh;
+          }
+        }
+
+        .singapur {
+          top: 20vh;
+          position: relative;
+
+          display: none;
+
+          .decoration {
+            position: absolute;
+            left: 1vw;
+            top: -14vh;
+          }
+        }
+
+        .sandiego {
+          top: 20vh;
+          position: relative;
+
+          display: none;
+
+          .decoration {
+            position: absolute;
+            left: -5vw;
+            top: 4vh;
+          }
+        }
+
+        .moscow {
+          top: 20vh;
+          position: relative;
+
+          display: none;
+
+          .decoration {
+            position: absolute;
+            left: -5vw;
+            top: 26vh;
+          }
+        }
       }
 
       &-link {
@@ -90,8 +180,13 @@
 
       &-extra-info {
         margin-top: 12vh;
-        padding-left: 63vh;
+        padding-left: 32vw;
         position: absolute;
+        width: 18vw;
+
+        >div{
+          position: relative;
+        }
 
         .cloud{
 
@@ -103,8 +198,8 @@
             height: 462px;
 
             position: absolute;
-            top: 10vh;
-            left: 23vw;
+            top: -10vh;
+            left: -8vw;
 
             display: none;
 
@@ -134,8 +229,8 @@
 
         .nav-items {
           position: absolute;
-          top: 21vh;
-          left: 44vw;
+          top: 1vh;
+          right: 1vw;
           display: flex;
 
           .prev {
@@ -172,12 +267,20 @@
               background-position: -2406px -777px;
             }
           }
+
+          .next-hide {
+            opacity: .5;
+
+            &:hover {
+              background-position: -2406px -732px !important;
+            }
+          }
         }
 
         .nav-info{
           position: absolute;
-          top: 52.5vh;
-          left: 40.5vw;
+          bottom: -0.5vh;
+          right: 1.5vw;
           display: flex;
 
           .cafes{
@@ -202,7 +305,7 @@
             height: 43px;
             cursor: pointer;
 
-            margin: 0 20px;
+            margin: 0 16px;
             &:hover {
               background-position: -2334px -1045px;
             }
@@ -219,15 +322,6 @@
             &:hover {
               background-position: -2380px -1045px;
             }
-          }
-        }
-        .praga {
-          top: 20vh;
-          position: relative;
-
-          .decoration {
-            position: absolute;
-            left: 18vw;
           }
         }
       }

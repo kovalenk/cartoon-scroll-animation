@@ -37,50 +37,62 @@
                [style.top.vh]="elem.top">
 
 
-          <div class="slide-extra-info"
-               *ngFor="let data of elem.extraInfo, let id = index"
-               [style.marginLeft.px]="elem.stopSlide?(-slideOneLeft*elem.slideSpeed+slideDelay_1+slideDelay_2+slideDelay_3+slideDelay_4+slideDelay_5+slideDelay_6+slideDelay_7+slideDelay_8):(-slideOneLeft*elem.slideSpeed)">
-            <div [class]="data.class"
-                 [style.left.vw]="elem.left"
-                 [style.top.vh]="elem.top"
-            >
+          <div *ngFor="let data of elem.extraInfo, let id = index"
+               class="slide-extra-info {{data.class}}"
+               [class.show]="slide_4TabsCounter === id"
+               [style.left.vw]="elem.left"
+               [style.top.vh]="elem.top"
+               [ngSwitch]="data.id"
+               [style.marginLeft.px]="elem.stopSlide?(-slideOneLeft*elem.slideSpeed+slideDelay_1+slideDelay_2+slideDelay_3+slideDelay_4+slideDelay_5+slideDelay_6+slideDelay_7+slideDelay_8):(-slideOneLeft*elem.slideSpeed)"
+          >
+
+            <div *ngSwitchCase=data.id >
               <img *ngFor="let item of data.group"
                    [class]="item.class"
                    src="../../../assets/images/countries/{{item.src}}"
                    alt="">
-            </div>
-            <div class="nav-items">
-              <div class="prev" [class.prev-hide]="id === 0"></div>
-              <div class="next"></div>
-            </div>
-            <div class="nav-info">
-              <div class="cafes" (click)="showCloudModal = true; showCafes = true;">
+
+              <div class="nav-items">
+                <div class="prev"
+                     [class.prev-hide]="id === 0"
+                     (click)="prevTab(id === 0)"></div>
+                <div class="next"
+                     [class.next-hide]="id === elem.extraInfo.length-1"
+                     (click)="nextTab(id === elem.extraInfo.length-1)"></div>
               </div>
-              <div class="places" (click)="showCloudModal = true; showPlaces = true;">
+
+              <div class="nav-info">
+                <div class="cafes" (click)="showCloudModal = true; showCafes = true;">
+                </div>
+                <div class="places" (click)="showCloudModal = true; showPlaces = true;">
+                </div>
+                <div class="advanced" (click)="showCloudModal = true; showAdvanced = true;">
+                </div>
               </div>
-              <div class="advanced" (click)="showCloudModal = true; showAdvanced = true;">
-              </div>
-            </div>
-            <div class="cloud-modal" [class.show]=showCloudModal>
-              <div *ngFor="let modal of data.infoModals"
-                   [ngSwitch]="modal.id">
-                <img *ngSwitchCase="1"
-                     src="../../../assets/images/countries/{{modal.src}}"
-                     alt=""
-                     class="cloud-description"
-                     [class.show]="showCafes">
-                <img *ngSwitchCase="2"
-                     src="../../../assets/images/countries/{{modal.src}}"
-                     alt=""
-                     class="cloud-description"
-                     [class.show]="showPlaces">
-                <img *ngSwitchCase="3"
-                     src="../../../assets/images/countries/{{modal.src}}"
-                     alt=""
-                     class="cloud-description"
-                     [class.show]="showAdvanced">
-              </div>
-              <div class="modal-close" (click)="showCloudModal= false; showCafes= false; showPlaces= false; showAdvanced = false">
+
+              <div class="cloud-modal" [class.show]=showCloudModal>
+                <div *ngFor="let modal of data.infoModals"
+                     [ngSwitch]="modal.id">
+                  <img *ngSwitchCase="1"
+                       src="../../../assets/images/countries/{{modal.src}}"
+                       alt=""
+                       class="cloud-description"
+                       [class.show]="showCafes">
+                  <img *ngSwitchCase="2"
+                       src="../../../assets/images/countries/{{modal.src}}"
+                       alt=""
+                       class="cloud-description"
+                       [class.show]="showPlaces">
+                  <img *ngSwitchCase="3"
+                       src="../../../assets/images/countries/{{modal.src}}"
+                       alt=""
+                       class="cloud-description"
+                       [class.show]="showAdvanced">
+                </div>
+
+                <div class="modal-close"
+                     (click)="showCloudModal= false; showCafes= false; showPlaces= false; showAdvanced = false">
+                </div>
               </div>
             </div>
           </div>

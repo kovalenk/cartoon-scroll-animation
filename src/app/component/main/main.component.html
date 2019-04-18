@@ -54,11 +54,33 @@
               <div class="next"></div>
             </div>
             <div class="nav-info">
-              <div class="cafes">
+              <div class="cafes" (click)="showCloudModal = true; showCafes = true;">
               </div>
-              <div class="places">
+              <div class="places" (click)="showCloudModal = true; showPlaces = true;">
               </div>
-              <div class="advanced">
+              <div class="advanced" (click)="showCloudModal = true; showAdvanced = true;">
+              </div>
+            </div>
+            <div class="cloud-modal" [class.show]=showCloudModal>
+              <div *ngFor="let modal of data.infoModals"
+                   [ngSwitch]="modal.id">
+                <img *ngSwitchCase="1"
+                     src="../../../assets/images/countries/{{modal.src}}"
+                     alt=""
+                     class="cloud-description"
+                     [class.show]="showCafes">
+                <img *ngSwitchCase="2"
+                     src="../../../assets/images/countries/{{modal.src}}"
+                     alt=""
+                     class="cloud-description"
+                     [class.show]="showPlaces">
+                <img *ngSwitchCase="3"
+                     src="../../../assets/images/countries/{{modal.src}}"
+                     alt=""
+                     class="cloud-description"
+                     [class.show]="showAdvanced">
+              </div>
+              <div class="modal-close" (click)="showCloudModal= false; showCafes= false; showPlaces= false; showAdvanced = false">
               </div>
             </div>
           </div>

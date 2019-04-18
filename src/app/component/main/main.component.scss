@@ -13,6 +13,10 @@
   display: block !important;
 }
 
+.hide{
+  display: none !important;
+}
+
 .loading {
   &-container {
     position: fixed;
@@ -88,6 +92,45 @@
         margin-top: 12vh;
         padding-left: 63vh;
         position: absolute;
+
+        .cloud{
+
+          &-modal{
+            background-image: url(../../../assets/images/sprite.png);
+            background-position: -784px -1567px;
+
+            width: 606px;
+            height: 462px;
+
+            position: absolute;
+            top: 10vh;
+            left: 23vw;
+
+            display: none;
+
+            .modal-close {
+              background-image: url(../../../assets/images/sprite.png);
+              background-position: -2370px -1091px;
+
+              width: 37px;
+              height: 39px;
+              cursor: pointer;
+
+              position: absolute;
+              top:0;
+              right: 2vw;
+
+              &:hover {
+                background-position: -2368px -1137px;
+              }
+            }
+          }
+
+          &-description{
+            display: none;
+          }
+        }
+
 
         .nav-items {
           position: absolute;

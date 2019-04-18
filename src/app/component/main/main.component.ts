@@ -15,6 +15,12 @@ export class MainComponent implements OnInit {
 
   myCoordinates = 0;
   loading: any;
+
+  showCloudModal = false;
+  showCafes = false;
+  showPlaces = false;
+  showAdvanced = false;
+
   sliderElements = [
     {
       class: 'slide-1',
@@ -115,6 +121,20 @@ export class MainComponent implements OnInit {
                 {
                   class: 'description',
                   src: 'praga.png',
+                },
+              ],
+              infoModals: [
+                {
+                  id: '1',
+                  src: 'praga-b-1.png'
+                },
+                {
+                  id: '2',
+                  src: 'praga-b-2.png'
+                },
+                {
+                  id: '3',
+                  src: 'praga-b-3.png'
                 },
               ]
             },

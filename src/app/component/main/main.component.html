@@ -29,7 +29,7 @@
         <div class="slide-group" *ngFor="let elem of items.slideGroup">
           <img [class]="elem.banner?'banner': elem.class"
                [class.show]="currentSlide === x"
-               [style.marginTop.px]="elem.titleBanner? slideShow_1 + slideHide_1+ slideShow_2 + slideHide_2 + slideShow_3 + slideHide_3: ''"
+               [style.marginTop.px]="elem.titleBanner? slideShow_1 + slideHide_1+ slideShow_2 + slideHide_2 + slideShow_3 + slideHide_3 + slideShow_4 + slideHide_4: ''"
                [style.marginLeft.px]="elem.stopSlide?(-slideOneLeft*elem.slideSpeed+slideDelay_1+slideDelay_2+slideDelay_3+slideDelay_4+slideDelay_5+slideDelay_6+slideDelay_7+slideDelay_8):(-slideOneLeft*elem.slideSpeed)"
                src="../../../assets/images/{{elem.src}}"
                alt=""
@@ -105,7 +105,7 @@
 
         <div class="slider-switch" *ngFor="let nav of items.slideDots"
              [style.marginLeft.px]="nav.stopSlide?(-slideOneLeft*nav.slideSpeed+slideDelay_1+slideDelay_2+slideDelay_3+slideDelay_4+slideDelay_5+slideDelay_6+slideDelay_7+slideDelay_8):(-slideOneLeft*nav.slideSpeed)"
-             [style.opacity]="navShow_1 + navHide_1 + navShow_2 + navHide_2 + navShow_3 + navHide_3">
+             [style.opacity]="navShow_1 + navHide_1 + navShow_2 + navHide_2 + navShow_3 + navHide_3 + navShow_4 + navHide_4">
           <div class="slider-dots" *ngFor="let elem of ' '.repeat(9).split(''),  let x = index"
                [class.slider-active]="nav.activeElement === x+1"
                (click)="scrollTo()">

@@ -338,13 +338,13 @@ export class MainComponent implements OnInit {
     },
     {
       class: 'slide-5',
-      left: 397,
+      left: 392,
       top: 0,
       slideGroup: [
         {
-          class: 'slide-photo',
+          class: 'giraffes',
           src: 'slides/slide-5.png',
-          top: 20,
+          top: 18,
           slideSpeed: 0.6,
           stopSlide: true,
           titleBanner: false,
@@ -352,7 +352,7 @@ export class MainComponent implements OnInit {
         {
           class: 'banner',
           src: 'banner/slide-5-title.png',
-          top: -58,
+          top: -62,
           left: 39,
           titleBanner: true,
         },
@@ -362,7 +362,7 @@ export class MainComponent implements OnInit {
           class: 'slide-photo',
           slideSpeed: 0.6,
           stopSlide: true,
-          activeElement: 3
+          activeElement: 4
         }
       ]
     },
@@ -745,18 +745,22 @@ export class MainComponent implements OnInit {
   slideShow_1 = 0;
   slideShow_2 = 0;
   slideShow_3 = 0;
+  slideShow_4 = 0;
 
   slideHide_1 = 0;
   slideHide_2 = 0;
   slideHide_3 = 0;
+  slideHide_4 = 0;
 
   navShow_1 = 0;
   navShow_2 = 0;
   navShow_3 = 0;
+  navShow_4 = 0;
 
   navHide_1 = 0;
   navHide_2 = 0;
   navHide_3 = 0;
+  navHide_4 = 0;
 
   nloDelay = 0;
 
@@ -999,6 +1003,38 @@ export class MainComponent implements OnInit {
     if (contentSpeed > 7750) {
       this.slideHide_3 = -416;
       this.navHide_3 = -1;
+    }
+
+    if (contentSpeed < 8400) {
+      this.slideShow_4 = 0;
+      this.navShow_4 = 0;
+    }
+
+    if (contentSpeed > 8400 && contentSpeed < 8650) {
+      this.slideShow_4 = (contentSpeed - 8400) / 0.6;
+      this.navShow_4 = (contentSpeed - 8400) / 250;
+      this.currentSlide = 4;
+    }
+
+    if (contentSpeed > 8650) {
+      this.slideShow_4 = 416;
+      this.navShow_4 = 1;
+    }
+
+    if (contentSpeed < 10100) {
+      this.slideHide_4 = 0;
+      this.navHide_4 = 0;
+    }
+
+    if (contentSpeed > 10100 && contentSpeed < 10350) {
+      this.slideHide_4 = (contentSpeed - 10100) / -0.6;
+      this.navHide_4 = (contentSpeed - 10100) / -250;
+      this.currentSlide = 4;
+    }
+
+    if (contentSpeed > 10350) {
+      this.slideHide_4 = -416;
+      this.navHide_4 = -1;
     }
   }
 

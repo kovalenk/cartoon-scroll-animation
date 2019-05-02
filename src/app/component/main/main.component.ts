@@ -24,8 +24,9 @@ export class MainComponent implements OnInit {
 
   buildingAnimate = false;
   showFinalBuilding = false;
+  kong_animation = false;
 
-  navDotsscroll =[2400, 6000, 9500, 13000, 17000, 11900, 11900, 11900, 11900];
+  navDotsscroll = [2400, 6000, 9500, 13000, 17000, 20500, 11900, 11900, 11900];
   sliderElements = [
     {
       class: 'slide-1',
@@ -122,11 +123,11 @@ export class MainComponent implements OnInit {
               group: [
                 {
                   class: 'decoration',
-                  src: 'praga-wild.png',
+                  src: 'countries/praga-wild.png',
                 },
                 {
                   class: 'description',
-                  src: 'praga.png',
+                  src: 'countries/praga.png',
                 },
               ],
               infoModals: [
@@ -143,6 +144,293 @@ export class MainComponent implements OnInit {
                   src: 'praga-b-3.png'
                 },
               ]
+            },
+
+            {
+              id: '1',
+              class: 'london',
+              top: '',
+              left: '',
+              group: [
+                {
+                  class: 'decoration',
+                  src: 'countries/london-wild.png',
+                },
+                {
+                  class: 'description',
+                  src: 'countries/london.png',
+                },
+              ],
+              infoModals: [
+                {
+                  id: '1',
+                  src: 'london-b-1.png'
+                },
+                {
+                  id: '2',
+                  src: 'london-b-2.png'
+                },
+                {
+                  id: '3',
+                  src: 'london-b-3.png'
+                },
+              ]
+            },
+            {
+              id: '2',
+              class: 'edinburg',
+              top: '',
+              left: '',
+              group: [
+                {
+                  class: 'decoration',
+                  src: 'countries/edinburg-wild.png',
+                },
+                {
+                  class: 'description',
+                  src: 'countries/edinburg.png',
+                },
+              ],
+              infoModals: [
+                {
+                  id: '1',
+                  src: 'edinburg-b-1.png'
+                },
+                {
+                  id: '2',
+                  src: 'edinburg-b-2.png'
+                },
+                {
+                  id: '3',
+                  src: 'edinburg-b-3.png'
+                },
+              ]
+            },
+            {
+              id: '3',
+              class: 'ierusalim',
+              top: '',
+              left: '',
+              group: [
+                {
+                  class: 'decoration',
+                  src: 'countries/ierusalim-wild.png',
+                },
+                {
+                  class: 'description',
+                  src: 'countries/ierusalim.png',
+                },
+              ],
+              infoModals: [
+                {
+                  id: '1',
+                  src: 'ierusalim-b-1.png'
+                },
+                {
+                  id: '2',
+                  src: 'ierusalim-b-2.png'
+                },
+                {
+                  id: '3',
+                  src: 'ierusalim-b-3.png'
+                },
+              ]
+            },
+            {
+              id: '4',
+              class: 'singapur',
+              top: '',
+              left: '',
+              group: [
+                {
+                  class: 'decoration',
+                  src: 'countries/singapur-wild.png',
+                },
+                {
+                  class: 'description',
+                  src: 'countries/singapur.png',
+                },
+              ],
+              infoModals: [
+                {
+                  id: '1',
+                  src: 'singapur-b-1.png'
+                },
+                {
+                  id: '2',
+                  src: 'singapur-b-2.png'
+                },
+                {
+                  id: '3',
+                  src: 'singapur-b-3.png'
+                },
+              ]
+            },
+            {
+              id: '5',
+              class: 'sandiego',
+              top: '',
+              left: '',
+              group: [
+                {
+                  class: 'decoration',
+                  src: 'countries/sandiego-wild.png',
+                },
+                {
+                  class: 'description',
+                  src: 'countries/sandiego.png',
+                },
+              ],
+              infoModals: [
+                {
+                  id: '1',
+                  src: 'sandiego-b-1.png'
+                },
+                {
+                  id: '2',
+                  src: 'sandiego-b-2.png'
+                },
+                {
+                  id: '3',
+                  src: 'sandiego-b-3.png'
+                },
+              ]
+            },
+            {
+              id: '6',
+              class: 'moscow',
+              top: '',
+              left: '',
+              group: [
+                {
+                  class: 'decoration',
+                  src: 'countries/moscow-wild.png',
+                },
+                {
+                  class: 'description',
+                  src: 'countries/moscow.png',
+                },
+              ],
+              infoModals: [
+                {
+                  id: '1',
+                  src: 'moscow-b-1.png'
+                },
+                {
+                  id: '3',
+                  src: 'moscow-b-3.png'
+                },
+              ]
+            },
+          ]
+        },
+        {
+          class: 'banner',
+          src: 'banner/slide-4-title.png',
+          top: -58,
+          left: 39,
+          titleBanner: true,
+        },
+      ],
+      slideDots: [
+        {
+          class: 'slide-photo',
+          slideSpeed: 0.6,
+          stopSlide: true,
+          activeElement: 3
+        }
+      ]
+    },
+    {
+      class: 'slide-5',
+      left: 392,
+      top: 0,
+      slideGroup: [
+        {
+          class: 'giraffes',
+          src: 'slides/slide-5.png',
+          top: 18,
+          slideSpeed: 0.6,
+          stopSlide: true,
+          titleBanner: false,
+        },
+        {
+          class: 'banner',
+          src: 'banner/slide-5-title.png',
+          top: -62,
+          left: 39,
+          titleBanner: true,
+        },
+      ],
+      slideDots: [
+        {
+          class: 'slide-photo',
+          slideSpeed: 0.6,
+          stopSlide: true,
+          activeElement: 4
+        }
+      ]
+    },
+    {
+      class: 'slide-6',
+      left: 482,
+      top: 0,
+      slideGroup: [
+        {
+          class: 'great-idea',
+          src: 'slides/slide-6.png',
+          top: 20,
+          slideSpeed: 0.6,
+          stopSlide: true,
+          titleBanner: false,
+          slideBuilding: true
+        },
+        {
+          class: 'banner',
+          src: 'banner/slide-6-title.png',
+          top: -58,
+          left: 39,
+          titleBanner: true,
+        },
+      ],
+      slideDots: [
+        {
+          class: 'slide-photo',
+          slideSpeed: 0.6,
+          stopSlide: true,
+          activeElement: 5
+        }
+      ]
+    },
+    {
+      class: 'slide-7',
+      left: 586,
+      top: 0,
+      slideGroup: [
+        {
+          class: 'slide-7-building',
+          src: 'slides/slide-7-building.png',
+          top: -20,
+          slideSpeed: 0.6,
+          stopSlide: true,
+          titleBanner: false,
+          kingKong: true,
+          extraInfo: [
+            {
+              id: '0',
+              class: 'stage-1',
+              top: '',
+              left: '',
+              group: [
+                {
+                  class: 'decoration',
+                  src: 'slides/stages/stage-1.png',
+                },
+                {
+                  class: 'description',
+                  src: 'slides/stages/stage-1-text.png',
+                },
+              ],
             },
 
             {
@@ -324,92 +612,9 @@ export class MainComponent implements OnInit {
           ]
         },
         {
-          class: 'banner',
-          src: 'banner/slide-4-title.png',
-          top: -58,
-          left: 39,
-          titleBanner: true,
-        },
-      ],
-      slideDots: [
-        {
-          class: 'slide-photo',
-          slideSpeed: 0.6,
-          stopSlide: true,
-          activeElement: 3
-        }
-      ]
-    },
-    {
-      class: 'slide-5',
-      left: 392,
-      top: 0,
-      slideGroup: [
-        {
-          class: 'giraffes',
-          src: 'slides/slide-5.png',
-          top: 18,
-          slideSpeed: 0.6,
-          stopSlide: true,
-          titleBanner: false,
-        },
-        {
-          class: 'banner',
-          src: 'banner/slide-5-title.png',
-          top: -62,
-          left: 39,
-          titleBanner: true,
-        },
-      ],
-      slideDots: [
-        {
-          class: 'slide-photo',
-          slideSpeed: 0.6,
-          stopSlide: true,
-          activeElement: 4
-        }
-      ]
-    },
-    {
-      class: 'slide-6',
-      left: 482,
-      top: 0,
-      slideGroup: [
-        {
-          class: 'great-idea',
-          src: 'slides/slide-6.png',
+          class: 'slide-7-cloud',
+          src: 'slides/slide-7.png',
           top: 20,
-          slideSpeed: 0.6,
-          stopSlide: true,
-          titleBanner: false,
-          slideBuilding: true
-        },
-        {
-          class: 'banner',
-          src: 'banner/slide-6-title.png',
-          top: -58,
-          left: 39,
-          titleBanner: true,
-        },
-      ],
-      slideDots: [
-        {
-          class: 'slide-photo',
-          slideSpeed: 0.6,
-          stopSlide: true,
-          activeElement: 5
-        }
-      ]
-    },
-    {
-      class: 'slide-7',
-      left: 627,
-      top: 0,
-      slideGroup: [
-        {
-          class: 'slide-photo',
-          src: 'slides/slide-7-building.png',
-          top: -20,
           slideSpeed: 0.6,
           stopSlide: true,
           titleBanner: false,
@@ -418,7 +623,7 @@ export class MainComponent implements OnInit {
           class: 'banner',
           src: 'banner/slide-7-title.png',
           top: -58,
-          left: 39,
+          left: 34,
           titleBanner: true,
         },
       ],
@@ -427,7 +632,7 @@ export class MainComponent implements OnInit {
           class: 'slide-photo',
           slideSpeed: 0.6,
           stopSlide: true,
-          activeElement: 3
+          activeElement: 6
         }
       ]
     },
@@ -493,7 +698,7 @@ export class MainComponent implements OnInit {
     },
     {
       class: 'slide-10',
-      left: 945,
+      left: 1040,
       top: 0,
       slideGroup: [
         {
@@ -752,24 +957,28 @@ export class MainComponent implements OnInit {
   slideShow_3 = 0;
   slideShow_4 = 0;
   slideShow_5 = 0;
+  slideShow_6 = 0;
 
   slideHide_1 = 0;
   slideHide_2 = 0;
   slideHide_3 = 0;
   slideHide_4 = 0;
   slideHide_5 = 0;
+  slideHide_6 = 0;
 
   navShow_1 = 0;
   navShow_2 = 0;
   navShow_3 = 0;
   navShow_4 = 0;
   navShow_5 = 0;
+  navShow_6 = 0;
 
   navHide_1 = 0;
   navHide_2 = 0;
   navHide_3 = 0;
   navHide_4 = 0;
   navHide_5 = 0;
+  navHide_6 = 0;
 
   nloDelay = 0;
 
@@ -783,7 +992,7 @@ export class MainComponent implements OnInit {
   ngOnInit() {
     setTimeout(() => {
       this.loading = true;
-    }, 1000);
+    }, 3000);
     // }, 7000);
   }
 
@@ -1085,17 +1294,58 @@ export class MainComponent implements OnInit {
       this.slideHide_5 = -416;
       this.navHide_5 = -1;
     }
+
+    if (contentSpeed < 13200) {
+      this.slideShow_6 = 0;
+      this.navShow_6 = 0;
+    }
+
+    if (contentSpeed > 13200 && contentSpeed < 13450) {
+      this.slideShow_6 = (contentSpeed - 13200) / 0.6;
+      this.navShow_6 = (contentSpeed - 13200) / 250;
+
+      this.currentSlide = 6;
+    }
+
+    if (contentSpeed > 13450) {
+      this.slideShow_6 = 416;
+      this.navShow_6 = 1;
+    }
+
+    if (contentSpeed < 15100) {
+      this.slideHide_6 = 0;
+      this.navHide_6 = 0;
+    }
+
+    if (contentSpeed > 15100 && contentSpeed < 15350) {
+      this.slideHide_6 = (contentSpeed - 15100) / -0.6;
+      this.navHide_6 = (contentSpeed - 15100) / -250;
+      this.currentSlide = 6;
+    }
+
+    if (contentSpeed > 15350) {
+      this.slideHide_6 = -416;
+      this.navHide_6 = -1;
+    }
   }
 
   prevTab(status) {
     if (status !== true) {
       this.slide_4TabsCounter -= 1;
+      this.kong_animation = true;
+      setTimeout(() => {
+        this.kong_animation = false;
+      }, 1400);
     }
   }
 
   nextTab(status) {
     if (status !== true) {
       this.slide_4TabsCounter += 1;
+      this.kong_animation = true;
+      setTimeout(() => {
+        this.kong_animation = false;
+      }, 1400);
     }
   }
 
@@ -1106,25 +1356,10 @@ export class MainComponent implements OnInit {
   // }
 
   public scrollTo(target) {
-    const top = target;
-    //   ? 0
-    //   : (() => {
-    //     try {
-    //       const element: HTMLElement = document.querySelector(target);
-    //
-    //       if (element) {
-    //         return element.offsetTop - 100; // 100 - navbar height
-    //       }
-    //     } catch (e) {
-    //     }
-    //
-    //     return 0;
-    //   })();
-
     window.scrollTo({
       behavior: 'smooth',
       left: 0,
-      top,
+      top: target,
     });
   }
 }

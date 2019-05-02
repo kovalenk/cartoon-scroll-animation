@@ -2,12 +2,21 @@
   animation: load 4s steps(10, end) 1;
 }
 
+.kong-animation{
+  animation: kong .7s steps(4, end) infinite;
+}
+
 @keyframes load {
   100% {
     transform: translateY(-1000vh);
   }
 }
 
+@keyframes kong {
+  100% {
+    transform: translateY(-400vh);
+  }
+}
 
 .app-main {
   overflow-x: hidden;
@@ -73,6 +82,8 @@
     }
 
     .slide {
+
+
       &-building{
         position: absolute;
         top: 11vh;
@@ -139,8 +150,69 @@
         }
       }
 
+
+
       &-group {
         position: relative;
+
+        .building-kong{
+          position: absolute;
+          top: 458vh;
+          left: 38.8vw;
+          z-index: 2;
+
+          *{
+            background-image: url(../../../assets/images/slides/slide-7-kingkong.png);
+            background-repeat: no-repeat;
+
+            width: 14.1vw;
+            height: 100vh;
+          }
+
+          &-0{
+            background-position: 0 80px;
+          }
+
+          &-1{
+            background-position: -264px 80px;
+          }
+
+          &-2{
+            background-position: -528px 80px;
+          }
+
+          &-3{
+            background-position: -792px 80px;
+          }
+        }
+
+        .stage-1{
+          width: 100vw;
+          position: fixed;
+          z-index: 1;
+
+          .decoration{
+            position: relative;
+            top: 39vh;
+            right: -13vw;
+          }
+
+          .description{
+            position: relative;
+            top: 39vh;
+            right: 60vw;
+          }
+
+          .nav-items{
+            position: absolute;
+            width: 12vw;
+            top: 62vh;
+            right: 103vw;
+            display: flex;
+            justify-content: space-between;
+            transform: rotate(-90deg);
+          }
+        }
 
         .praga {
           top: 20vh;
@@ -401,6 +473,19 @@
           }
         }
       }
+    }
+
+    &-7-building{
+      margin-top: -440vh;
+      padding-left: 44vw;
+
+      width: 36vw;
+      height: 100%;
+    }
+
+    &-7-cloud{
+      position: fixed;
+      padding-left: 5vw;
     }
 
     .home-slider {

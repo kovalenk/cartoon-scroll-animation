@@ -22,6 +22,10 @@ export class MainComponent implements OnInit {
   showPlaces = false;
   showAdvanced = false;
 
+  buildingAnimate = false;
+  showFinalBuilding = false;
+
+  navDotsscroll =[2400, 6000, 9500, 13000, 17000, 11900, 11900, 11900, 11900];
   sliderElements = [
     {
       class: 'slide-1',
@@ -368,16 +372,17 @@ export class MainComponent implements OnInit {
     },
     {
       class: 'slide-6',
-      left: 490,
+      left: 482,
       top: 0,
       slideGroup: [
         {
-          class: 'slide-photo',
+          class: 'great-idea',
           src: 'slides/slide-6.png',
           top: 20,
           slideSpeed: 0.6,
           stopSlide: true,
           titleBanner: false,
+          slideBuilding: true
         },
         {
           class: 'banner',
@@ -392,7 +397,7 @@ export class MainComponent implements OnInit {
           class: 'slide-photo',
           slideSpeed: 0.6,
           stopSlide: true,
-          activeElement: 3
+          activeElement: 5
         }
       ]
     },
@@ -746,21 +751,25 @@ export class MainComponent implements OnInit {
   slideShow_2 = 0;
   slideShow_3 = 0;
   slideShow_4 = 0;
+  slideShow_5 = 0;
 
   slideHide_1 = 0;
   slideHide_2 = 0;
   slideHide_3 = 0;
   slideHide_4 = 0;
+  slideHide_5 = 0;
 
   navShow_1 = 0;
   navShow_2 = 0;
   navShow_3 = 0;
   navShow_4 = 0;
+  navShow_5 = 0;
 
   navHide_1 = 0;
   navHide_2 = 0;
   navHide_3 = 0;
   navHide_4 = 0;
+  navHide_5 = 0;
 
   nloDelay = 0;
 
@@ -1006,6 +1015,8 @@ export class MainComponent implements OnInit {
     }
 
     if (contentSpeed < 8400) {
+      this.showFinalBuilding = false;
+      this.buildingAnimate = false;
       this.slideShow_4 = 0;
       this.navShow_4 = 0;
     }
@@ -1036,6 +1047,44 @@ export class MainComponent implements OnInit {
       this.slideHide_4 = -416;
       this.navHide_4 = -1;
     }
+
+    if (contentSpeed < 11000) {
+      this.slideShow_5 = 0;
+      this.navShow_5 = 0;
+    }
+
+    if (contentSpeed > 11000 && contentSpeed < 11250) {
+      this.slideShow_5 = (contentSpeed - 11000) / 0.6;
+      this.navShow_5 = (contentSpeed - 11000) / 250;
+
+      this.buildingAnimate = true;
+      this.currentSlide = 5;
+      setTimeout(() => {
+        this.showFinalBuilding = true;
+        this.buildingAnimate = false;
+      }, 3600);
+    }
+
+    if (contentSpeed > 11250) {
+      this.slideShow_5 = 416;
+      this.navShow_5 = 1;
+    }
+
+    if (contentSpeed < 12450) {
+      this.slideHide_5 = 0;
+      this.navHide_5 = 0;
+    }
+
+    if (contentSpeed > 12450 && contentSpeed < 12700) {
+      this.slideHide_5 = (contentSpeed - 12450) / -0.6;
+      this.navHide_5 = (contentSpeed - 12450) / -250;
+      this.currentSlide = 5;
+    }
+
+    if (contentSpeed > 12700) {
+      this.slideHide_5 = -416;
+      this.navHide_5 = -1;
+    }
   }
 
   prevTab(status) {
@@ -1050,21 +1099,27 @@ export class MainComponent implements OnInit {
     }
   }
 
-  public scrollTo(target?: string) {
-    const top = !target
-      ? 0
-      : (() => {
-        try {
-          const element: HTMLElement = document.querySelector(target);
+  // animateBuilding() {
+  //   if (status !== true) {
+  //     this.slide_4TabsCounter += 1;
+  //   }
+  // }
 
-          if (element) {
-            return element.offsetTop - 100; // 100 - navbar height
-          }
-        } catch (e) {
-        }
-
-        return 0;
-      })();
+  public scrollTo(target) {
+    const top = target;
+    //   ? 0
+    //   : (() => {
+    //     try {
+    //       const element: HTMLElement = document.querySelector(target);
+    //
+    //       if (element) {
+    //         return element.offsetTop - 100; // 100 - navbar height
+    //       }
+    //     } catch (e) {
+    //     }
+    //
+    //     return 0;
+    //   })();
 
     window.scrollTo({
       behavior: 'smooth',

@@ -1,3 +1,13 @@
+.animate{
+  animation: load 4s steps(10, end) 1;
+}
+
+@keyframes load {
+  100% {
+    transform: translateY(-1000vh);
+  }
+}
+
 
 .app-main {
   overflow-x: hidden;
@@ -63,6 +73,72 @@
     }
 
     .slide {
+      &-building{
+        position: absolute;
+        top: 11vh;
+        left: 7.66vw;
+
+
+
+        *{
+          background-image: url(../../../assets/images/slides/slide-6-building.png);
+          background-repeat: no-repeat;
+
+          width: 12vw;
+          height: 100vh;
+        }
+
+        &-0{
+          background-position: -7px 78px;
+        }
+
+        &-1{
+          background-position: -242px 78px;
+        }
+
+        &-2{
+          background-position: -477px 78px;
+        }
+
+        &-3{
+          background-position: -712px 78px;
+        }
+
+        &-4{
+          background-position: -947px 78px;
+        }
+
+        &-5{
+          background-position: -1182px 78px;
+        }
+
+        &-6{
+          background-position: -1417px 78px;
+        }
+
+        &-7{
+          background-position: -1652px 78px;
+        }
+
+        &-8{
+          background-position: -1887px 78px;
+        }
+
+        &-final-image{
+          display: none;
+          background-image: url(../../../assets/images/slides/slide-6-building.png);
+          background-repeat: no-repeat;
+          background-position: -2122px 78px;
+
+          width: 12vw;
+          height: 100vh;
+
+          position: absolute;
+          top: 11vh;
+          left: 7.66vw;
+        }
+      }
+
       &-group {
         position: relative;
 
@@ -348,33 +424,14 @@
       position: fixed;
     }
 
-    .slide-3 {
-      width: 64vw;
-      height: 81vh;
-
-      position: fixed;
-    }
-
-    .slide-4 {
-      width: 56vw;
-      height: 69vh;
-
-      position: fixed;
-    }
-
-    .slide-5 {
-      width: 56vw;
-      height: 69vh;
-
-      position: fixed;
-    }
-
-    .slide-6 {
+    .great-idea {
       width: 51vw;
       height: 65vh;
 
       position: fixed;
+      padding-left: 8vw;
     }
+
   }
 
   .sprites {

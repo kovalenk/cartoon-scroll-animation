@@ -163,7 +163,8 @@
              slideDelay_2 + slideDelay_3 + slideDelay_4 + slideDelay_5 + slideDelay_6 +
              slideDelay_7 + slideDelay_8):(-slideOneLeft*nav.slideSpeed)"
              [style.opacity]="navShow_1 + navHide_1 + navShow_2 + navHide_2 + navShow_3 +
-             navHide_3 + navShow_4 + navHide_4 + navShow_5 + navHide_5 + navShow_6 + navHide_6 + navShow_7 + navHide_7">
+             navHide_3 + navShow_4 + navHide_4 + navShow_5 + navHide_5 + navShow_6 + navHide_6 +
+              navShow_7 + navHide_7 + navShow_8 + navHide_8">
           <div class="slider-dots" *ngFor="let elem of navDotsscroll,  let x = index"
                [class.slider-active]="nav.activeElement === x+1"
                (click)="scrollTo(elem)">

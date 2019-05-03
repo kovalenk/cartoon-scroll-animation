@@ -27,7 +27,7 @@ export class MainComponent implements OnInit {
   showFinalBuilding = false;
   kong_animation = false;
 
-  navDotsscroll = [2400, 6000, 9500, 13000, 17000, 20500, 24000, 11900, 11900];
+  navDotsscroll = [2400, 6000, 9500, 13000, 17000, 20500, 24000, 28000, 11900];
   sliderElements = [
     {
       class: 'slide-1',
@@ -500,13 +500,13 @@ export class MainComponent implements OnInit {
     },
     {
       class: 'slide-9',
-      left: 794,
+      left: 789,
       top: 0,
       slideGroup: [
         {
-          class: 'slide-photo',
+          class: 'hands',
           src: 'slides/slide-9.png',
-          top: -20,
+          top: 20,
           slideSpeed: 0.6,
           stopSlide: true,
           titleBanner: false,
@@ -515,7 +515,7 @@ export class MainComponent implements OnInit {
           class: 'banner',
           src: 'banner/slide-9-title.png',
           top: -58,
-          left: 39,
+          left: 43,
           titleBanner: true,
         },
       ],
@@ -524,7 +524,7 @@ export class MainComponent implements OnInit {
           class: 'slide-photo',
           slideSpeed: 0.6,
           stopSlide: true,
-          activeElement: 3
+          activeElement: 8
         }
       ]
     },
@@ -791,6 +791,7 @@ export class MainComponent implements OnInit {
   slideShow_5 = 0;
   slideShow_6 = 0;
   slideShow_7 = 0;
+  slideShow_8 = 0;
 
   slideHide_1 = 0;
   slideHide_2 = 0;
@@ -799,6 +800,7 @@ export class MainComponent implements OnInit {
   slideHide_5 = 0;
   slideHide_6 = 0;
   slideHide_7 = 0;
+  slideHide_8 = 0;
 
   navShow_1 = 0;
   navShow_2 = 0;
@@ -807,6 +809,7 @@ export class MainComponent implements OnInit {
   navShow_5 = 0;
   navShow_6 = 0;
   navShow_7 = 0;
+  navShow_8 = 0;
 
   navHide_1 = 0;
   navHide_2 = 0;
@@ -815,6 +818,7 @@ export class MainComponent implements OnInit {
   navHide_5 = 0;
   navHide_6 = 0;
   navHide_7 = 0;
+  navHide_8 = 0;
 
   nloDelay = 0;
 
@@ -838,7 +842,7 @@ export class MainComponent implements OnInit {
   onWindowScroll() {
     this.bannerShowHide = this.slideShow_1 + this.slideHide_1 + this.slideShow_2 + this.slideHide_2 +
       this.slideShow_3 + this.slideHide_3 + this.slideShow_4 + this.slideHide_4 + this.slideShow_5 + this.slideHide_5 +
-      this.slideShow_6 + this.slideHide_6 + this.slideShow_7 + this.slideHide_7;
+      this.slideShow_6 + this.slideHide_6 + this.slideShow_7 + this.slideHide_7 + this.slideShow_8 + this.slideHide_8;
 
     const contentSpeed = window.pageYOffset * 0.7;
     this.mainPosition = window.pageYOffset * 0.7;
@@ -1201,6 +1205,39 @@ export class MainComponent implements OnInit {
     if (contentSpeed > 18000) {
       this.slideHide_7 = -416;
       this.navHide_7 = -1;
+    }
+
+    if (contentSpeed < 18600) {
+      this.slideShow_8 = 0;
+      this.navShow_8 = 0;
+    }
+
+    if (contentSpeed > 18600 && contentSpeed < 18850) {
+      this.slideShow_8 = (contentSpeed - 18600) / 0.6;
+      this.navShow_8 = (contentSpeed - 18600) / 250;
+
+      this.currentSlide = 8;
+    }
+
+    if (contentSpeed > 18850) {
+      this.slideShow_8 = 416;
+      this.navShow_8 = 1;
+    }
+
+    if (contentSpeed < 20300) {
+      this.slideHide_8 = 0;
+      this.navHide_8 = 0;
+    }
+
+    if (contentSpeed > 20300 && contentSpeed < 20550) {
+      this.slideHide_8 = (contentSpeed - 20300) / -0.6;
+      this.navHide_8 = (contentSpeed - 20300) / -250;
+      this.currentSlide = 8;
+    }
+
+    if (contentSpeed > 20550) {
+      this.slideHide_8 = -416;
+      this.navHide_8 = -1;
     }
   }
 

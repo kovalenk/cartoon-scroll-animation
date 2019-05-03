@@ -27,7 +27,7 @@ export class MainComponent implements OnInit {
   showFinalBuilding = false;
   kong_animation = false;
 
-  navDotsscroll = [2400, 6000, 9500, 13000, 17000, 20500, 24000, 28000, 11900];
+  navDotsscroll = [2400, 6000, 9500, 13000, 17000, 20500, 24000, 28000, 32000];
   sliderElements = [
     {
       class: 'slide-1',
@@ -530,16 +530,24 @@ export class MainComponent implements OnInit {
     },
     {
       class: 'slide-10',
-      left: 1040,
-      top: 0,
+      left: 897,
+      top: 21,
       slideGroup: [
         {
-          class: 'slide-photo',
+          class: 'final-slide',
           src: 'slides/slide-10.png',
-          top: -20,
+          top: 20,
+          paddingLeft: 511,
           slideSpeed: 0.6,
           stopSlide: false,
           titleBanner: false,
+        },
+        {
+          class: 'banner',
+          src: 'banner/slide-10-title.png',
+          top: -58,
+          left: 35,
+          titleBanner: true,
         },
       ],
       slideDots: [
@@ -547,7 +555,7 @@ export class MainComponent implements OnInit {
           class: 'slide-photo',
           slideSpeed: 0.6,
           stopSlide: true,
-          activeElement: 3
+          activeElement: 9
         }
       ]
     },
@@ -687,7 +695,7 @@ export class MainComponent implements OnInit {
     },
     {
       src: 'tree-3',
-      left: 900,
+      left: 905,
       top: 35,
       slideDelay: false,
       slideSpeed: 0.8
@@ -792,6 +800,7 @@ export class MainComponent implements OnInit {
   slideShow_6 = 0;
   slideShow_7 = 0;
   slideShow_8 = 0;
+  slideShow_9 = 0;
 
   slideHide_1 = 0;
   slideHide_2 = 0;
@@ -810,6 +819,7 @@ export class MainComponent implements OnInit {
   navShow_6 = 0;
   navShow_7 = 0;
   navShow_8 = 0;
+  navShow_9 = 0;
 
   navHide_1 = 0;
   navHide_2 = 0;
@@ -842,7 +852,8 @@ export class MainComponent implements OnInit {
   onWindowScroll() {
     this.bannerShowHide = this.slideShow_1 + this.slideHide_1 + this.slideShow_2 + this.slideHide_2 +
       this.slideShow_3 + this.slideHide_3 + this.slideShow_4 + this.slideHide_4 + this.slideShow_5 + this.slideHide_5 +
-      this.slideShow_6 + this.slideHide_6 + this.slideShow_7 + this.slideHide_7 + this.slideShow_8 + this.slideHide_8;
+      this.slideShow_6 + this.slideHide_6 + this.slideShow_7 + this.slideHide_7 + this.slideShow_8 + this.slideHide_8
+      + this.slideShow_9;
 
     const contentSpeed = window.pageYOffset * 0.7;
     this.mainPosition = window.pageYOffset * 0.7;
@@ -1238,6 +1249,23 @@ export class MainComponent implements OnInit {
     if (contentSpeed > 20550) {
       this.slideHide_8 = -416;
       this.navHide_8 = -1;
+    }
+
+    if (contentSpeed < 21400) {
+      this.slideShow_9 = 0;
+      this.navShow_9 = 0;
+    }
+
+    if (contentSpeed > 21400 && contentSpeed < 21650) {
+      this.slideShow_9 = (contentSpeed - 21400) / 0.6;
+      this.navShow_9 = (contentSpeed - 21400) / 250;
+
+      this.currentSlide = 9;
+    }
+
+    if (contentSpeed > 21650) {
+      this.slideShow_9 = 416;
+      this.navShow_9 = 1;
     }
   }
 

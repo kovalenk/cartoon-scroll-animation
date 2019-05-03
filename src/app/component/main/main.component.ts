@@ -15,6 +15,7 @@ export class MainComponent implements OnInit {
 
   myCoordinates = 0;
   slide_4TabsCounter = 0;
+  slide_7StaresCounter = 0;
   loading: any;
 
   showCloudModal = false;
@@ -415,201 +416,6 @@ export class MainComponent implements OnInit {
           stopSlide: true,
           titleBanner: false,
           kingKong: true,
-          extraInfo: [
-            {
-              id: '0',
-              class: 'stage-1',
-              top: '',
-              left: '',
-              group: [
-                {
-                  class: 'decoration',
-                  src: 'slides/stages/stage-1.png',
-                },
-                {
-                  class: 'description',
-                  src: 'slides/stages/stage-1-text.png',
-                },
-              ],
-            },
-
-            {
-              id: '1',
-              class: 'london',
-              top: '',
-              left: '',
-              group: [
-                {
-                  class: 'decoration',
-                  src: 'london-wild.png',
-                },
-                {
-                  class: 'description',
-                  src: 'london.png',
-                },
-              ],
-              infoModals: [
-                {
-                  id: '1',
-                  src: 'london-b-1.png'
-                },
-                {
-                  id: '2',
-                  src: 'london-b-2.png'
-                },
-                {
-                  id: '3',
-                  src: 'london-b-3.png'
-                },
-              ]
-            },
-            {
-              id: '2',
-              class: 'edinburg',
-              top: '',
-              left: '',
-              group: [
-                {
-                  class: 'decoration',
-                  src: 'edinburg-wild.png',
-                },
-                {
-                  class: 'description',
-                  src: 'edinburg.png',
-                },
-              ],
-              infoModals: [
-                {
-                  id: '1',
-                  src: 'edinburg-b-1.png'
-                },
-                {
-                  id: '2',
-                  src: 'edinburg-b-2.png'
-                },
-                {
-                  id: '3',
-                  src: 'edinburg-b-3.png'
-                },
-              ]
-            },
-            {
-              id: '3',
-              class: 'ierusalim',
-              top: '',
-              left: '',
-              group: [
-                {
-                  class: 'decoration',
-                  src: 'ierusalim-wild.png',
-                },
-                {
-                  class: 'description',
-                  src: 'ierusalim.png',
-                },
-              ],
-              infoModals: [
-                {
-                  id: '1',
-                  src: 'ierusalim-b-1.png'
-                },
-                {
-                  id: '2',
-                  src: 'ierusalim-b-2.png'
-                },
-                {
-                  id: '3',
-                  src: 'ierusalim-b-3.png'
-                },
-              ]
-            },
-            {
-              id: '4',
-              class: 'singapur',
-              top: '',
-              left: '',
-              group: [
-                {
-                  class: 'decoration',
-                  src: 'singapur-wild.png',
-                },
-                {
-                  class: 'description',
-                  src: 'singapur.png',
-                },
-              ],
-              infoModals: [
-                {
-                  id: '1',
-                  src: 'singapur-b-1.png'
-                },
-                {
-                  id: '2',
-                  src: 'singapur-b-2.png'
-                },
-                {
-                  id: '3',
-                  src: 'singapur-b-3.png'
-                },
-              ]
-            },
-            {
-              id: '5',
-              class: 'sandiego',
-              top: '',
-              left: '',
-              group: [
-                {
-                  class: 'decoration',
-                  src: 'sandiego-wild.png',
-                },
-                {
-                  class: 'description',
-                  src: 'sandiego.png',
-                },
-              ],
-              infoModals: [
-                {
-                  id: '1',
-                  src: 'sandiego-b-1.png'
-                },
-                {
-                  id: '2',
-                  src: 'sandiego-b-2.png'
-                },
-                {
-                  id: '3',
-                  src: 'sandiego-b-3.png'
-                },
-              ]
-            },
-            {
-              id: '6',
-              class: 'moscow',
-              top: '',
-              left: '',
-              group: [
-                {
-                  class: 'decoration',
-                  src: 'moscow-wild.png',
-                },
-                {
-                  class: 'description',
-                  src: 'moscow.png',
-                },
-              ],
-              infoModals: [
-                {
-                  id: '1',
-                  src: 'moscow-b-1.png'
-                },
-                {
-                  id: '3',
-                  src: 'moscow-b-3.png'
-                },
-              ]
-            },
-          ]
         },
         {
           class: 'slide-7-cloud',
@@ -985,6 +791,8 @@ export class MainComponent implements OnInit {
   mainPosition = 0;
 
   currentSlide = 0;
+  bannerShowHide = 0;
+  buildingMove = 0;
 
   constructor() {
   }
@@ -998,6 +806,10 @@ export class MainComponent implements OnInit {
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
+    this.bannerShowHide = this.slideShow_1 + this.slideHide_1+ this.slideShow_2 + this.slideHide_2 +
+      this.slideShow_3 + this.slideHide_3 + this.slideShow_4 + this.slideHide_4 + this.slideShow_5 + this.slideHide_5 +
+      this.slideShow_6 + this.slideHide_6;
+
     const contentSpeed = window.pageYOffset * 0.7;
     this.mainPosition = window.pageYOffset * 0.7;
     this.bgLeft = contentSpeed / 5.5;
@@ -1332,20 +1144,38 @@ export class MainComponent implements OnInit {
   prevTab(status) {
     if (status !== true) {
       this.slide_4TabsCounter -= 1;
-      this.kong_animation = true;
-      setTimeout(() => {
-        this.kong_animation = false;
-      }, 1400);
     }
   }
 
   nextTab(status) {
     if (status !== true) {
       this.slide_4TabsCounter += 1;
-      this.kong_animation = true;
-      setTimeout(() => {
-        this.kong_animation = false;
-      }, 1400);
+    }
+  }
+
+  prevSlide(status) {
+    if (this.kong_animation !== true) {
+      if (status !== true) {
+        this.buildingMove -= 303;
+        this.slide_7StaresCounter -= 1;
+        this.kong_animation = true;
+        setTimeout(() => {
+          this.kong_animation = false;
+        }, 1000);
+      }
+    }
+  }
+
+  nextSlide(status) {
+    if (this.kong_animation !== true) {
+      if (status !== true) {
+        this.buildingMove += 303;
+        this.slide_7StaresCounter += 1;
+        this.kong_animation = true;
+        setTimeout(() => {
+          this.kong_animation = false;
+        }, 1000);
+      }
     }
   }
 

@@ -1,5 +1,6 @@
 <div style="position: fixed; top: 50px; left: 50px; z-index: 100">
   mainPosition {{mainPosition}}<br>
+  bannerShowHide {{bannerShowHide}}<br>
 
 </div>
 
@@ -20,9 +21,8 @@
         <div class="slide-group" *ngFor="let elem of items.slideGroup">
           <img [class]="elem.banner?'banner': elem.class"
                [class.show]="currentSlide === x"
-               [style.marginTop.px]="elem.titleBanner? slideShow_1 + slideHide_1+ slideShow_2 + slideHide_2 +
-               slideShow_3 + slideHide_3 + slideShow_4 + slideHide_4 + slideShow_5 + slideHide_5 +
-               slideShow_6 + slideHide_6: ''"
+               [style.marginTop.px]="elem.titleBanner? bannerShowHide : ''"
+               [style.paddingTop.px]="elem.kingKong? buildingMove : ''"
                [style.marginLeft.px]="elem.stopSlide?(-slideOneLeft*elem.slideSpeed + slideDelay_1 +
                slideDelay_2 + slideDelay_3 + slideDelay_4 + slideDelay_5 + slideDelay_6 + slideDelay_7 +
                slideDelay_8):(-slideOneLeft*elem.slideSpeed)"
@@ -60,6 +60,36 @@
                slideDelay_7 + slideDelay_8):(-slideOneLeft*elem.slideSpeed)"
                class="slide-building-final-image">
           </div>
+          <div *ngIf="elem.kingKong"
+               class="kong-slider"
+               [style.left.vw]="elem.left"
+               [style.top.vh]="elem.top"
+               [style.marginLeft.px]="elem.stopSlide?(-slideOneLeft*elem.slideSpeed + slideDelay_1 +
+               slideDelay_2 + slideDelay_3 + slideDelay_4 + slideDelay_5 + slideDelay_6 +
+               slideDelay_7 + slideDelay_8):(-slideOneLeft*elem.slideSpeed)">
+            <div *ngFor="let elem of ' '.repeat(12).split(''),  let id = index,"
+                 class="stages"
+                 [class.stages-show]="slide_7StaresCounter === id"
+                 [class.show-decoration]="slide_7StaresCounter === id && kong_animation !==true"
+                 [ngSwitch]="id"
+            >
+              <div *ngSwitchCase=id>
+                <img *ngFor="let elem of ' '.repeat(2).split(''),  let x = index"
+                     [class]="x===0?'decoration':'description'"
+                     src="../../../assets/images/slides/stages/{{x===0?'stage-'+ (id+1)+'.png':'stage-'+(id+1)+'-text.png'}}"
+                     alt="">
+              </div>
+            </div>
+            <div class="nav-items">
+              <div class="prev"
+                   [class.prev-hide]="slide_7StaresCounter === 0"
+                   (click)="prevSlide(slide_7StaresCounter === 0)"></div>
+              <div class="next"
+                   [class.next-hide]="slide_7StaresCounter === 11"
+                   (click)="nextSlide(slide_7StaresCounter === 11)"></div>
+            </div>
+          </div>
+
 
           <div *ngFor="let data of elem.extraInfo, let id = index"
                class="slide-extra-info {{data.class}}"
@@ -71,7 +101,6 @@
                slideDelay_2 + slideDelay_3 + slideDelay_4 + slideDelay_5 + slideDelay_6 +
                slideDelay_7 + slideDelay_8):(-slideOneLeft*elem.slideSpeed)"
           >
-
             <div *ngSwitchCase=data.id>
               <img *ngFor="let item of data.group"
                    [class]="item.class"

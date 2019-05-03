@@ -1,9 +1,9 @@
-.animate{
+.animate {
   animation: load 4s steps(10, end) 1;
 }
 
-.kong-animation{
-  animation: kong .7s steps(4, end) infinite;
+.kong-animation {
+  animation: kong .5s steps(4, end) infinite;
 }
 
 @keyframes load {
@@ -32,7 +32,7 @@
   display: block !important;
 }
 
-.hide{
+.hide {
   display: none !important;
 }
 
@@ -83,15 +83,12 @@
 
     .slide {
 
-
-      &-building{
+      &-building {
         position: absolute;
         top: 11vh;
         left: 7.66vw;
 
-
-
-        *{
+        * {
           background-image: url(../../../assets/images/slides/slide-6-building.png);
           background-repeat: no-repeat;
 
@@ -99,43 +96,43 @@
           height: 100vh;
         }
 
-        &-0{
+        &-0 {
           background-position: -7px 78px;
         }
 
-        &-1{
+        &-1 {
           background-position: -242px 78px;
         }
 
-        &-2{
+        &-2 {
           background-position: -477px 78px;
         }
 
-        &-3{
+        &-3 {
           background-position: -712px 78px;
         }
 
-        &-4{
+        &-4 {
           background-position: -947px 78px;
         }
 
-        &-5{
+        &-5 {
           background-position: -1182px 78px;
         }
 
-        &-6{
+        &-6 {
           background-position: -1417px 78px;
         }
 
-        &-7{
+        &-7 {
           background-position: -1652px 78px;
         }
 
-        &-8{
+        &-8 {
           background-position: -1887px 78px;
         }
 
-        &-final-image{
+        &-final-image {
           display: none;
           background-image: url(../../../assets/images/slides/slide-6-building.png);
           background-repeat: no-repeat;
@@ -150,18 +147,113 @@
         }
       }
 
-
-
       &-group {
         position: relative;
 
-        .building-kong{
+        .kong-slider {
+          position: fixed;
+          width: 100vw;
+          margin-top: 20vh;
+          height: 100vh;
+          z-index: 1;
+
+          .stages {
+            width: 79vw;
+            height: 100vh;
+            position: absolute;
+
+            .decoration {
+              display: none;
+              position: absolute;
+              top: 32vh;
+              right: 1vw;
+              width: 33vw;
+              height: 30vh;
+            }
+
+            .description {
+              opacity: 0;
+              position: absolute;
+              top: 50vh;
+              right: 40vw;
+              transition: all 1s linear;
+            }
+
+            &-show {
+              .description {
+                opacity: 1 !important;
+              }
+            }
+          }
+
+          .show-decoration {
+            .decoration {
+              display: block !important;
+            }
+          }
+
+          .nav-items {
+            position: absolute;
+            width: 11vw;
+            top: 54vh;
+            right: 71.5vw;
+            display: flex;
+            justify-content: space-between;
+            transform: rotate(-90deg);
+
+            .prev {
+              background-image: url(../../../assets/images/sprite.png);
+              background-position: -2287px -1091px;
+
+              width: 37px;
+              height: 39px;
+              cursor: pointer;
+
+              &:hover {
+                background-position: -2328px -1091px;
+              }
+            }
+
+            .prev-hide {
+              opacity: .5;
+
+              &:hover {
+                background-position: -2287px -1091px !important;
+              }
+            }
+
+            .next {
+              background-image: url(../../../assets/images/sprite.png);
+              background-position: -2406px -732px;
+
+              width: 37px;
+              height: 39px;
+              margin-left: 14px;
+              cursor: pointer;
+
+              &:hover {
+                background-position: -2406px -777px;
+              }
+            }
+
+            .next-hide {
+              opacity: .5;
+
+              &:hover {
+                background-position: -2406px -732px !important;
+              }
+            }
+          }
+
+        }
+
+        .building-kong {
           position: absolute;
           top: 458vh;
           left: 38.8vw;
           z-index: 2;
 
-          *{
+          * {
             background-image: url(../../../assets/images/slides/slide-7-kingkong.png);
             background-repeat: no-repeat;
 
@@ -169,48 +261,20 @@
             height: 100vh;
           }
 
-          &-0{
+          &-0 {
             background-position: 0 80px;
           }
 
-          &-1{
+          &-1 {
             background-position: -264px 80px;
           }
 
-          &-2{
+          &-2 {
             background-position: -528px 80px;
           }
 
-          &-3{
+          &-3 {
             background-position: -792px 80px;
-          }
-        }
-
-        .stage-1{
-          width: 100vw;
-          position: fixed;
-          z-index: 1;
-
-          .decoration{
-            position: relative;
-            top: 39vh;
-            right: -13vw;
-          }
-
-          .description{
-            position: relative;
-            top: 39vh;
-            right: 60vw;
-          }
-
-          .nav-items{
-            position: absolute;
-            width: 12vw;
-            top: 62vh;
-            right: 103vw;
-            display: flex;
-            justify-content: space-between;
-            transform: rotate(-90deg);
           }
         }
 
@@ -332,13 +396,13 @@
         position: absolute;
         width: 18vw;
 
-        >div{
+        > div {
           position: relative;
         }
 
-        .cloud{
+        .cloud {
 
-          &-modal{
+          &-modal {
             background-image: url(../../../assets/images/sprite.png);
             background-position: -784px -1567px;
 
@@ -360,7 +424,7 @@
               cursor: pointer;
 
               position: absolute;
-              top:0;
+              top: 0;
               right: 2vw;
 
               &:hover {
@@ -369,11 +433,10 @@
             }
           }
 
-          &-description{
+          &-description {
             display: none;
           }
         }
-
 
         .nav-items {
           position: absolute;
@@ -425,13 +488,13 @@
           }
         }
 
-        .nav-info{
+        .nav-info {
           position: absolute;
           bottom: -0.5vh;
           right: 1.5vw;
           display: flex;
 
-          .cafes{
+          .cafes {
             background-image: url(../../../assets/images/sprite.png);
 
             background-position: -2289px -1045px;
@@ -445,7 +508,7 @@
             }
           }
 
-          .places{
+          .places {
             background-image: url(../../../assets/images/sprite.png);
             background-position: -2394px -374px;
 
@@ -459,7 +522,7 @@
             }
           }
 
-          .advanced{
+          .advanced {
             background-image: url(../../../assets/images/sprite.png);
             background-position: -2394px -282px;
 
@@ -475,15 +538,17 @@
       }
     }
 
-    &-7-building{
+    &-7-building {
       margin-top: -440vh;
       padding-left: 44vw;
-
+      padding-top: 0;
       width: 36vw;
       height: 100%;
+
+      transition: padding-top 1s linear;
     }
 
-    &-7-cloud{
+    &-7-cloud {
       position: fixed;
       padding-left: 5vw;
     }

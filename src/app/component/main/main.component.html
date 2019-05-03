@@ -43,16 +43,6 @@
             </div>
           </div>
 
-          <div class="building-kong" *ngIf="elem.kingKong"
-               [style.marginLeft.px]="elem.stopSlide?(-slideOneLeft*elem.slideSpeed + slideDelay_1 +
-               slideDelay_2 + slideDelay_3 + slideDelay_4 + slideDelay_5 + slideDelay_6 + slideDelay_7 +
-               slideDelay_8):(-slideOneLeft*elem.slideSpeed)"
-               [class.kong-animation]="kong_animation">
-            <div *ngFor="let elem of ' '.repeat(4).split(''),  let x = index"
-                 class="building-kong-{{x}}">
-            </div>
-          </div>
-
           <div *ngIf="elem.slideBuilding"
                [class.show]="showFinalBuilding "
                [style.marginLeft.px]="elem.stopSlide?(-slideOneLeft*elem.slideSpeed + slideDelay_1 +
@@ -60,6 +50,7 @@
                slideDelay_7 + slideDelay_8):(-slideOneLeft*elem.slideSpeed)"
                class="slide-building-final-image">
           </div>
+
           <div *ngIf="elem.kingKong"
                class="kong-slider"
                [style.left.vw]="elem.left"
@@ -67,7 +58,7 @@
                [style.marginLeft.px]="elem.stopSlide?(-slideOneLeft*elem.slideSpeed + slideDelay_1 +
                slideDelay_2 + slideDelay_3 + slideDelay_4 + slideDelay_5 + slideDelay_6 +
                slideDelay_7 + slideDelay_8):(-slideOneLeft*elem.slideSpeed)">
-            <div *ngFor="let elem of ' '.repeat(12).split(''),  let id = index,"
+            <div *ngFor="let elem of ' '.repeat(12).split(''),  let id = index"
                  class="stages"
                  [class.stages-show]="slide_7StaresCounter === id"
                  [class.show-decoration]="slide_7StaresCounter === id && kong_animation !==true"
@@ -90,6 +81,15 @@
             </div>
           </div>
 
+          <div class="building-kong" *ngIf="elem.kingKong"
+               [style.marginLeft.px]="elem.stopSlide?(-slideOneLeft*elem.slideSpeed + slideDelay_1 +
+               slideDelay_2 + slideDelay_3 + slideDelay_4 + slideDelay_5 + slideDelay_6 + slideDelay_7 +
+               slideDelay_8):(-slideOneLeft*elem.slideSpeed)"
+               [class.kong-animation]="kong_animation">
+            <div *ngFor="let elem of ' '.repeat(4).split(''),  let x = index"
+                 class="building-kong-{{x}}">
+            </div>
+          </div>
 
           <div *ngFor="let data of elem.extraInfo, let id = index"
                class="slide-extra-info {{data.class}}"
@@ -163,7 +163,7 @@
              slideDelay_2 + slideDelay_3 + slideDelay_4 + slideDelay_5 + slideDelay_6 +
              slideDelay_7 + slideDelay_8):(-slideOneLeft*nav.slideSpeed)"
              [style.opacity]="navShow_1 + navHide_1 + navShow_2 + navHide_2 + navShow_3 +
-             navHide_3 + navShow_4 + navHide_4 + navShow_5 + navHide_5 + navShow_6 + navHide_6">
+             navHide_3 + navShow_4 + navHide_4 + navShow_5 + navHide_5 + navShow_6 + navHide_6 + navShow_7 + navHide_7">
           <div class="slider-dots" *ngFor="let elem of navDotsscroll,  let x = index"
                [class.slider-active]="nav.activeElement === x+1"
                (click)="scrollTo(elem)">

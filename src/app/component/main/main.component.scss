@@ -278,6 +278,23 @@
           }
         }
 
+        .description-page{
+          top: 20vh;
+          position: relative;
+
+          display: none;
+
+          .description {
+            position: absolute;
+            right: 7vw;
+          }
+
+          .nav-items{
+            top: 36vh;
+            right: 8vw;
+          }
+        }
+
         .praga {
           top: 20vh;
           position: relative;
@@ -565,6 +582,13 @@
       height: 81vh;
 
       position: fixed;
+
+      &-s{
+        width: 57vw;
+        height: 81vh;
+
+        position: fixed;
+      }
     }
 
     .giraffes {
@@ -782,8 +806,10 @@
     justify-content: center;
 
     position: fixed;
-    width: 63vw;
+    width: 58vw;
     bottom: 15vh;
+
+    z-index: 2;
   }
 
   &-dots {

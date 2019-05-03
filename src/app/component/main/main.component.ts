@@ -27,7 +27,7 @@ export class MainComponent implements OnInit {
   showFinalBuilding = false;
   kong_animation = false;
 
-  navDotsscroll = [2400, 6000, 9500, 13000, 17000, 20500, 11900, 11900, 11900];
+  navDotsscroll = [2400, 6000, 9500, 13000, 17000, 20500, 24000, 11900, 11900];
   sliderElements = [
     {
       class: 'slide-1',
@@ -448,18 +448,44 @@ export class MainComponent implements OnInit {
       top: 0,
       slideGroup: [
         {
-          class: 'slide-photo',
+          class: 'hands-s',
           src: 'slides/slide-8.png',
-          top: -20,
+          top: 20,
           slideSpeed: 0.6,
           stopSlide: true,
           titleBanner: false,
+          extraInfo: [
+            {
+              id: '0',
+              class: 'description-page',
+              top: '',
+              left: '',
+              group: [
+                {
+                  class: 'description',
+                  src: 'slides/slide-8-text-1.png',
+                },
+              ],
+            },
+            {
+              id: '1',
+              class: 'description-page',
+              top: '',
+              left: '',
+              group: [
+                {
+                  class: 'description',
+                  src: 'slides/slide-8-text-2.png',
+                },
+              ]
+            },
+          ]
         },
         {
           class: 'banner',
           src: 'banner/slide-8-title.png',
           top: -58,
-          left: 39,
+          left: 43,
           titleBanner: true,
         },
       ],
@@ -468,7 +494,7 @@ export class MainComponent implements OnInit {
           class: 'slide-photo',
           slideSpeed: 0.6,
           stopSlide: true,
-          activeElement: 3
+          activeElement: 7
         }
       ]
     },
@@ -764,6 +790,7 @@ export class MainComponent implements OnInit {
   slideShow_4 = 0;
   slideShow_5 = 0;
   slideShow_6 = 0;
+  slideShow_7 = 0;
 
   slideHide_1 = 0;
   slideHide_2 = 0;
@@ -771,6 +798,7 @@ export class MainComponent implements OnInit {
   slideHide_4 = 0;
   slideHide_5 = 0;
   slideHide_6 = 0;
+  slideHide_7 = 0;
 
   navShow_1 = 0;
   navShow_2 = 0;
@@ -778,6 +806,7 @@ export class MainComponent implements OnInit {
   navShow_4 = 0;
   navShow_5 = 0;
   navShow_6 = 0;
+  navShow_7 = 0;
 
   navHide_1 = 0;
   navHide_2 = 0;
@@ -785,6 +814,7 @@ export class MainComponent implements OnInit {
   navHide_4 = 0;
   navHide_5 = 0;
   navHide_6 = 0;
+  navHide_7 = 0;
 
   nloDelay = 0;
 
@@ -806,9 +836,9 @@ export class MainComponent implements OnInit {
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    this.bannerShowHide = this.slideShow_1 + this.slideHide_1+ this.slideShow_2 + this.slideHide_2 +
+    this.bannerShowHide = this.slideShow_1 + this.slideHide_1 + this.slideShow_2 + this.slideHide_2 +
       this.slideShow_3 + this.slideHide_3 + this.slideShow_4 + this.slideHide_4 + this.slideShow_5 + this.slideHide_5 +
-      this.slideShow_6 + this.slideHide_6;
+      this.slideShow_6 + this.slideHide_6 + this.slideShow_7 + this.slideHide_7;
 
     const contentSpeed = window.pageYOffset * 0.7;
     this.mainPosition = window.pageYOffset * 0.7;
@@ -1139,6 +1169,39 @@ export class MainComponent implements OnInit {
       this.slideHide_6 = -416;
       this.navHide_6 = -1;
     }
+
+    if (contentSpeed < 16200) {
+      this.slideShow_7 = 0;
+      this.navShow_7 = 0;
+    }
+
+    if (contentSpeed > 16200 && contentSpeed < 16450) {
+      this.slideShow_7 = (contentSpeed - 16200) / 0.6;
+      this.navShow_7 = (contentSpeed - 16200) / 250;
+
+      this.currentSlide = 7;
+    }
+
+    if (contentSpeed > 16450) {
+      this.slideShow_7 = 416;
+      this.navShow_7 = 1;
+    }
+
+    if (contentSpeed < 17750) {
+      this.slideHide_7 = 0;
+      this.navHide_7 = 0;
+    }
+
+    if (contentSpeed > 17750 && contentSpeed < 18000) {
+      this.slideHide_7 = (contentSpeed - 17750) / -0.6;
+      this.navHide_7 = (contentSpeed - 17750) / -250;
+      this.currentSlide = 7;
+    }
+
+    if (contentSpeed > 18000) {
+      this.slideHide_7 = -416;
+      this.navHide_7 = -1;
+    }
   }
 
   prevTab(status) {
@@ -1178,12 +1241,6 @@ export class MainComponent implements OnInit {
       }
     }
   }
-
-  // animateBuilding() {
-  //   if (status !== true) {
-  //     this.slide_4TabsCounter += 1;
-  //   }
-  // }
 
   public scrollTo(target) {
     window.scrollTo({

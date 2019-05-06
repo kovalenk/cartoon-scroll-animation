@@ -31,14 +31,16 @@ export class MainComponent implements OnInit {
   sliderElements = [
     {
       class: 'slide-1',
-      left: 25,
-      top: 17,
+      left: 0,
+      top: 0,
+      slideSpeed: 0.7,
+      stopSlide: false,
       slideGroup: [
         {
           class: 'home-slider',
           src: 'slides/slide-1.png',
-          slideSpeed: 0.7,
-          stopSlide: false,
+          top: 18,
+          left: 25,
         }
       ]
     },
@@ -46,13 +48,16 @@ export class MainComponent implements OnInit {
       class: 'slide-2',
       left: 114,
       top: 0,
+      stopSlide: true,
+      slideSpeed: 0.6,
+      activeElement: 1,
+      navSwitchLeft: 20,
+      navSwitchBottom: 6,
       slideGroup: [
         {
           class: 'hands',
           src: 'slides/slide-2.png',
           top: 20,
-          slideSpeed: 0.6,
-          stopSlide: true,
           titleBanner: false,
           link: 'http://www.tatar-inform.ru/news/2014/07/30/416350/',
         },
@@ -63,27 +68,22 @@ export class MainComponent implements OnInit {
           left: 39,
           titleBanner: true,
         },
-      ],
-      slideDots: [
-        {
-          class: 'slide-photo',
-          slideSpeed: 0.6,
-          stopSlide: true,
-          activeElement: 1
-        }
       ]
     },
     {
       class: 'slide-3',
       left: 200,
       top: 0,
+      stopSlide: true,
+      slideSpeed: 0.6,
+      activeElement: 2,
+      navSwitchLeft: 20,
+      navSwitchBottom: 6,
       slideGroup: [
         {
           class: 'hands',
           src: 'slides/slide-3.png',
           top: 20,
-          slideSpeed: 0.6,
-          stopSlide: true,
           titleBanner: false,
         },
         {
@@ -94,14 +94,6 @@ export class MainComponent implements OnInit {
           titleBanner: true,
         },
       ],
-      slideDots: [
-        {
-          class: 'slide-photo',
-          slideSpeed: 0.6,
-          stopSlide: true,
-          activeElement: 2
-        }
-      ]
     },
     {
       class: 'slide-4',
@@ -338,6 +330,8 @@ export class MainComponent implements OnInit {
           class: 'slide-photo',
           slideSpeed: 0.6,
           stopSlide: true,
+          left: -18.2,
+          bottom: 15,
           activeElement: 3
         }
       ]
@@ -368,6 +362,8 @@ export class MainComponent implements OnInit {
           class: 'slide-photo',
           slideSpeed: 0.6,
           stopSlide: true,
+          left: -18.2,
+          bottom: 15,
           activeElement: 4
         }
       ]
@@ -399,6 +395,8 @@ export class MainComponent implements OnInit {
           class: 'slide-photo',
           slideSpeed: 0.6,
           stopSlide: true,
+          left: -18.2,
+          bottom: 15,
           activeElement: 5
         }
       ]
@@ -438,6 +436,8 @@ export class MainComponent implements OnInit {
           class: 'slide-photo',
           slideSpeed: 0.6,
           stopSlide: true,
+          left: -18.2,
+          bottom: 15,
           activeElement: 6
         }
       ]
@@ -494,6 +494,8 @@ export class MainComponent implements OnInit {
           class: 'slide-photo',
           slideSpeed: 0.6,
           stopSlide: true,
+          left: -18.2,
+          bottom: 15,
           activeElement: 7
         }
       ]
@@ -524,6 +526,8 @@ export class MainComponent implements OnInit {
           class: 'slide-photo',
           slideSpeed: 0.6,
           stopSlide: true,
+          left: -18.2,
+          bottom: 15,
           activeElement: 8
         }
       ]
@@ -537,9 +541,8 @@ export class MainComponent implements OnInit {
           class: 'final-slide',
           src: 'slides/slide-10.png',
           top: 20,
-          paddingLeft: 511,
           slideSpeed: 0.6,
-          stopSlide: false,
+          stopSlide: true,
           titleBanner: false,
         },
         {
@@ -555,6 +558,8 @@ export class MainComponent implements OnInit {
           class: 'slide-photo',
           slideSpeed: 0.6,
           stopSlide: true,
+          left: -18.2,
+          bottom: 15,
           activeElement: 9
         }
       ]
@@ -782,15 +787,8 @@ export class MainComponent implements OnInit {
   treeDelay_2 = 0;
   treeDelay_3 = 0;
 
-  slideDelay_1 = 0;
-  slideDelay_2 = 0;
-  slideDelay_3 = 0;
-  slideDelay_4 = 0;
-  slideDelay_5 = 0;
-  slideDelay_6 = 0;
-  slideDelay_7 = 0;
-  slideDelay_8 = 0;
-
+  slideDelay = 0;
+  treeDelay = 0;
 
   slideShow_1 = 0;
   slideShow_2 = 0;
@@ -863,103 +861,120 @@ export class MainComponent implements OnInit {
     this.treeLeft = contentSpeed * 0.9;
     this.slideOneLeft = contentSpeed * 2;
 
+    let slideDelay_1,
+      slideDelay_2,
+      slideDelay_3,
+      slideDelay_4,
+      slideDelay_5,
+      slideDelay_6,
+      slideDelay_7,
+      slideDelay_8;
     // Slide delays
     if (contentSpeed < 1500) {
-      this.slideDelay_1 = 0;
+      slideDelay_1 = 0;
     }
 
     if (contentSpeed > 1500 && contentSpeed < 2500) {
-      this.slideDelay_1 = ((contentSpeed - 1500) * 2) * 0.6;
+      slideDelay_1 = ((contentSpeed - 1500) * 2) * 0.6;
       this.treeDelay_1 = ((contentSpeed - 1500) * 0.6);
     }
 
     if (contentSpeed > 2500) {
-      this.slideDelay_1 = 1195;
+      slideDelay_1 = 1195;
     }
 
     if (contentSpeed < 3800) {
-      this.slideDelay_2 = 0;
+      slideDelay_2 = 0;
     }
 
     if (contentSpeed > 3800 && contentSpeed < 4800) {
-      this.slideDelay_2 = ((contentSpeed - 3800) * 2) * 0.6;
+      slideDelay_2 = ((contentSpeed - 3800) * 2) * 0.6;
     }
 
     if (contentSpeed > 4800) {
-      this.slideDelay_2 = 1195;
+      slideDelay_2 = 1195;
     }
 
     if (contentSpeed < 6200) {
-      this.slideDelay_3 = 0;
+      slideDelay_3 = 0;
     }
 
     if (contentSpeed > 6200 && contentSpeed < 7200) {
-      this.slideDelay_3 = ((contentSpeed - 6200) * 2) * 0.6;
+      slideDelay_3 = ((contentSpeed - 6200) * 2) * 0.6;
     }
 
     if (contentSpeed > 7200) {
-      this.slideDelay_3 = 1195;
+      slideDelay_3 = 1195;
     }
 
     if (contentSpeed < 8800) {
-      this.slideDelay_4 = 0;
+      slideDelay_4 = 0;
     }
 
     if (contentSpeed > 8800 && contentSpeed < 9800) {
-      this.slideDelay_4 = ((contentSpeed - 8800) * 2) * 0.6;
+      slideDelay_4 = ((contentSpeed - 8800) * 2) * 0.6;
     }
 
     if (contentSpeed > 9800) {
-      this.slideDelay_4 = 1195;
+      slideDelay_4 = 1195;
     }
 
     if (contentSpeed < 11200) {
-      this.slideDelay_5 = 0;
+      slideDelay_5 = 0;
     }
 
     if (contentSpeed > 11200 && contentSpeed < 12200) {
-      this.slideDelay_5 = ((contentSpeed - 11200) * 2) * 0.6;
+      slideDelay_5 = ((contentSpeed - 11200) * 2) * 0.6;
     }
 
     if (contentSpeed > 12200) {
-      this.slideDelay_5 = 1195;
+      slideDelay_5 = 1195;
     }
 
     if (contentSpeed < 13860) {
-      this.slideDelay_6 = 0;
+      slideDelay_6 = 0;
     }
 
     if (contentSpeed > 13860 && contentSpeed < 14860) {
-      this.slideDelay_6 = ((contentSpeed - 13860) * 2) * 0.6;
+      slideDelay_6 = ((contentSpeed - 13860) * 2) * 0.6;
     }
 
     if (contentSpeed > 14860) {
-      this.slideDelay_6 = 1195;
+      slideDelay_6 = 1195;
     }
 
     if (contentSpeed < 16450) {
-      this.slideDelay_7 = 0;
+      slideDelay_7 = 0;
     }
 
     if (contentSpeed > 16450 && contentSpeed < 17450) {
-      this.slideDelay_7 = ((contentSpeed - 16450) * 2) * 0.6;
+      slideDelay_7 = ((contentSpeed - 16450) * 2) * 0.6;
     }
 
     if (contentSpeed > 17450) {
-      this.slideDelay_7 = 1195;
+      slideDelay_7 = 1195;
     }
 
     if (contentSpeed < 19000) {
-      this.slideDelay_8 = 0;
+      slideDelay_8 = 0;
     }
 
     if (contentSpeed > 19000 && contentSpeed < 20000) {
-      this.slideDelay_8 = ((contentSpeed - 19000) * 2) * 0.6;
+      slideDelay_8 = ((contentSpeed - 19000) * 2) * 0.6;
     }
 
     if (contentSpeed > 20000) {
-      this.slideDelay_8 = 1195;
+      slideDelay_8 = 1195;
     }
+
+    this.slideDelay = slideDelay_1
+      + slideDelay_2
+      + slideDelay_3
+      + slideDelay_4
+      + slideDelay_5
+      + slideDelay_6
+      + slideDelay_7
+      + slideDelay_8;
 
     // decorations delay
     if (contentSpeed > 11700) {
@@ -1267,6 +1282,8 @@ export class MainComponent implements OnInit {
       this.slideShow_9 = 416;
       this.navShow_9 = 1;
     }
+
+
   }
 
   prevTab(status) {

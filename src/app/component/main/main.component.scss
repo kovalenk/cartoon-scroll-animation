@@ -74,6 +74,8 @@
 
     > * {
       position: fixed;
+      width: 100vw;
+      height: 100vh;
     }
 
     .banner {
@@ -574,7 +576,7 @@
       width: 51vw;
       height: 69vh;
 
-      position: fixed;
+      position: relative;
     }
 
     .hands {
@@ -593,6 +595,13 @@
 
     .giraffes {
       width: 59vw;
+      height: 65vh;
+
+      position: fixed;
+    }
+
+    .final-slide {
+      width: 51vw;
       height: 65vh;
 
       position: fixed;
@@ -803,13 +812,10 @@
   &-switch {
     display: flex;
     flex-direction: row;
-    justify-content: center;
 
-    position: fixed;
-    width: 58vw;
-    bottom: 15vh;
+    position: absolute;
+    width: 100vw;
 
-    z-index: 2;
   }
 
   &-dots {

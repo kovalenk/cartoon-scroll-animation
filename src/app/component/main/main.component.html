@@ -1,6 +1,6 @@
 <div style="position: fixed; top: 50px; left: 50px; z-index: 100">
   mainPosition {{mainPosition}}<br>
-  navShow_9 {{navShow_9}}<br>
+  slideDelay {{slideDelay}}<br>
 
 </div>
 
@@ -17,26 +17,26 @@
       <div *ngFor="let items of sliderElements, let x = index"
            [class]="items.class"
            [style.left.vw]="items.left"
-           [style.top.vh]="items.top">
+           [style.top.vh]="items.top"
+           [style.marginLeft.px]="items.stopSlide?
+               (-slideOneLeft*items.slideSpeed + slideDelay):
+               (-slideOneLeft*items.slideSpeed)">
         <div class="slide-group" *ngFor="let elem of items.slideGroup">
           <img [class]="elem.banner?'banner': elem.class"
                [class.show]="currentSlide === x"
                [style.marginTop.px]="elem.titleBanner? bannerShowHide : ''"
                [style.paddingTop.px]="elem.kingKong? buildingMove : ''"
                [style.paddingLeft.vw]="elem.paddingLeft"
-               [style.marginLeft.px]="elem.stopSlide?(-slideOneLeft*elem.slideSpeed + slideDelay_1 +
-               slideDelay_2 + slideDelay_3 + slideDelay_4 + slideDelay_5 + slideDelay_6 + slideDelay_7 +
-               slideDelay_8):(-slideOneLeft*elem.slideSpeed)"
-               src="../../../assets/images/{{elem.src}}"
-               alt=""
                [style.left.vw]="elem.left"
-               [style.top.vh]="elem.top">
+               [style.top.vh]="elem.top"
+               src="../../../assets/images/{{elem.src}}"
+               alt="">
 
 
           <div *ngIf="elem.slideBuilding"
-               [style.marginLeft.px]="elem.stopSlide?(-slideOneLeft*elem.slideSpeed + slideDelay_1 +
-               slideDelay_2 + slideDelay_3 + slideDelay_4 + slideDelay_5 + slideDelay_6 + slideDelay_7 +
-               slideDelay_8):(-slideOneLeft*elem.slideSpeed)"
+               [style.marginLeft.px]="items.stopSlide?
+               (-slideOneLeft*items.slideSpeed + slideDelay):
+               (-slideOneLeft*items.slideSpeed)"
                class="slide-building"
                [class.animate]="buildingAnimate">
             <div *ngFor="let elem of ' '.repeat(9).split(''),  let x = index"
@@ -46,9 +46,9 @@
 
           <div *ngIf="elem.slideBuilding"
                [class.show]="showFinalBuilding "
-               [style.marginLeft.px]="elem.stopSlide?(-slideOneLeft*elem.slideSpeed + slideDelay_1 +
-               slideDelay_2 + slideDelay_3 + slideDelay_4 + slideDelay_5 + slideDelay_6 +
-               slideDelay_7 + slideDelay_8):(-slideOneLeft*elem.slideSpeed)"
+               [style.marginLeft.px]="elem.stopSlide?
+               (-slideOneLeft*elem.slideSpeed + slideDelay):
+               (-slideOneLeft*elem.slideSpeed)"
                class="slide-building-final-image">
           </div>
 
@@ -56,9 +56,9 @@
                class="kong-slider"
                [style.left.vw]="elem.left"
                [style.top.vh]="elem.top"
-               [style.marginLeft.px]="elem.stopSlide?(-slideOneLeft*elem.slideSpeed + slideDelay_1 +
-               slideDelay_2 + slideDelay_3 + slideDelay_4 + slideDelay_5 + slideDelay_6 +
-               slideDelay_7 + slideDelay_8):(-slideOneLeft*elem.slideSpeed)">
+               [style.marginLeft.px]="elem.stopSlide?
+               (-slideOneLeft*elem.slideSpeed + slideDelay):
+               (-slideOneLeft*elem.slideSpeed)">
             <div *ngFor="let elem of ' '.repeat(12).split(''),  let id = index"
                  class="stages"
                  [class.stages-show]="slide_7StaresCounter === id"
@@ -68,7 +68,9 @@
               <div *ngSwitchCase=id>
                 <img *ngFor="let elem of ' '.repeat(2).split(''),  let x = index"
                      [class]="x===0?'decoration':'description'"
-                     src="../../../assets/images/slides/stages/{{x===0?'stage-'+ (id+1)+'.png':'stage-'+(id+1)+'-text.png'}}"
+                     src="../../../assets/images/slides/stages/{{x===0?
+                     'stage-'+ (id+1)+'.png':
+                     'stage-'+(id+1)+'-text.png'}}"
                      alt="">
               </div>
             </div>
@@ -83,9 +85,9 @@
           </div>
 
           <div class="building-kong" *ngIf="elem.kingKong"
-               [style.marginLeft.px]="elem.stopSlide?(-slideOneLeft*elem.slideSpeed + slideDelay_1 +
-               slideDelay_2 + slideDelay_3 + slideDelay_4 + slideDelay_5 + slideDelay_6 + slideDelay_7 +
-               slideDelay_8):(-slideOneLeft*elem.slideSpeed)"
+               [style.marginLeft.px]="elem.stopSlide?
+               (-slideOneLeft*elem.slideSpeed + slideDelay):
+               (-slideOneLeft*elem.slideSpeed)"
                [class.kong-animation]="kong_animation">
             <div *ngFor="let elem of ' '.repeat(4).split(''),  let x = index"
                  class="building-kong-{{x}}">
@@ -98,9 +100,9 @@
                [style.left.vw]="elem.left"
                [style.top.vh]="elem.top"
                [ngSwitch]="data.id"
-               [style.marginLeft.px]="elem.stopSlide?(-slideOneLeft*elem.slideSpeed + slideDelay_1 +
-               slideDelay_2 + slideDelay_3 + slideDelay_4 + slideDelay_5 + slideDelay_6 +
-               slideDelay_7 + slideDelay_8):(-slideOneLeft*elem.slideSpeed)"
+               [style.marginLeft.px]="elem.stopSlide?
+               (-slideOneLeft*elem.slideSpeed + slideDelay):
+               (-slideOneLeft*elem.slideSpeed)"
           >
             <div *ngSwitchCase=data.id>
               <img *ngFor="let item of data.group"
@@ -154,20 +156,22 @@
           </div>
 
           <div class="slide-link" *ngIf="elem.link"
-               [style.marginLeft.px]="elem.stopSlide?(-slideOneLeft*elem.slideSpeed+slideDelay_1+slideDelay_2+slideDelay_3+slideDelay_4+slideDelay_5+slideDelay_6+slideDelay_7+slideDelay_8):(-slideOneLeft*elem.slideSpeed)">
+               [style.marginLeft.px]="elem.stopSlide?
+               (-slideOneLeft*elem.slideSpeed+slideDelay):
+               (-slideOneLeft*elem.slideSpeed)">
             <a [href]="elem.link" target="_blank"> some text </a>
           </div>
         </div>
 
-        <div class="slider-switch" *ngFor="let nav of items.slideDots"
-             [style.marginLeft.px]="nav.stopSlide?(-slideOneLeft*nav.slideSpeed + slideDelay_1 +
-             slideDelay_2 + slideDelay_3 + slideDelay_4 + slideDelay_5 + slideDelay_6 +
-             slideDelay_7 + slideDelay_8):(-slideOneLeft*nav.slideSpeed)"
+        <div class="slider-switch"
+             [style.left.vw]="items.navSwitchLeft"
+             [style.bottom.vw]="items.navSwitchBottom"
              [style.opacity]="navShow_1 + navHide_1 + navShow_2 + navHide_2 + navShow_3 +
              navHide_3 + navShow_4 + navHide_4 + navShow_5 + navHide_5 + navShow_6 + navHide_6 +
               navShow_7 + navHide_7 + navShow_8 + navHide_8 + navShow_9">
+
           <div class="slider-dots" *ngFor="let elem of navDotsscroll,  let x = index"
-               [class.slider-active]="nav.activeElement === x+1"
+               [class.slider-active]="items.activeElement === x+1"
                (click)="scrollTo(elem)">
           </div>
         </div>

@@ -34,9 +34,6 @@
 
 
           <div *ngIf="elem.slideBuilding"
-               [style.marginLeft.px]="items.stopSlide?
-               (-slideOneLeft*items.slideSpeed + slideDelay):
-               (-slideOneLeft*items.slideSpeed)"
                class="slide-building"
                [class.animate]="buildingAnimate">
             <div *ngFor="let elem of ' '.repeat(9).split(''),  let x = index"
@@ -46,19 +43,13 @@
 
           <div *ngIf="elem.slideBuilding"
                [class.show]="showFinalBuilding "
-               [style.marginLeft.px]="elem.stopSlide?
-               (-slideOneLeft*elem.slideSpeed + slideDelay):
-               (-slideOneLeft*elem.slideSpeed)"
                class="slide-building-final-image">
           </div>
 
           <div *ngIf="elem.kingKong"
                class="kong-slider"
                [style.left.vw]="elem.left"
-               [style.top.vh]="elem.top"
-               [style.marginLeft.px]="elem.stopSlide?
-               (-slideOneLeft*elem.slideSpeed + slideDelay):
-               (-slideOneLeft*elem.slideSpeed)">
+               [style.top.vh]="elem.top">
             <div *ngFor="let elem of ' '.repeat(12).split(''),  let id = index"
                  class="stages"
                  [class.stages-show]="slide_7StaresCounter === id"
@@ -85,9 +76,6 @@
           </div>
 
           <div class="building-kong" *ngIf="elem.kingKong"
-               [style.marginLeft.px]="elem.stopSlide?
-               (-slideOneLeft*elem.slideSpeed + slideDelay):
-               (-slideOneLeft*elem.slideSpeed)"
                [class.kong-animation]="kong_animation">
             <div *ngFor="let elem of ' '.repeat(4).split(''),  let x = index"
                  class="building-kong-{{x}}">
@@ -99,11 +87,7 @@
                [class.show]="slide_4TabsCounter === id"
                [style.left.vw]="elem.left"
                [style.top.vh]="elem.top"
-               [ngSwitch]="data.id"
-               [style.marginLeft.px]="elem.stopSlide?
-               (-slideOneLeft*elem.slideSpeed + slideDelay):
-               (-slideOneLeft*elem.slideSpeed)"
-          >
+               [ngSwitch]="data.id">
             <div *ngSwitchCase=data.id>
               <img *ngFor="let item of data.group"
                    [class]="item.class"

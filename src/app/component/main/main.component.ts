@@ -32,7 +32,6 @@ export class MainComponent implements OnInit {
     {
       class: 'slide-1',
       left: 0,
-      top: 0,
       slideSpeed: 0.7,
       stopSlide: false,
       slideGroup: [
@@ -47,7 +46,6 @@ export class MainComponent implements OnInit {
     {
       class: 'slide-2',
       left: 114,
-      top: 0,
       stopSlide: true,
       slideSpeed: 0.6,
       activeElement: 1,
@@ -73,7 +71,6 @@ export class MainComponent implements OnInit {
     {
       class: 'slide-3',
       left: 200,
-      top: 0,
       stopSlide: true,
       slideSpeed: 0.6,
       activeElement: 2,
@@ -98,14 +95,16 @@ export class MainComponent implements OnInit {
     {
       class: 'slide-4',
       left: 290,
-      top: 0,
+      slideSpeed: 0.6,
+      stopSlide: true,
+      activeElement: 3,
+      navSwitchLeft: 16,
+      navSwitchBottom: 6,
       slideGroup: [
         {
           class: 'slide-baners',
           src: 'slides/slide-4.png',
           top: 20,
-          slideSpeed: 0.6,
-          stopSlide: true,
           titleBanner: false,
           extraInfo: [
             {
@@ -325,28 +324,20 @@ export class MainComponent implements OnInit {
           titleBanner: true,
         },
       ],
-      slideDots: [
-        {
-          class: 'slide-photo',
-          slideSpeed: 0.6,
-          stopSlide: true,
-          left: -18.2,
-          bottom: 15,
-          activeElement: 3
-        }
-      ]
     },
     {
       class: 'slide-5',
       left: 392,
-      top: 0,
+      slideSpeed: 0.6,
+      stopSlide: true,
+      activeElement: 4,
+      navSwitchLeft: 20,
+      navSwitchBottom: 6,
       slideGroup: [
         {
           class: 'giraffes',
           src: 'slides/slide-5.png',
           top: 18,
-          slideSpeed: 0.6,
-          stopSlide: true,
           titleBanner: false,
         },
         {
@@ -357,30 +348,22 @@ export class MainComponent implements OnInit {
           titleBanner: true,
         },
       ],
-      slideDots: [
-        {
-          class: 'slide-photo',
-          slideSpeed: 0.6,
-          stopSlide: true,
-          left: -18.2,
-          bottom: 15,
-          activeElement: 4
-        }
-      ]
     },
     {
       class: 'slide-6',
       left: 482,
-      top: 0,
+      slideSpeed: 0.6,
+      stopSlide: true,
+      activeElement: 5,
+      navSwitchLeft: 20,
+      navSwitchBottom: 6,
       slideGroup: [
         {
           class: 'great-idea',
           src: 'slides/slide-6.png',
           top: 20,
-          slideSpeed: 0.6,
-          stopSlide: true,
           titleBanner: false,
-          slideBuilding: true
+          slideBuilding: true,
         },
         {
           class: 'banner',
@@ -390,28 +373,20 @@ export class MainComponent implements OnInit {
           titleBanner: true,
         },
       ],
-      slideDots: [
-        {
-          class: 'slide-photo',
-          slideSpeed: 0.6,
-          stopSlide: true,
-          left: -18.2,
-          bottom: 15,
-          activeElement: 5
-        }
-      ]
     },
     {
       class: 'slide-7',
       left: 586,
-      top: 0,
+      slideSpeed: 0.6,
+      stopSlide: true,
+      activeElement: 6,
+      navSwitchLeft: 16,
+      navSwitchBottom: 8,
       slideGroup: [
         {
           class: 'slide-7-building',
           src: 'slides/slide-7-building.png',
           top: -20,
-          slideSpeed: 0.6,
-          stopSlide: true,
           titleBanner: false,
           kingKong: true,
         },
@@ -419,8 +394,6 @@ export class MainComponent implements OnInit {
           class: 'slide-7-cloud',
           src: 'slides/slide-7.png',
           top: 20,
-          slideSpeed: 0.6,
-          stopSlide: true,
           titleBanner: false,
         },
         {
@@ -431,28 +404,20 @@ export class MainComponent implements OnInit {
           titleBanner: true,
         },
       ],
-      slideDots: [
-        {
-          class: 'slide-photo',
-          slideSpeed: 0.6,
-          stopSlide: true,
-          left: -18.2,
-          bottom: 15,
-          activeElement: 6
-        }
-      ]
     },
     {
       class: 'slide-8',
       left: 691,
-      top: 0,
+      slideSpeed: 0.6,
+      stopSlide: true,
+      activeElement: 7,
+      navSwitchLeft: 17,
+      navSwitchBottom: 6,
       slideGroup: [
         {
           class: 'hands-s',
           src: 'slides/slide-8.png',
           top: 20,
-          slideSpeed: 0.6,
-          stopSlide: true,
           titleBanner: false,
           extraInfo: [
             {
@@ -489,28 +454,20 @@ export class MainComponent implements OnInit {
           titleBanner: true,
         },
       ],
-      slideDots: [
-        {
-          class: 'slide-photo',
-          slideSpeed: 0.6,
-          stopSlide: true,
-          left: -18.2,
-          bottom: 15,
-          activeElement: 7
-        }
-      ]
     },
     {
       class: 'slide-9',
       left: 789,
-      top: 0,
+      slideSpeed: 0.6,
+      stopSlide: true,
+      activeElement: 8,
+      navSwitchLeft: 20,
+      navSwitchBottom: 6,
       slideGroup: [
         {
           class: 'hands',
           src: 'slides/slide-9.png',
           top: 20,
-          slideSpeed: 0.6,
-          stopSlide: true,
           titleBanner: false,
         },
         {
@@ -521,50 +478,33 @@ export class MainComponent implements OnInit {
           titleBanner: true,
         },
       ],
-      slideDots: [
-        {
-          class: 'slide-photo',
-          slideSpeed: 0.6,
-          stopSlide: true,
-          left: -18.2,
-          bottom: 15,
-          activeElement: 8
-        }
-      ]
     },
     {
       class: 'slide-10',
       left: 897,
-      top: 21,
+      slideSpeed: 0.6,
+      stopSlide: true,
+      activeElement: 9,
+      navSwitchLeft: 15,
+      navSwitchBottom: 6,
       slideGroup: [
         {
           class: 'final-slide',
           src: 'slides/slide-10.png',
           top: 20,
-          slideSpeed: 0.6,
-          stopSlide: true,
           titleBanner: false,
         },
         {
           class: 'banner',
           src: 'banner/slide-10-title.png',
           top: -58,
-          left: 35,
+          left: 34,
           titleBanner: true,
         },
       ],
-      slideDots: [
-        {
-          class: 'slide-photo',
-          slideSpeed: 0.6,
-          stopSlide: true,
-          left: -18.2,
-          bottom: 15,
-          activeElement: 9
-        }
-      ]
     },
   ];
+
   cloudGroup = [
     {
       src: 'cloud-1',

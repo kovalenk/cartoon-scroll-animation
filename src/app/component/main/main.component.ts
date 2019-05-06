@@ -6,9 +6,9 @@ import {Component, HostListener, OnInit} from '@angular/core';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
-  bgLeft = 0;
-  cloudsLeft = 0;
-  treeLeft = 0;
+  bgSpeed = 0;
+  cloudsSpeed = 0;
+  treeSpeed = 0;
   decorationSpeed = 0;
   planeSpeed = 0;
   slideOneLeft = 0;
@@ -27,11 +27,12 @@ export class MainComponent implements OnInit {
   showFinalBuilding = false;
   kong_animation = false;
 
-  navDotsscroll = [2400, 6000, 9500, 13000, 17000, 20500, 24000, 28000, 32000];
+  navDotsScroll = [2400, 6000, 9500, 13000, 17000, 20500, 24000, 28000, 32000];
   sliderElements = [
     {
       class: 'slide-1',
       left: 0,
+      top: 0,
       slideSpeed: 0.7,
       stopSlide: false,
       slideGroup: [
@@ -46,6 +47,7 @@ export class MainComponent implements OnInit {
     {
       class: 'slide-2',
       left: 114,
+      top: 0,
       stopSlide: true,
       slideSpeed: 0.6,
       activeElement: 1,
@@ -71,6 +73,7 @@ export class MainComponent implements OnInit {
     {
       class: 'slide-3',
       left: 200,
+      top: 0,
       stopSlide: true,
       slideSpeed: 0.6,
       activeElement: 2,
@@ -95,6 +98,7 @@ export class MainComponent implements OnInit {
     {
       class: 'slide-4',
       left: 290,
+      top: 0,
       slideSpeed: 0.6,
       stopSlide: true,
       activeElement: 3,
@@ -328,6 +332,7 @@ export class MainComponent implements OnInit {
     {
       class: 'slide-5',
       left: 392,
+      top: 0,
       slideSpeed: 0.6,
       stopSlide: true,
       activeElement: 4,
@@ -352,6 +357,7 @@ export class MainComponent implements OnInit {
     {
       class: 'slide-6',
       left: 482,
+      top: 0,
       slideSpeed: 0.6,
       stopSlide: true,
       activeElement: 5,
@@ -377,6 +383,7 @@ export class MainComponent implements OnInit {
     {
       class: 'slide-7',
       left: 586,
+      top: 0,
       slideSpeed: 0.6,
       stopSlide: true,
       activeElement: 6,
@@ -408,6 +415,7 @@ export class MainComponent implements OnInit {
     {
       class: 'slide-8',
       left: 691,
+      top: 0,
       slideSpeed: 0.6,
       stopSlide: true,
       activeElement: 7,
@@ -458,6 +466,7 @@ export class MainComponent implements OnInit {
     {
       class: 'slide-9',
       left: 789,
+      top: 0,
       slideSpeed: 0.6,
       stopSlide: true,
       activeElement: 8,
@@ -482,6 +491,7 @@ export class MainComponent implements OnInit {
     {
       class: 'slide-10',
       left: 897,
+      top: 0,
       slideSpeed: 0.6,
       stopSlide: true,
       activeElement: 9,
@@ -723,12 +733,9 @@ export class MainComponent implements OnInit {
   banerTop: number;
   banerBottom = 0;
 
-  treeDelay_1 = 0;
-  treeDelay_2 = 0;
-  treeDelay_3 = 0;
-
   slideDelay = 0;
   treeDelay = 0;
+  decorationDelay = 0;
 
   slideShow_1 = 0;
   slideShow_2 = 0;
@@ -795,13 +802,13 @@ export class MainComponent implements OnInit {
 
     const contentSpeed = window.pageYOffset * 0.7;
     this.mainPosition = window.pageYOffset * 0.7;
-    this.bgLeft = contentSpeed / 5.5;
-    this.cloudsLeft = contentSpeed / 4.1;
+    this.bgSpeed = contentSpeed / 5.5;
+    this.cloudsSpeed = contentSpeed / 4.1;
     this.decorationSpeed = contentSpeed * 0.92;
-    this.treeLeft = contentSpeed * 0.9;
+    this.treeSpeed = contentSpeed * 0.9;
     this.slideOneLeft = contentSpeed * 2;
 
-    let slideDelay_1,
+    let slideDelay_1,  // init slide delays
       slideDelay_2,
       slideDelay_3,
       slideDelay_4,
@@ -809,18 +816,45 @@ export class MainComponent implements OnInit {
       slideDelay_6,
       slideDelay_7,
       slideDelay_8;
+
+    let treeDelay_1,  // init tree delays
+      treeDelay_2,
+      treeDelay_3;
+
+    let nloDelay;   // init decorations delays
+
+    let navShow_1
+      , navShow_2
+      , navShow_3
+      , navShow_4
+      , navShow_5
+      , navShow_6
+      , navShow_7
+      , navShow_8
+      , navShow_9
+      , navHide_1
+      , navHide_2
+      , navHide_3
+      , navHide_4
+      , navHide_5
+      , navHide_6
+      , navHide_7
+      , navHide_8;
+
     // Slide delays
     if (contentSpeed < 1500) {
       slideDelay_1 = 0;
+      treeDelay_1 = 0;
     }
 
     if (contentSpeed > 1500 && contentSpeed < 2500) {
       slideDelay_1 = ((contentSpeed - 1500) * 2) * 0.6;
-      this.treeDelay_1 = ((contentSpeed - 1500) * 0.6);
+      treeDelay_1 = ((contentSpeed - 1500) * 0.6);
     }
 
     if (contentSpeed > 2500) {
       slideDelay_1 = 1195;
+      treeDelay_1 = 600;
     }
 
     if (contentSpeed < 3800) {
@@ -918,11 +952,21 @@ export class MainComponent implements OnInit {
 
     // decorations delay
     if (contentSpeed > 11700) {
-      this.nloDelay = (contentSpeed - 11700) / 2;
+      nloDelay = (contentSpeed - 11700) / 2;
+    } else {
+      nloDelay = 0;
+    }
+
+    if (contentSpeed < 10800) {
+      treeDelay_2 = 0;
     }
 
     if (contentSpeed > 10800 && contentSpeed < 13000) {
-      this.treeDelay_2 = ((contentSpeed - 10800) * 0.35);
+      treeDelay_2 = ((contentSpeed - 10800) * 0.35);
+    }
+
+    if (contentSpeed > 13000) {
+      treeDelay_2 = 770;
     }
 
     if (contentSpeed > 3000) {
@@ -930,27 +974,30 @@ export class MainComponent implements OnInit {
     }
 
     if (contentSpeed > 20000) {
-      this.treeDelay_3 = ((contentSpeed - 20000) / 2);
+      treeDelay_3 = ((contentSpeed - 20000) / 2);
+    } else {
+      treeDelay_3 = 0;
     }
+
 
     // banner show hide
 
     if (contentSpeed < 900) {
       this.slideShow_1 = 0;
-      this.navShow_1 = 0;
+      navShow_1 = 0;
       this.currentSlide = 0;
 
     }
 
     if (contentSpeed > 900 && contentSpeed < 1150) {
       this.slideShow_1 = (contentSpeed - 900) / 0.6;
-      this.navShow_1 = (contentSpeed - 900) / 250;
+      navShow_1 = (contentSpeed - 900) / 250;
       this.currentSlide = 1;
     }
 
     if (contentSpeed > 1150) {
       this.slideShow_1 = 416;
-      this.navShow_1 = 1;
+      navShow_1 = 1;
     }
 
     if (contentSpeed < 2800) {
@@ -1223,6 +1270,8 @@ export class MainComponent implements OnInit {
       this.navShow_9 = 1;
     }
 
+    this.treeDelay = treeDelay_1 + treeDelay_2 + treeDelay_3;
+    this.decorationDelay = nloDelay;
 
   }
 

@@ -1,6 +1,6 @@
 <div style="position: fixed; top: 50px; left: 50px; z-index: 100">
   mainPosition {{mainPosition}}<br>
-  slideDelay {{slideDelay}}<br>
+  treeDelay_3 {{treeDelay_3}}<br>
 
 </div>
 
@@ -11,7 +11,7 @@
   </div>
 
   <div class="main-body">
-    <img class="bg-image" src="../../../assets/images/bg.png" alt="" [style.marginLeft.px]="-bgLeft">
+    <img class="bg-image" src="../../../assets/images/bg.png" alt="" [style.marginLeft.px]="-bgSpeed">
 
     <div class="slide">
       <div *ngFor="let items of sliderElements, let x = index"
@@ -154,7 +154,7 @@
              navHide_3 + navShow_4 + navHide_4 + navShow_5 + navHide_5 + navShow_6 + navHide_6 +
               navShow_7 + navHide_7 + navShow_8 + navHide_8 + navShow_9">
 
-          <div class="slider-dots" *ngFor="let elem of navDotsscroll,  let x = index"
+          <div class="slider-dots" *ngFor="let elem of navDotsScroll,  let x = index"
                [class.slider-active]="items.activeElement === x+1"
                (click)="scrollTo(elem)">
           </div>
@@ -165,14 +165,16 @@
     <div class="sprites">
       <div *ngFor="let items of cloudGroup"
            [class]="items.src"
-           [style.marginLeft.px]="-cloudsLeft"
+           [style.marginLeft.px]="-cloudsSpeed"
            [style.left.vw]="items.left"
            [style.top.vh]="items.top">
       </div>
 
       <div *ngFor="let items of decorationGroup"
            [class]="items.src"
-           [style.marginLeft.px]="items.slideDelay?(-decorationSpeed + nloDelay)*items.slideSpeed:(-decorationSpeed*items.slideSpeed)"
+           [style.marginLeft.px]="items.slideDelay?
+           (-decorationSpeed + decorationDelay)*items.slideSpeed:
+           (-decorationSpeed*items.slideSpeed)"
            [style.left.vw]="items.left"
            [style.top.vh]="items.top"
            [style.z-index]="items.z_index">
@@ -180,7 +182,9 @@
 
       <div *ngFor="let items of treeGroup"
            [class]="items.src"
-           [style.marginLeft.px]="items.slideDelay?(-treeLeft + treeDelay_1 + treeDelay_2 + treeDelay_3 )*items.slideSpeed:(-treeLeft*items.slideSpeed)"
+           [style.marginLeft.px]="items.slideDelay?
+           (-treeSpeed + treeDelay )*items.slideSpeed:
+           (-treeSpeed*items.slideSpeed)"
            [style.left.vw]="items.left"
            [style.top.vh]="items.top"
            [style.z-index]="items.z_index">
@@ -188,7 +192,7 @@
 
       <div *ngFor="let items of shrubGroup"
            [class]="items.src"
-           [style.marginLeft.px]="-treeLeft*items.slideSpeed"
+           [style.marginLeft.px]="-treeSpeed*items.slideSpeed"
            [style.left.vw]="items.left"
            [style.top.vh]="items.top">
       </div>

@@ -1,6 +1,7 @@
 <div style="position: fixed; top: 50px; left: 50px; z-index: 100">
   mainPosition {{mainPosition}}<br>
-  treeDelay_3 {{treeDelay_3}}<br>
+  slideDelay_1 {{slideDelay_1}}<br>
+  treeDelay_1 {{treeDelay_1}}<br>
 
 </div>
 
@@ -150,9 +151,7 @@
         <div class="slider-switch"
              [style.left.vw]="items.navSwitchLeft"
              [style.bottom.vw]="items.navSwitchBottom"
-             [style.opacity]="navShow_1 + navHide_1 + navShow_2 + navHide_2 + navShow_3 +
-             navHide_3 + navShow_4 + navHide_4 + navShow_5 + navHide_5 + navShow_6 + navHide_6 +
-              navShow_7 + navHide_7 + navShow_8 + navHide_8 + navShow_9">
+             [style.opacity]="navOpacity">
 
           <div class="slider-dots" *ngFor="let elem of navDotsScroll,  let x = index"
                [class.slider-active]="items.activeElement === x+1"

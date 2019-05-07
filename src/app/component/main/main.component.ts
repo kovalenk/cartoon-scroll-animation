@@ -13,7 +13,6 @@ export class MainComponent implements OnInit {
   planeSpeed = 0;
   slideOneLeft = 0;
 
-  myCoordinates = 0;
   slide_4TabsCounter = 0;
   slide_7StaresCounter = 0;
   loading: any;
@@ -730,52 +729,12 @@ export class MainComponent implements OnInit {
     }
   ];
 
-  banerTop: number;
-  banerBottom = 0;
-
   slideDelay = 0;
   treeDelay = 0;
   decorationDelay = 0;
 
-  slideShow_1 = 0;
-  slideShow_2 = 0;
-  slideShow_3 = 0;
-  slideShow_4 = 0;
-  slideShow_5 = 0;
-  slideShow_6 = 0;
-  slideShow_7 = 0;
-  slideShow_8 = 0;
-  slideShow_9 = 0;
+  navOpacity = 0;
 
-  slideHide_1 = 0;
-  slideHide_2 = 0;
-  slideHide_3 = 0;
-  slideHide_4 = 0;
-  slideHide_5 = 0;
-  slideHide_6 = 0;
-  slideHide_7 = 0;
-  slideHide_8 = 0;
-
-  navShow_1 = 0;
-  navShow_2 = 0;
-  navShow_3 = 0;
-  navShow_4 = 0;
-  navShow_5 = 0;
-  navShow_6 = 0;
-  navShow_7 = 0;
-  navShow_8 = 0;
-  navShow_9 = 0;
-
-  navHide_1 = 0;
-  navHide_2 = 0;
-  navHide_3 = 0;
-  navHide_4 = 0;
-  navHide_5 = 0;
-  navHide_6 = 0;
-  navHide_7 = 0;
-  navHide_8 = 0;
-
-  nloDelay = 0;
 
   mainPosition = 0;
 
@@ -795,19 +754,6 @@ export class MainComponent implements OnInit {
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    this.bannerShowHide = this.slideShow_1 + this.slideHide_1 + this.slideShow_2 + this.slideHide_2 +
-      this.slideShow_3 + this.slideHide_3 + this.slideShow_4 + this.slideHide_4 + this.slideShow_5 + this.slideHide_5 +
-      this.slideShow_6 + this.slideHide_6 + this.slideShow_7 + this.slideHide_7 + this.slideShow_8 + this.slideHide_8
-      + this.slideShow_9;
-
-    const contentSpeed = window.pageYOffset * 0.7;
-    this.mainPosition = window.pageYOffset * 0.7;
-    this.bgSpeed = contentSpeed / 5.5;
-    this.cloudsSpeed = contentSpeed / 4.1;
-    this.decorationSpeed = contentSpeed * 0.92;
-    this.treeSpeed = contentSpeed * 0.9;
-    this.slideOneLeft = contentSpeed * 2;
-
     let slideDelay_1,  // init slide delays
       slideDelay_2,
       slideDelay_3,
@@ -823,24 +769,33 @@ export class MainComponent implements OnInit {
 
     let nloDelay;   // init decorations delays
 
-    let navShow_1
-      , navShow_2
-      , navShow_3
-      , navShow_4
-      , navShow_5
-      , navShow_6
-      , navShow_7
-      , navShow_8
-      , navShow_9
-      , navHide_1
-      , navHide_2
-      , navHide_3
-      , navHide_4
-      , navHide_5
-      , navHide_6
-      , navHide_7
-      , navHide_8;
+    let navShow_1, navHide_1,  // init slide nav items opacity
+      navShow_2, navHide_2,
+      navShow_3, navHide_3,
+      navShow_4, navHide_4,
+      navShow_5, navHide_5,
+      navShow_6, navHide_6,
+      navShow_7, navHide_7,
+      navShow_8, navHide_8,
+      navShow_9;
 
+    let bannerShow_1,  bannerHide_1,  // init banner show hide constants
+      bannerShow_2, bannerHide_2,
+      bannerShow_3, bannerHide_3,
+      bannerShow_4, bannerHide_4,
+      bannerShow_5, bannerHide_5,
+      bannerShow_6, bannerHide_6,
+      bannerShow_7, bannerHide_7,
+      bannerShow_8, bannerHide_8,
+      bannerShow_9;
+    const screenSize = window.outerWidth; // 1920  1.28
+    const contentSpeed = window.pageYOffset * 0.7;
+    this.mainPosition = window.pageYOffset * 0.7;
+    this.bgSpeed = contentSpeed / 5.5;
+    this.cloudsSpeed = contentSpeed / 4.1;
+    this.decorationSpeed = contentSpeed * 0.92;
+    this.treeSpeed = contentSpeed * 0.9;
+    this.slideOneLeft = contentSpeed * 2;
     // Slide delays
     if (contentSpeed < 1500) {
       slideDelay_1 = 0;
@@ -941,15 +896,6 @@ export class MainComponent implements OnInit {
       slideDelay_8 = 1195;
     }
 
-    this.slideDelay = slideDelay_1
-      + slideDelay_2
-      + slideDelay_3
-      + slideDelay_4
-      + slideDelay_5
-      + slideDelay_6
-      + slideDelay_7
-      + slideDelay_8;
-
     // decorations delay
     if (contentSpeed > 11700) {
       nloDelay = (contentSpeed - 11700) / 2;
@@ -983,147 +929,147 @@ export class MainComponent implements OnInit {
     // banner show hide
 
     if (contentSpeed < 900) {
-      this.slideShow_1 = 0;
+      bannerShow_1 = 0;
       navShow_1 = 0;
       this.currentSlide = 0;
 
     }
 
     if (contentSpeed > 900 && contentSpeed < 1150) {
-      this.slideShow_1 = (contentSpeed - 900) / 0.6;
+      bannerShow_1 = (contentSpeed - 900) / 0.6;
       navShow_1 = (contentSpeed - 900) / 250;
       this.currentSlide = 1;
     }
 
     if (contentSpeed > 1150) {
-      this.slideShow_1 = 416;
+      bannerShow_1 = 416;
       navShow_1 = 1;
     }
 
     if (contentSpeed < 2800) {
-      this.slideHide_1 = 0;
-      this.navHide_1 = 0;
+      bannerHide_1 = 0;
+      navHide_1 = 0;
     }
 
     if (contentSpeed > 2800 && contentSpeed < 3050) {
-      this.slideHide_1 = (contentSpeed - 2800) / -0.6;
-      this.navHide_1 = (contentSpeed - 2800) / -250;
+      bannerHide_1 = (contentSpeed - 2800) / -0.6;
+      navHide_1 = (contentSpeed - 2800) / -250;
       this.currentSlide = 1;
     }
 
     if (contentSpeed > 3050) {
-      this.slideHide_1 = -416;
-      this.navHide_1 = -1;
+      bannerHide_1 = -416;
+      navHide_1 = -1;
     }
 
     if (contentSpeed < 3500) {
-      this.slideShow_2 = 0;
-      this.navShow_2 = 0;
+      bannerShow_2 = 0;
+      navShow_2 = 0;
     }
 
     if (contentSpeed > 3250 && contentSpeed < 3500) {
-      this.slideShow_2 = (contentSpeed - 3250) / 0.6;
-      this.navShow_2 = (contentSpeed - 3250) / 250;
+      bannerShow_2 = (contentSpeed - 3250) / 0.6;
+      navShow_2 = (contentSpeed - 3250) / 250;
       this.currentSlide = 2;
     }
 
     if (contentSpeed > 3500) {
-      this.slideShow_2 = 416;
-      this.navShow_2 = 1;
+      bannerShow_2 = 416;
+      navShow_2 = 1;
     }
 
     if (contentSpeed < 5100) {
-      this.slideHide_2 = 0;
-      this.navHide_2 = 0;
+      bannerHide_2 = 0;
+      navHide_2 = 0;
     }
 
     if (contentSpeed > 5100 && contentSpeed < 5350) {
-      this.slideHide_2 = (contentSpeed - 5100) / -0.6;
-      this.navHide_2 = (contentSpeed - 5100) / -250;
+      bannerHide_2 = (contentSpeed - 5100) / -0.6;
+      navHide_2 = (contentSpeed - 5100) / -250;
       this.currentSlide = 2;
     }
 
     if (contentSpeed > 5350) {
-      this.slideHide_2 = -416;
-      this.navHide_2 = -1;
+      bannerHide_2 = -416;
+      navHide_2 = -1;
     }
 
 
     if (contentSpeed < 5850) {
-      this.slideShow_3 = 0;
-      this.navShow_3 = 0;
+      bannerShow_3 = 0;
+      navShow_3 = 0;
     }
 
     if (contentSpeed > 5850 && contentSpeed < 6100) {
-      this.slideShow_3 = (contentSpeed - 5850) / 0.6;
-      this.navShow_3 = (contentSpeed - 5850) / 250;
+      bannerShow_3 = (contentSpeed - 5850) / 0.6;
+      navShow_3 = (contentSpeed - 5850) / 250;
       this.currentSlide = 3;
     }
 
     if (contentSpeed > 6100) {
-      this.slideShow_3 = 416;
-      this.navShow_3 = 1;
+      bannerShow_3 = 416;
+      navShow_3 = 1;
     }
 
 
     if (contentSpeed < 7500) {
-      this.slideHide_3 = 0;
-      this.navHide_3 = 0;
+      bannerHide_3 = 0;
+      navHide_3 = 0;
     }
 
     if (contentSpeed > 7500 && contentSpeed < 7750) {
-      this.slideHide_3 = (contentSpeed - 7500) / -0.6;
-      this.navHide_3 = (contentSpeed - 7500) / -250;
+      bannerHide_3 = (contentSpeed - 7500) / -0.6;
+      navHide_3 = (contentSpeed - 7500) / -250;
       this.currentSlide = 3;
     }
 
     if (contentSpeed > 7750) {
-      this.slideHide_3 = -416;
-      this.navHide_3 = -1;
+      bannerHide_3 = -416;
+      navHide_3 = -1;
     }
 
     if (contentSpeed < 8400) {
       this.showFinalBuilding = false;
       this.buildingAnimate = false;
-      this.slideShow_4 = 0;
-      this.navShow_4 = 0;
+      bannerShow_4 = 0;
+      navShow_4 = 0;
     }
 
     if (contentSpeed > 8400 && contentSpeed < 8650) {
-      this.slideShow_4 = (contentSpeed - 8400) / 0.6;
-      this.navShow_4 = (contentSpeed - 8400) / 250;
+      bannerShow_4 = (contentSpeed - 8400) / 0.6;
+      navShow_4 = (contentSpeed - 8400) / 250;
       this.currentSlide = 4;
     }
 
     if (contentSpeed > 8650) {
-      this.slideShow_4 = 416;
-      this.navShow_4 = 1;
+      bannerShow_4 = 416;
+      navShow_4 = 1;
     }
 
     if (contentSpeed < 10100) {
-      this.slideHide_4 = 0;
-      this.navHide_4 = 0;
+      bannerHide_4 = 0;
+      navHide_4 = 0;
     }
 
     if (contentSpeed > 10100 && contentSpeed < 10350) {
-      this.slideHide_4 = (contentSpeed - 10100) / -0.6;
-      this.navHide_4 = (contentSpeed - 10100) / -250;
+      bannerHide_4 = (contentSpeed - 10100) / -0.6;
+      navHide_4 = (contentSpeed - 10100) / -250;
       this.currentSlide = 4;
     }
 
     if (contentSpeed > 10350) {
-      this.slideHide_4 = -416;
-      this.navHide_4 = -1;
+      bannerHide_4 = -416;
+      navHide_4 = -1;
     }
 
     if (contentSpeed < 11000) {
-      this.slideShow_5 = 0;
-      this.navShow_5 = 0;
+      bannerShow_5 = 0;
+      navShow_5 = 0;
     }
 
     if (contentSpeed > 11000 && contentSpeed < 11250) {
-      this.slideShow_5 = (contentSpeed - 11000) / 0.6;
-      this.navShow_5 = (contentSpeed - 11000) / 250;
+      bannerShow_5 = (contentSpeed - 11000) / 0.6;
+      navShow_5 = (contentSpeed - 11000) / 250;
 
       this.buildingAnimate = true;
       this.currentSlide = 5;
@@ -1134,145 +1080,155 @@ export class MainComponent implements OnInit {
     }
 
     if (contentSpeed > 11250) {
-      this.slideShow_5 = 416;
-      this.navShow_5 = 1;
+      bannerShow_5 = 416;
+      navShow_5 = 1;
     }
 
     if (contentSpeed < 12450) {
-      this.slideHide_5 = 0;
-      this.navHide_5 = 0;
+      bannerHide_5 = 0;
+      navHide_5 = 0;
     }
 
     if (contentSpeed > 12450 && contentSpeed < 12700) {
-      this.slideHide_5 = (contentSpeed - 12450) / -0.6;
-      this.navHide_5 = (contentSpeed - 12450) / -250;
+      bannerHide_5 = (contentSpeed - 12450) / -0.6;
+      navHide_5 = (contentSpeed - 12450) / -250;
       this.currentSlide = 5;
     }
 
     if (contentSpeed > 12700) {
-      this.slideHide_5 = -416;
-      this.navHide_5 = -1;
+      bannerHide_5 = -416;
+      navHide_5 = -1;
     }
 
     if (contentSpeed < 13200) {
-      this.slideShow_6 = 0;
-      this.navShow_6 = 0;
+      bannerShow_6 = 0;
+      navShow_6 = 0;
     }
 
     if (contentSpeed > 13200 && contentSpeed < 13450) {
-      this.slideShow_6 = (contentSpeed - 13200) / 0.6;
-      this.navShow_6 = (contentSpeed - 13200) / 250;
+      bannerShow_6 = (contentSpeed - 13200) / 0.6;
+      navShow_6 = (contentSpeed - 13200) / 250;
 
+      this.slide_4TabsCounter = 0;
       this.currentSlide = 6;
     }
 
     if (contentSpeed > 13450) {
-      this.slideShow_6 = 416;
-      this.navShow_6 = 1;
+      bannerShow_6 = 416;
+      navShow_6 = 1;
     }
 
     if (contentSpeed < 15100) {
-      this.slideHide_6 = 0;
-      this.navHide_6 = 0;
+      bannerHide_6 = 0;
+      navHide_6 = 0;
     }
 
     if (contentSpeed > 15100 && contentSpeed < 15350) {
-      this.slideHide_6 = (contentSpeed - 15100) / -0.6;
-      this.navHide_6 = (contentSpeed - 15100) / -250;
+      bannerHide_6 = (contentSpeed - 15100) / -0.6;
+      navHide_6 = (contentSpeed - 15100) / -250;
       this.currentSlide = 6;
     }
 
     if (contentSpeed > 15350) {
-      this.slideHide_6 = -416;
-      this.navHide_6 = -1;
+      bannerHide_6 = -416;
+      navHide_6 = -1;
     }
 
     if (contentSpeed < 16200) {
-      this.slideShow_7 = 0;
-      this.navShow_7 = 0;
+      bannerShow_7 = 0;
+      navShow_7 = 0;
     }
 
     if (contentSpeed > 16200 && contentSpeed < 16450) {
-      this.slideShow_7 = (contentSpeed - 16200) / 0.6;
-      this.navShow_7 = (contentSpeed - 16200) / 250;
+      bannerShow_7 = (contentSpeed - 16200) / 0.6;
+      navShow_7 = (contentSpeed - 16200) / 250;
 
       this.currentSlide = 7;
     }
 
     if (contentSpeed > 16450) {
-      this.slideShow_7 = 416;
-      this.navShow_7 = 1;
+      bannerShow_7 = 416;
+      navShow_7 = 1;
     }
 
     if (contentSpeed < 17750) {
-      this.slideHide_7 = 0;
-      this.navHide_7 = 0;
+      bannerHide_7 = 0;
+      navHide_7 = 0;
     }
 
     if (contentSpeed > 17750 && contentSpeed < 18000) {
-      this.slideHide_7 = (contentSpeed - 17750) / -0.6;
-      this.navHide_7 = (contentSpeed - 17750) / -250;
+      bannerHide_7 = (contentSpeed - 17750) / -0.6;
+      navHide_7 = (contentSpeed - 17750) / -250;
       this.currentSlide = 7;
     }
 
     if (contentSpeed > 18000) {
-      this.slideHide_7 = -416;
-      this.navHide_7 = -1;
+      bannerHide_7 = -416;
+      navHide_7 = -1;
     }
 
     if (contentSpeed < 18600) {
-      this.slideShow_8 = 0;
-      this.navShow_8 = 0;
+      bannerShow_8 = 0;
+      navShow_8 = 0;
     }
 
     if (contentSpeed > 18600 && contentSpeed < 18850) {
-      this.slideShow_8 = (contentSpeed - 18600) / 0.6;
-      this.navShow_8 = (contentSpeed - 18600) / 250;
+      bannerShow_8 = (contentSpeed - 18600) / 0.6;
+      navShow_8 = (contentSpeed - 18600) / 250;
 
       this.currentSlide = 8;
     }
 
     if (contentSpeed > 18850) {
-      this.slideShow_8 = 416;
-      this.navShow_8 = 1;
+      bannerShow_8 = 416;
+      navShow_8 = 1;
     }
 
     if (contentSpeed < 20300) {
-      this.slideHide_8 = 0;
-      this.navHide_8 = 0;
+      bannerHide_8 = 0;
+      navHide_8 = 0;
     }
 
     if (contentSpeed > 20300 && contentSpeed < 20550) {
-      this.slideHide_8 = (contentSpeed - 20300) / -0.6;
-      this.navHide_8 = (contentSpeed - 20300) / -250;
+      bannerHide_8 = (contentSpeed - 20300) / -0.6;
+      navHide_8 = (contentSpeed - 20300) / -250;
       this.currentSlide = 8;
     }
 
     if (contentSpeed > 20550) {
-      this.slideHide_8 = -416;
-      this.navHide_8 = -1;
+      bannerHide_8 = -416;
+      navHide_8 = -1;
     }
 
     if (contentSpeed < 21400) {
-      this.slideShow_9 = 0;
-      this.navShow_9 = 0;
+      bannerShow_9 = 0;
+      navShow_9 = 0;
     }
 
     if (contentSpeed > 21400 && contentSpeed < 21650) {
-      this.slideShow_9 = (contentSpeed - 21400) / 0.6;
-      this.navShow_9 = (contentSpeed - 21400) / 250;
+      bannerShow_9 = (contentSpeed - 21400) / 0.6;
+      navShow_9 = (contentSpeed - 21400) / 250;
 
       this.currentSlide = 9;
     }
 
     if (contentSpeed > 21650) {
-      this.slideShow_9 = 416;
-      this.navShow_9 = 1;
+      bannerShow_9 = 416;
+      navShow_9 = 1;
     }
 
+    this.bannerShowHide = bannerShow_1 + bannerHide_1 + bannerShow_2 + bannerHide_2 +
+      bannerShow_3 + bannerHide_3 + bannerShow_4 + bannerHide_4 + bannerShow_5 + bannerHide_5 +
+      bannerShow_6 + bannerHide_6 + bannerShow_7 + bannerHide_7 + bannerShow_8 + bannerHide_8
+      + bannerShow_9;
+
+    this.slideDelay = slideDelay_1 + slideDelay_2 + slideDelay_3 + slideDelay_4
+      + slideDelay_5 + slideDelay_6 + slideDelay_7 + slideDelay_8;
     this.treeDelay = treeDelay_1 + treeDelay_2 + treeDelay_3;
     this.decorationDelay = nloDelay;
-
+    this.navOpacity = navShow_1 + navHide_1 + navShow_2 + navHide_2 + navShow_3 +
+      navHide_3 + navShow_4 + navHide_4 + navShow_5 + navHide_5 + navShow_6 + navHide_6 +
+      navShow_7 + navHide_7 + navShow_8 + navHide_8 + navShow_9;
   }
 
   prevTab(status) {

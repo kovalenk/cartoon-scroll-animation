@@ -79,9 +79,19 @@
       height: 100vh;
     }
 
-    .banner {
-      position: fixed;
-      display: none;
+    .group--banner{
+      width: 100vw;
+      height: 100vh;
+      position: absolute !important;
+      top: 0;
+      left: -20vw;
+      display: flex;
+      justify-content: center;
+
+      .banner {
+        position: fixed;
+        display: none;
+      }
     }
 
     .slide {

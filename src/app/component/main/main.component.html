@@ -1,7 +1,5 @@
 <div style="position: fixed; top: 50px; left: 50px; z-index: 100">
   mainPosition {{mainPosition}}<br>
-  slideDelay_1 {{slideDelay_1}}<br>
-  treeDelay_1 {{treeDelay_1}}<br>
 
 </div>
 
@@ -22,14 +20,17 @@
            [style.marginLeft.px]="items.stopSlide?
                (-slideOneLeft*items.slideSpeed + slideDelay):
                (-slideOneLeft*items.slideSpeed)">
-        <div class="slide-group" *ngFor="let elem of items.slideGroup">
-          <img [class]="elem.banner?'banner': elem.class"
+        <div *ngFor="let elem of items.slideGroup"
+             class="slide-group  group--{{elem.class}}">
+          <img [class]="elem.class"
                [class.show]="currentSlide === x"
                [style.marginTop.px]="elem.titleBanner? bannerShowHide : ''"
                [style.paddingTop.px]="elem.kingKong? buildingMove : ''"
                [style.paddingLeft.vw]="elem.paddingLeft"
                [style.left.vw]="elem.left"
                [style.top.vh]="elem.top"
+               [style.width]="elem.width? elem.width+'%': ''"
+               [style.height]="elem.height? elem.height+'vh': ''"
                src="../../../assets/images/{{elem.src}}"
                alt="">
 

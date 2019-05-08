@@ -779,7 +779,7 @@ export class MainComponent implements OnInit {
       navShow_8, navHide_8,
       navShow_9;
 
-    let bannerShow_1,  bannerHide_1,  // init banner show hide constants
+    let bannerShow_1, bannerHide_1,  // init banner show hide constants
       bannerShow_2, bannerHide_2,
       bannerShow_3, bannerHide_3,
       bannerShow_4, bannerHide_4,
@@ -788,7 +788,7 @@ export class MainComponent implements OnInit {
       bannerShow_7, bannerHide_7,
       bannerShow_8, bannerHide_8,
       bannerShow_9;
-    const screenSize = window.outerWidth; // 1920  1.28
+    const screenSize = window.outerWidth;
     const contentSpeed = window.pageYOffset * 0.7;
     this.mainPosition = window.pageYOffset * 0.7;
     this.bgSpeed = contentSpeed / 5.5;
@@ -797,130 +797,129 @@ export class MainComponent implements OnInit {
     this.treeSpeed = contentSpeed * 0.9;
     this.slideOneLeft = contentSpeed * 2;
     // Slide delays
-    if (contentSpeed < 1500) {
+    if (contentSpeed < (screenSize / 1.3)) {
       slideDelay_1 = 0;
       treeDelay_1 = 0;
     }
 
-    if (contentSpeed > 1500 && contentSpeed < 2500) {
-      slideDelay_1 = ((contentSpeed - 1500) * 2) * 0.6;
-      treeDelay_1 = ((contentSpeed - 1500) * 0.6);
+    if (contentSpeed > (screenSize / 1.3) && contentSpeed < (screenSize / 0.768)) {
+      slideDelay_1 = ((contentSpeed - (screenSize / 1.3)) * 2) * 0.6;
+      treeDelay_1 = ((contentSpeed - (screenSize / 1.3)) * 0.6);
     }
 
-    if (contentSpeed > 2500) {
-      slideDelay_1 = 1195;
-      treeDelay_1 = 600;
+    if (contentSpeed > (screenSize / 0.768)) {
+      slideDelay_1 = (screenSize / 1.60669);
+      treeDelay_1 = (screenSize / 3.2);
     }
 
-    if (contentSpeed < 3800) {
+    if (contentSpeed < (screenSize / 0.50526)) {
       slideDelay_2 = 0;
     }
 
-    if (contentSpeed > 3800 && contentSpeed < 4800) {
-      slideDelay_2 = ((contentSpeed - 3800) * 2) * 0.6;
+    if (contentSpeed > (screenSize / 0.50526) && contentSpeed < (screenSize / 0.4)) {
+      slideDelay_2 = ((contentSpeed - (screenSize / 0.50526)) * 2) * 0.6;
     }
 
-    if (contentSpeed > 4800) {
-      slideDelay_2 = 1195;
+    if (contentSpeed > (screenSize / 0.4)) {
+      slideDelay_2 = (screenSize / 1.60669);
     }
 
-    if (contentSpeed < 6200) {
+    if (contentSpeed < (screenSize / 0.30967)) {
       slideDelay_3 = 0;
     }
 
-    if (contentSpeed > 6200 && contentSpeed < 7200) {
-      slideDelay_3 = ((contentSpeed - 6200) * 2) * 0.6;
+    if (contentSpeed > (screenSize / 0.30967) && contentSpeed < (screenSize / 0.26666)) {
+      slideDelay_3 = ((contentSpeed - (screenSize / 0.30967)) * 2) * 0.6;
     }
 
-    if (contentSpeed > 7200) {
-      slideDelay_3 = 1195;
+    if (contentSpeed > (screenSize / 0.26666)) {
+      slideDelay_3 = (screenSize / 1.60669);
     }
 
-    if (contentSpeed < 8800) {
+    if (contentSpeed < (screenSize / 0.21818)) {
       slideDelay_4 = 0;
     }
 
-    if (contentSpeed > 8800 && contentSpeed < 9800) {
-      slideDelay_4 = ((contentSpeed - 8800) * 2) * 0.6;
+    if (contentSpeed > (screenSize / 0.21818) && contentSpeed < (screenSize / 0.19591)) {
+      slideDelay_4 = ((contentSpeed - (screenSize / 0.21818)) * 2) * 0.6;
     }
 
-    if (contentSpeed > 9800) {
-      slideDelay_4 = 1195;
+    if (contentSpeed > (screenSize / 0.19591)) {
+      slideDelay_4 = (screenSize / 1.60669);
     }
 
-    if (contentSpeed < 11200) {
+    if (contentSpeed < (screenSize / 0.17142)) {
       slideDelay_5 = 0;
     }
 
-    if (contentSpeed > 11200 && contentSpeed < 12200) {
-      slideDelay_5 = ((contentSpeed - 11200) * 2) * 0.6;
+    if (contentSpeed > (screenSize / 0.17142) && contentSpeed < (screenSize / 0.15737)) {
+      slideDelay_5 = ((contentSpeed - (screenSize / 0.17142)) * 2) * 0.6;
     }
 
-    if (contentSpeed > 12200) {
-      slideDelay_5 = 1195;
+    if (contentSpeed > (screenSize / 0.15737)) {
+      slideDelay_5 = (screenSize / 1.60669);
     }
 
-    if (contentSpeed < 13860) {
+    if (contentSpeed < (screenSize / 0.13852)) {
       slideDelay_6 = 0;
     }
 
-    if (contentSpeed > 13860 && contentSpeed < 14860) {
-      slideDelay_6 = ((contentSpeed - 13860) * 2) * 0.6;
+    if (contentSpeed > (screenSize / 0.13852) && contentSpeed < (screenSize / 0.12920)) {
+      slideDelay_6 = ((contentSpeed - (screenSize / 0.13852)) * 2) * 0.6;
     }
 
-    if (contentSpeed > 14860) {
-      slideDelay_6 = 1195;
+    if (contentSpeed > (screenSize / 0.12920)) {
+      slideDelay_6 = (screenSize / 1.60669);
     }
 
-    if (contentSpeed < 16450) {
+    if (contentSpeed < (screenSize / 0.11671)) {
       slideDelay_7 = 0;
     }
 
-    if (contentSpeed > 16450 && contentSpeed < 17450) {
-      slideDelay_7 = ((contentSpeed - 16450) * 2) * 0.6;
+    if (contentSpeed > (screenSize / 0.11671) && contentSpeed < (screenSize / 0.11002)) {
+      slideDelay_7 = ((contentSpeed - (screenSize / 0.11671)) * 2) * 0.6;
     }
 
-    if (contentSpeed > 17450) {
-      slideDelay_7 = 1195;
+    if (contentSpeed > (screenSize / 0.11002)) {
+      slideDelay_7 = (screenSize / 1.60669);
     }
 
-    if (contentSpeed < 19000) {
+    if (contentSpeed < (screenSize / 0.10105)) {
       slideDelay_8 = 0;
     }
 
-    if (contentSpeed > 19000 && contentSpeed < 20000) {
-      slideDelay_8 = ((contentSpeed - 19000) * 2) * 0.6;
+    if (contentSpeed > (screenSize / 0.10105) && contentSpeed < (screenSize / 0.096)) {
+      slideDelay_8 = ((contentSpeed - (screenSize / 0.10105)) * 2) * 0.6;
     }
 
-    if (contentSpeed > 20000) {
-      slideDelay_8 = 1195;
+    if (contentSpeed > (screenSize / 0.096)) {
+      slideDelay_8 = (screenSize / 1.60669);
     }
-
     // decorations delay
-    if (contentSpeed > 11700) {
-      nloDelay = (contentSpeed - 11700) / 2;
+    if (contentSpeed > (screenSize / 0.16410)) {
+      nloDelay = (contentSpeed - (screenSize / 0.16410)) / 2;
     } else {
       nloDelay = 0;
     }
 
-    if (contentSpeed < 10800) {
+    if (contentSpeed < (screenSize / 0.17777)) {
       treeDelay_2 = 0;
     }
 
-    if (contentSpeed > 10800 && contentSpeed < 13000) {
-      treeDelay_2 = ((contentSpeed - 10800) * 0.35);
+    if (contentSpeed > (screenSize / 0.17777) && contentSpeed < (screenSize / 0.14769)) {
+      treeDelay_2 = ((contentSpeed - (screenSize / 0.17777)) * 0.35);
     }
 
-    if (contentSpeed > 13000) {
-      treeDelay_2 = 770;
+    if (contentSpeed > (screenSize / 0.14769)) {
+      treeDelay_2 = (screenSize / 2.49350);
     }
 
-    if (contentSpeed > 3000) {
-      this.planeSpeed = (contentSpeed - 3000) / 8;
+    if (contentSpeed > (screenSize / 0.64)) {
+      this.planeSpeed = (contentSpeed - (screenSize / 0.64)) / 8;
     }
 
-    if (contentSpeed > 20000) {
-      treeDelay_3 = ((contentSpeed - 20000) / 2);
+    if (contentSpeed > (screenSize / 0.096)) {
+      treeDelay_3 = ((contentSpeed - (screenSize / 0.096)) / 2);
     } else {
       treeDelay_3 = 0;
     }
@@ -928,148 +927,148 @@ export class MainComponent implements OnInit {
 
     // banner show hide
 
-    if (contentSpeed < 900) {
+    if (contentSpeed < (screenSize / 2.13333)) {
       bannerShow_1 = 0;
       navShow_1 = 0;
       this.currentSlide = 0;
 
     }
 
-    if (contentSpeed > 900 && contentSpeed < 1150) {
-      bannerShow_1 = (contentSpeed - 900) / 0.6;
-      navShow_1 = (contentSpeed - 900) / 250;
+    if (contentSpeed > (screenSize / 2.13333) && contentSpeed < (screenSize / 1.66956)) {
+      bannerShow_1 = (contentSpeed - (screenSize / 2.13333)) / 0.6;
+      navShow_1 = (contentSpeed - (screenSize / 2.13333)) / 250;
       this.currentSlide = 1;
     }
 
-    if (contentSpeed > 1150) {
-      bannerShow_1 = 416;
+    if (contentSpeed > (screenSize / 1.66956)) {
+      bannerShow_1 = screenSize / 4.61538;
       navShow_1 = 1;
     }
 
-    if (contentSpeed < 2800) {
+    if (contentSpeed < (screenSize / 0.68571)) {
       bannerHide_1 = 0;
       navHide_1 = 0;
     }
 
-    if (contentSpeed > 2800 && contentSpeed < 3050) {
-      bannerHide_1 = (contentSpeed - 2800) / -0.6;
-      navHide_1 = (contentSpeed - 2800) / -250;
+    if (contentSpeed > (screenSize / 0.68571) && contentSpeed < (screenSize / 0.62950)) {
+      bannerHide_1 = (contentSpeed - (screenSize / 0.68571)) / -0.6;
+      navHide_1 = (contentSpeed - (screenSize / 0.68571)) / -250;
       this.currentSlide = 1;
     }
 
-    if (contentSpeed > 3050) {
-      bannerHide_1 = -416;
+    if (contentSpeed > (screenSize / 0.62950)) {
+      bannerHide_1 = -screenSize / 4.61538;
       navHide_1 = -1;
     }
 
-    if (contentSpeed < 3500) {
+    if (contentSpeed < (screenSize / 0.59076)) {
       bannerShow_2 = 0;
       navShow_2 = 0;
     }
 
-    if (contentSpeed > 3250 && contentSpeed < 3500) {
-      bannerShow_2 = (contentSpeed - 3250) / 0.6;
-      navShow_2 = (contentSpeed - 3250) / 250;
+    if (contentSpeed > (screenSize / 0.59076) && contentSpeed < (screenSize / 0.54857)) {
+      bannerShow_2 = (contentSpeed - (screenSize / 0.59076)) / 0.6;
+      navShow_2 = (contentSpeed - (screenSize / 0.59076)) / 250;
       this.currentSlide = 2;
     }
 
-    if (contentSpeed > 3500) {
-      bannerShow_2 = 416;
+    if (contentSpeed > (screenSize / 0.54857)) {
+      bannerShow_2 = screenSize / 4.61538;
       navShow_2 = 1;
     }
 
-    if (contentSpeed < 5100) {
+    if (contentSpeed < (screenSize / 0.37647)) {
       bannerHide_2 = 0;
       navHide_2 = 0;
     }
 
-    if (contentSpeed > 5100 && contentSpeed < 5350) {
-      bannerHide_2 = (contentSpeed - 5100) / -0.6;
-      navHide_2 = (contentSpeed - 5100) / -250;
+    if (contentSpeed > (screenSize / 0.37647) && contentSpeed < (screenSize / 0.35887)) {
+      bannerHide_2 = (contentSpeed - (screenSize / 0.37647)) / -0.6;
+      navHide_2 = (contentSpeed - (screenSize / 0.37647)) / -250;
       this.currentSlide = 2;
     }
 
-    if (contentSpeed > 5350) {
-      bannerHide_2 = -416;
+    if (contentSpeed > (screenSize / 0.35887)) {
+      bannerHide_2 = -screenSize / 4.61538;
       navHide_2 = -1;
     }
 
 
-    if (contentSpeed < 5850) {
+    if (contentSpeed < (screenSize / 0.32820)) {
       bannerShow_3 = 0;
       navShow_3 = 0;
     }
 
-    if (contentSpeed > 5850 && contentSpeed < 6100) {
-      bannerShow_3 = (contentSpeed - 5850) / 0.6;
-      navShow_3 = (contentSpeed - 5850) / 250;
+    if (contentSpeed > (screenSize / 0.32820) && contentSpeed < screenSize / 0.31475) {
+      bannerShow_3 = (contentSpeed - (screenSize / 0.32820)) / 0.6;
+      navShow_3 = (contentSpeed - (screenSize / 0.32820)) / 250;
       this.currentSlide = 3;
     }
 
-    if (contentSpeed > 6100) {
-      bannerShow_3 = 416;
+    if (contentSpeed > screenSize / 0.31475) {
+      bannerShow_3 = screenSize / 4.61538;
       navShow_3 = 1;
     }
 
 
-    if (contentSpeed < 7500) {
+    if (contentSpeed < (screenSize / 0.256)) {
       bannerHide_3 = 0;
       navHide_3 = 0;
     }
 
-    if (contentSpeed > 7500 && contentSpeed < 7750) {
-      bannerHide_3 = (contentSpeed - 7500) / -0.6;
-      navHide_3 = (contentSpeed - 7500) / -250;
+    if (contentSpeed > (screenSize / 0.256) && contentSpeed < (screenSize / 0.24774)) {
+      bannerHide_3 = (contentSpeed - (screenSize / 0.256)) / -0.6;
+      navHide_3 = (contentSpeed - (screenSize / 0.256)) / -250;
       this.currentSlide = 3;
     }
 
-    if (contentSpeed > 7750) {
-      bannerHide_3 = -416;
+    if (contentSpeed > (screenSize / 0.24774)) {
+      bannerHide_3 = -screenSize / 4.61538;
       navHide_3 = -1;
     }
 
-    if (contentSpeed < 8400) {
+    if (contentSpeed < (screenSize / 0.22857)) {
       this.showFinalBuilding = false;
       this.buildingAnimate = false;
       bannerShow_4 = 0;
       navShow_4 = 0;
     }
 
-    if (contentSpeed > 8400 && contentSpeed < 8650) {
-      bannerShow_4 = (contentSpeed - 8400) / 0.6;
-      navShow_4 = (contentSpeed - 8400) / 250;
+    if (contentSpeed > (screenSize / 0.22857) && contentSpeed < (screenSize / 0.22196)) {
+      bannerShow_4 = (contentSpeed - (screenSize / 0.22857)) / 0.6;
+      navShow_4 = (contentSpeed - (screenSize / 0.22857)) / 250;
       this.currentSlide = 4;
     }
 
-    if (contentSpeed > 8650) {
-      bannerShow_4 = 416;
+    if (contentSpeed > (screenSize / 0.22196)) {
+      bannerShow_4 = screenSize / 4.61538;
       navShow_4 = 1;
     }
 
-    if (contentSpeed < 10100) {
+    if (contentSpeed < (screenSize / 0.19009)) {
       bannerHide_4 = 0;
       navHide_4 = 0;
     }
 
-    if (contentSpeed > 10100 && contentSpeed < 10350) {
-      bannerHide_4 = (contentSpeed - 10100) / -0.6;
-      navHide_4 = (contentSpeed - 10100) / -250;
+    if (contentSpeed > (screenSize / 0.19009) && contentSpeed < (screenSize / 0.18550)) {
+      bannerHide_4 = (contentSpeed - (screenSize / 0.19009)) / -0.6;
+      navHide_4 = (contentSpeed - (screenSize / 0.19009)) / -250;
       this.currentSlide = 4;
     }
 
-    if (contentSpeed > 10350) {
-      bannerHide_4 = -416;
+    if (contentSpeed > (screenSize / 0.18550)) {
+      bannerHide_4 = -screenSize / 4.61538;
       navHide_4 = -1;
     }
 
-    if (contentSpeed < 11000) {
+    if (contentSpeed < (screenSize / 0.17454)) {
       bannerShow_5 = 0;
       navShow_5 = 0;
     }
 
-    if (contentSpeed > 11000 && contentSpeed < 11250) {
-      bannerShow_5 = (contentSpeed - 11000) / 0.6;
-      navShow_5 = (contentSpeed - 11000) / 250;
+    if (contentSpeed > (screenSize / 0.17454) && contentSpeed < (screenSize / 0.17066)) {
+      bannerShow_5 = (contentSpeed - (screenSize / 0.17454)) / 0.6;
+      navShow_5 = (contentSpeed - (screenSize / 0.17454)) / 250;
 
       this.buildingAnimate = true;
       this.currentSlide = 5;
@@ -1079,141 +1078,141 @@ export class MainComponent implements OnInit {
       }, 3600);
     }
 
-    if (contentSpeed > 11250) {
-      bannerShow_5 = 416;
+    if (contentSpeed > (screenSize / 0.17066)) {
+      bannerShow_5 = screenSize / 4.61538;
       navShow_5 = 1;
     }
 
-    if (contentSpeed < 12450) {
+    if (contentSpeed < (screenSize / 0.15421)) {
       bannerHide_5 = 0;
       navHide_5 = 0;
     }
 
-    if (contentSpeed > 12450 && contentSpeed < 12700) {
-      bannerHide_5 = (contentSpeed - 12450) / -0.6;
-      navHide_5 = (contentSpeed - 12450) / -250;
+    if (contentSpeed > (screenSize / 0.15421) && contentSpeed < (screenSize / 0.15118)) {
+      bannerHide_5 = (contentSpeed - (screenSize / 0.15421)) / -0.6;
+      navHide_5 = (contentSpeed - (screenSize / 0.15421)) / -250;
       this.currentSlide = 5;
     }
 
-    if (contentSpeed > 12700) {
-      bannerHide_5 = -416;
+    if (contentSpeed > (screenSize / 0.15118)) {
+      bannerHide_5 = -screenSize / 4.61538;
       navHide_5 = -1;
     }
 
-    if (contentSpeed < 13200) {
+    if (contentSpeed < (screenSize / 0.14545)) {
       bannerShow_6 = 0;
       navShow_6 = 0;
     }
 
-    if (contentSpeed > 13200 && contentSpeed < 13450) {
-      bannerShow_6 = (contentSpeed - 13200) / 0.6;
-      navShow_6 = (contentSpeed - 13200) / 250;
+    if (contentSpeed > (screenSize / 0.14545) && contentSpeed < (screenSize / 0.14275)) {
+      bannerShow_6 = (contentSpeed - (screenSize / 0.14545)) / 0.6;
+      navShow_6 = (contentSpeed - (screenSize / 0.14545)) / 250;
 
       this.slide_4TabsCounter = 0;
       this.currentSlide = 6;
     }
 
-    if (contentSpeed > 13450) {
-      bannerShow_6 = 416;
+    if (contentSpeed > (screenSize / 0.14275)) {
+      bannerShow_6 = screenSize / 4.61538;
       navShow_6 = 1;
     }
 
-    if (contentSpeed < 15100) {
+    if (contentSpeed < (screenSize / 0.12715)) {
       bannerHide_6 = 0;
       navHide_6 = 0;
     }
 
-    if (contentSpeed > 15100 && contentSpeed < 15350) {
-      bannerHide_6 = (contentSpeed - 15100) / -0.6;
-      navHide_6 = (contentSpeed - 15100) / -250;
+    if (contentSpeed > (screenSize / 0.12715) && contentSpeed < (screenSize / 0.12508)) {
+      bannerHide_6 = (contentSpeed - (screenSize / 0.12715)) / -0.6;
+      navHide_6 = (contentSpeed - (screenSize / 0.12715)) / -250;
       this.currentSlide = 6;
     }
 
-    if (contentSpeed > 15350) {
-      bannerHide_6 = -416;
+    if (contentSpeed > (screenSize / 0.12508)) {
+      bannerHide_6 = -screenSize / 4.61538;
       navHide_6 = -1;
     }
 
-    if (contentSpeed < 16200) {
+    if (contentSpeed < (screenSize / 0.11851)) {
       bannerShow_7 = 0;
       navShow_7 = 0;
     }
 
-    if (contentSpeed > 16200 && contentSpeed < 16450) {
-      bannerShow_7 = (contentSpeed - 16200) / 0.6;
-      navShow_7 = (contentSpeed - 16200) / 250;
+    if (contentSpeed > (screenSize / 0.11851) && contentSpeed < (screenSize / 0.11671)) {
+      bannerShow_7 = (contentSpeed - (screenSize / 0.11851)) / 0.6;
+      navShow_7 = (contentSpeed - (screenSize / 0.11851)) / 250;
 
       this.currentSlide = 7;
     }
 
-    if (contentSpeed > 16450) {
-      bannerShow_7 = 416;
+    if (contentSpeed > (screenSize / 0.11671)) {
+      bannerShow_7 = screenSize / 4.61538;
       navShow_7 = 1;
     }
 
-    if (contentSpeed < 17750) {
+    if (contentSpeed < (screenSize / 0.10816)) {
       bannerHide_7 = 0;
       navHide_7 = 0;
     }
 
-    if (contentSpeed > 17750 && contentSpeed < 18000) {
-      bannerHide_7 = (contentSpeed - 17750) / -0.6;
-      navHide_7 = (contentSpeed - 17750) / -250;
+    if (contentSpeed > (screenSize / 0.10816) && contentSpeed < (screenSize / 0.10666)) {
+      bannerHide_7 = (contentSpeed - (screenSize / 0.10816)) / -0.6;
+      navHide_7 = (contentSpeed - (screenSize / 0.10816)) / -250;
       this.currentSlide = 7;
     }
 
-    if (contentSpeed > 18000) {
-      bannerHide_7 = -416;
+    if (contentSpeed > (screenSize / 0.10666)) {
+      bannerHide_7 = -screenSize / 4.61538;
       navHide_7 = -1;
     }
 
-    if (contentSpeed < 18600) {
+    if (contentSpeed < (screenSize / 0.10322)) {
       bannerShow_8 = 0;
       navShow_8 = 0;
     }
 
-    if (contentSpeed > 18600 && contentSpeed < 18850) {
-      bannerShow_8 = (contentSpeed - 18600) / 0.6;
-      navShow_8 = (contentSpeed - 18600) / 250;
+    if (contentSpeed > (screenSize / 0.10322) && contentSpeed < (screenSize / 0.10185)) {
+      bannerShow_8 = (contentSpeed - (screenSize / 0.10322)) / 0.6;
+      navShow_8 = (contentSpeed - (screenSize / 0.10322)) / 250;
 
       this.currentSlide = 8;
     }
 
-    if (contentSpeed > 18850) {
-      bannerShow_8 = 416;
+    if (contentSpeed > (screenSize / 0.10185)) {
+      bannerShow_8 = screenSize / 4.61538;
       navShow_8 = 1;
     }
 
-    if (contentSpeed < 20300) {
+    if (contentSpeed < (screenSize / 0.09458)) {
       bannerHide_8 = 0;
       navHide_8 = 0;
     }
 
-    if (contentSpeed > 20300 && contentSpeed < 20550) {
-      bannerHide_8 = (contentSpeed - 20300) / -0.6;
-      navHide_8 = (contentSpeed - 20300) / -250;
+    if (contentSpeed > (screenSize / 0.09458) && contentSpeed < (screenSize / 0.09343)) {
+      bannerHide_8 = (contentSpeed - (screenSize / 0.09458)) / -0.6;
+      navHide_8 = (contentSpeed - (screenSize / 0.09458)) / -250;
       this.currentSlide = 8;
     }
 
-    if (contentSpeed > 20550) {
-      bannerHide_8 = -416;
+    if (contentSpeed > (screenSize / 0.09343)) {
+      bannerHide_8 = -screenSize / 4.61538;
       navHide_8 = -1;
     }
 
-    if (contentSpeed < 21400) {
+    if (contentSpeed < (screenSize / 0.08971)) {
       bannerShow_9 = 0;
       navShow_9 = 0;
     }
 
-    if (contentSpeed > 21400 && contentSpeed < 21650) {
-      bannerShow_9 = (contentSpeed - 21400) / 0.6;
-      navShow_9 = (contentSpeed - 21400) / 250;
+    if (contentSpeed > (screenSize / 0.08971) && contentSpeed < (screenSize / 0.08868)) {
+      bannerShow_9 = (contentSpeed - (screenSize / 0.08971)) / 0.6;
+      navShow_9 = (contentSpeed - (screenSize / 0.08971)) / 250;
 
       this.currentSlide = 9;
     }
 
-    if (contentSpeed > 21650) {
-      bannerShow_9 = 416;
+    if (contentSpeed > (screenSize / 0.08868)) {
+      bannerShow_9 = screenSize / 4.61538;
       navShow_9 = 1;
     }
 

@@ -17,6 +17,14 @@
     transform: translateY(-400vh);
   }
 }
+//.test-bg{
+//  width: 100vw;
+//  height: 100vh;
+//  position: fixed;
+//  z-index: 1111;
+//  background-image: url(../../../assets/images/sprite.png);
+//  background-size: 130vw 248vh;
+//}
 
 .app-main {
   overflow-x: hidden;
@@ -66,6 +74,7 @@
 
   .bg-image {
     position: fixed;
+    height: 100vh;
   }
 
   .slide {
@@ -216,6 +225,7 @@
 
             .prev {
               background-image: url(../../../assets/images/sprite.png);
+              background-size: 130vw 248vh;
               background-position: -2287px -1091px;
 
               width: 37px;
@@ -237,6 +247,7 @@
 
             .next {
               background-image: url(../../../assets/images/sprite.png);
+              background-size: 130vw 248vh;
               background-position: -2406px -732px;
 
               width: 37px;
@@ -434,6 +445,7 @@
 
           &-modal {
             background-image: url(../../../assets/images/sprite.png);
+            background-size: 130vw 248vh;
             background-position: -784px -1567px;
 
             width: 606px;
@@ -447,6 +459,7 @@
 
             .modal-close {
               background-image: url(../../../assets/images/sprite.png);
+              background-size: 130vw 248vh;
               background-position: -2370px -1091px;
 
               width: 37px;
@@ -476,6 +489,7 @@
 
           .prev {
             background-image: url(../../../assets/images/sprite.png);
+            background-size: 130vw 248vh;
             background-position: -2287px -1091px;
 
             width: 37px;
@@ -497,6 +511,7 @@
 
           .next {
             background-image: url(../../../assets/images/sprite.png);
+            background-size: 130vw 248vh;
             background-position: -2406px -732px;
 
             width: 37px;
@@ -526,6 +541,7 @@
 
           .cafes {
             background-image: url(../../../assets/images/sprite.png);
+            background-size: 130vw 248vh;
 
             background-position: -2289px -1045px;
             width: 39px;
@@ -540,6 +556,7 @@
 
           .places {
             background-image: url(../../../assets/images/sprite.png);
+            background-size: 130vw 248vh;
             background-position: -2394px -374px;
 
             width: 42px;
@@ -554,6 +571,7 @@
 
           .advanced {
             background-image: url(../../../assets/images/sprite.png);
+            background-size: 130vw 248vh;
             background-position: -2394px -282px;
 
             width: 42px;
@@ -635,6 +653,8 @@
     > * {
       position: fixed;
       background-image: url(../../../assets/images/sprite.png);
+      background-size: 130vw 248vh;
+
     }
 
     .camel {
@@ -683,54 +703,62 @@
       z-index: -1;
     }
 
-    .cloud-1 {
-      background-position: -2118px -1460px;
+    .cloud{
+      &-1{
+        background-position: -112vw -155vh;
 
-      width: 252px;
-      height: 72px;
-    }
+        width: 11vw;
+        height: 8vh;
+      }
 
-    .cloud-2 {
-      background-position: -2113px -1134px;
-      width: 253px;
-      height: 89px;
-    }
+      &-2{
+        background-position: -112vw -121vh;
 
-    .cloud-3 {
-      background-position: -2113px -1302px;
-      width: 310px;
-      height: 81px;
-    }
+        width: 14vw;
+        height: 9vh;
+      }
 
-    .cloud-4 {
-      background-position: -2121px -725px;
-      width: 284px;
-      height: 108px;
-    }
+      &-3{
+        background-position: -112vw -138vh;
 
-    .cloud-5 {
-      background-position: -2121px -1227px;
-      width: 198px;
-      height: 76px;
-    }
+        width: 17vw;
+        height: 9vh;
+      }
 
-    .cloud-6 {
-      background-position: -2121px -835px;
-      width: 301px;
-      height: 113px;
-    }
+      &-4{
+        background-position: -112vw -89.6vh;
 
-    .cloud-7 {
-      background-position: -2121px -1384px;
-      width: 306px;
-      height: 75px;
+        width: 17vw;
+        height: 11.3vh;
+      }
+
+      &-5{
+        background-position: -112vw -130.5vh;
+
+        width: 11.3vw;
+        height: 8vh;
+      }
+
+      &-6{
+        background-position: -112vw -78vh;
+
+        width: 16vw;
+        height: 11vh;
+      }
+
+      &-7{
+        background-position: -112vw -147vh;
+
+        width: 17vw;
+        height: 8vh;
+      }
     }
 
     .tree-1 {
-      background-position: -205px -799px;
+      background-position: -11vw -85vh;
 
-      width: 227px;
-      height: 769px;
+      width: 12vw;
+      height: 81vh;
     }
 
     .tree-2 {
